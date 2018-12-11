@@ -6840,8 +6840,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <attribute name="NAME" x="35.1536" y="98.7806" size="2.0828" layer="95" ratio="6" rot="SR0"/>
 <attribute name="VALUE" x="35.2806" y="95.4786" size="2.0828" layer="96" ratio="6" rot="SR0"/>
 </instance>
-<instance part="GND6" gate="1" x="25.4" y="76.2" smashed="yes">
-<attribute name="VALUE" x="25.4" y="75.946" size="1.778" layer="96" align="top-center"/>
+<instance part="GND6" gate="1" x="22.86" y="76.2" smashed="yes">
+<attribute name="VALUE" x="22.86" y="75.946" size="1.778" layer="96" align="top-center"/>
 </instance>
 <instance part="R1" gate="A" x="73.66" y="22.86" smashed="yes">
 <attribute name="NAME" x="70.66" y="24.86" size="2.032" layer="94"/>
@@ -6914,8 +6914,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </segment>
 <segment>
 <pinref part="U1" gate="A" pin="GND"/>
-<wire x1="27.94" y1="86.36" x2="25.4" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="86.36" x2="25.4" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="86.36" x2="22.86" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="86.36" x2="22.86" y2="78.74" width="0.1524" layer="91"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -7055,6 +7055,17 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="66.31" y1="22.86" x2="67.66" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
+</nets>
+</sheet>
+<sheet>
+<description>Arduino</description>
+<plain>
+</plain>
+<instances>
+</instances>
+<busses>
+</busses>
+<nets>
 </nets>
 </sheet>
 </sheets>
