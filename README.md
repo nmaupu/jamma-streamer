@@ -8,6 +8,11 @@ Buttons detection are done using shift registers (8 bits parallel in / serial ou
 The code used is strongly inspired from the following tutorial:
 https://playground.arduino.cc/Code/ShiftRegSN74HC165N
 
+# uSDCARD writing
+
+Source:
+https://learn.adafruit.com/adafruit-micro-sd-breakout-board-card-tutorial?view=all
+
 # Thanks
 
 - https://github.com/Shinichi-Ohki/JAMMA_connector_for_eagle
