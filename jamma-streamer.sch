@@ -6149,10 +6149,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="2.825" y1="-1.9" x2="2.825" y2="1.9" width="0.127" layer="21"/>
 <wire x1="-2.825" y1="1.9" x2="2.825" y2="1.9" width="0.127" layer="21"/>
 <wire x1="-2.825" y1="-1.9" x2="-2.825" y2="1.9" width="0.127" layer="21"/>
-<wire x1="-2.8" y1="2" x2="2.8" y2="2" width="0.127" layer="39"/>
-<wire x1="2.8" y1="2" x2="2.8" y2="-1.8" width="0.127" layer="39"/>
-<wire x1="2.8" y1="-1.8" x2="-2.8" y2="-1.8" width="0.127" layer="39"/>
-<wire x1="-2.8" y1="-1.8" x2="-2.8" y2="2" width="0.127" layer="39"/>
+<wire x1="-2.8" y1="1.873" x2="2.8" y2="1.873" width="0.127" layer="39"/>
+<wire x1="2.8" y1="1.873" x2="2.8" y2="-1.927" width="0.127" layer="39"/>
+<wire x1="2.8" y1="-1.927" x2="-2.8" y2="-1.927" width="0.127" layer="39"/>
+<wire x1="-2.8" y1="-1.927" x2="-2.8" y2="1.873" width="0.127" layer="39"/>
 </package>
 <package name="KEMET-C1210C106K8N">
 <smd name="1" x="-1.59" y="0" dx="1.62" dy="3.01" layer="1"/>
@@ -6177,10 +6177,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-2.925" y1="-1.53" x2="2.925" y2="-1.53" width="0.127" layer="21"/>
 <wire x1="-2.925" y1="1.53" x2="-2.925" y2="-1.53" width="0.127" layer="21"/>
 <wire x1="2.925" y1="1.53" x2="2.925" y2="-1.53" width="0.127" layer="21"/>
-<wire x1="-3.2" y1="1.8" x2="3.2" y2="1.8" width="0.127" layer="39"/>
-<wire x1="3.2" y1="1.8" x2="3.2" y2="-1.8" width="0.127" layer="39"/>
-<wire x1="3.2" y1="-1.8" x2="-3.2" y2="-1.8" width="0.127" layer="39"/>
-<wire x1="-3.2" y1="-1.8" x2="-3.2" y2="1.8" width="0.127" layer="39"/>
+<wire x1="-2.946" y1="1.546" x2="2.946" y2="1.546" width="0.127" layer="39"/>
+<wire x1="2.946" y1="1.546" x2="2.946" y2="-1.546" width="0.127" layer="39"/>
+<wire x1="2.946" y1="-1.546" x2="-2.946" y2="-1.546" width="0.127" layer="39"/>
+<wire x1="-2.946" y1="-1.546" x2="-2.946" y2="1.546" width="0.127" layer="39"/>
 </package>
 <package name="BOURNS-CRM2512AJW-103ELF">
 <smd name="1" x="-2.575" y="0" dx="2.45" dy="3.7" layer="1"/>
@@ -10291,35 +10291,40 @@ and LOW when pressed !</text>
 <approved hash="202,4,55.88,93.98,U2,AREF,,,,"/>
 <approved hash="104,4,91.44,101.6,U2,AVCC,VCC,,,"/>
 <approved hash="202,5,80.01,107.95,U6,DS,,,,"/>
+<approved hash="104,6,17.78,55.88,J4,VBUS,N$7,,,"/>
+<approved hash="104,6,68.58,40.64,U7,GND1,GND,,,"/>
+<approved hash="104,6,68.58,38.1,U7,GND2,GND,,,"/>
+<approved hash="104,6,68.58,35.56,U7,GND3,GND,,,"/>
+<approved hash="104,6,68.58,43.18,U7,AGND,GND,,,"/>
 <approved hash="208,2,66.04,45.72,VCC_2,sup,,,,"/>
 <approved hash="208,2,58.42,43.18,VCC_2,out,,,,"/>
 <approved hash="208,2,88.9,38.1,VCC_2,sup,,,,"/>
 <approved hash="208,3,17.78,33.02,VCC_2,sup,,,,"/>
 <approved hash="208,3,96.52,43.18,VCC_2,sup,,,,"/>
-<approved hash="115,1,30.48,146.685,Z,,,,,"/>
-<approved hash="115,1,30.48,85.725,22,,,,,"/>
-<approved hash="115,1,43.18,85.725,17,,,,,"/>
-<approved hash="115,1,45.72,146.685,T,,,,,"/>
-<approved hash="115,1,22.86,146.685,_C,,,,,"/>
-<approved hash="115,1,40.64,146.685,V,,,,,"/>
-<approved hash="115,1,33.02,146.685,Y,,,,,"/>
-<approved hash="115,1,33.02,85.725,21,,,,,"/>
-<approved hash="115,1,20.32,85.725,26,,,,,"/>
-<approved hash="115,1,48.26,85.725,15,,,,,"/>
-<approved hash="115,1,25.4,146.685,_B,,,,,"/>
-<approved hash="115,1,40.64,85.725,18,,,,,"/>
+<approved hash="115,1,35.56,146.685,X,,,,,"/>
 <approved hash="115,1,50.8,146.685,R,,,,,"/>
 <approved hash="115,1,25.4,85.725,24,,,,,"/>
+<approved hash="115,1,45.72,146.685,T,,,,,"/>
 <approved hash="115,1,38.1,85.725,19,,,,,"/>
-<approved hash="115,1,22.86,85.725,25,,,,,"/>
-<approved hash="115,1,35.56,85.725,20,,,,,"/>
-<approved hash="115,1,20.32,146.685,_D,,,,,"/>
-<approved hash="115,1,27.94,85.725,23,,,,,"/>
-<approved hash="115,1,38.1,146.685,W,,,,,"/>
-<approved hash="115,1,43.18,146.685,U,,,,,"/>
-<approved hash="115,1,35.56,146.685,X,,,,,"/>
+<approved hash="115,1,33.02,146.685,Y,,,,,"/>
 <approved hash="115,1,27.94,146.685,_A,,,,,"/>
+<approved hash="115,1,38.1,146.685,W,,,,,"/>
+<approved hash="115,1,27.94,85.725,23,,,,,"/>
+<approved hash="115,1,43.18,85.725,17,,,,,"/>
+<approved hash="115,1,25.4,146.685,_B,,,,,"/>
+<approved hash="115,1,40.64,146.685,V,,,,,"/>
+<approved hash="115,1,40.64,85.725,18,,,,,"/>
+<approved hash="115,1,48.26,85.725,15,,,,,"/>
+<approved hash="115,1,20.32,146.685,_D,,,,,"/>
+<approved hash="115,1,20.32,85.725,26,,,,,"/>
+<approved hash="115,1,35.56,85.725,20,,,,,"/>
+<approved hash="115,1,22.86,85.725,25,,,,,"/>
+<approved hash="115,1,33.02,85.725,21,,,,,"/>
+<approved hash="115,1,43.18,146.685,U,,,,,"/>
+<approved hash="115,1,22.86,146.685,_C,,,,,"/>
 <approved hash="115,1,45.72,85.725,16,,,,,"/>
+<approved hash="115,1,30.48,85.725,22,,,,,"/>
+<approved hash="115,1,30.48,146.685,Z,,,,,"/>
 </errors>
 </schematic>
 </drawing>
