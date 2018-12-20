@@ -8437,7 +8437,7 @@ FT232RL
 <part name="IC1" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="78*" device="DT" package3d_urn="urn:adsk.eagle:package:16415/2" technology="05" value="LM7805"/>
 <part name="GND10" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY1" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
-<part name="U4" library="LP2981-33DBVR" deviceset="LP2981-33DBVR" device="DBV5-M" value="LP298X"/>
+<part name="U4" library="LP2981-33DBVR" deviceset="LP2981-33DBVR" device="DBV5-M" value="TLV757X / LP298X"/>
 <part name="GND11" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="C3" library="CMS" deviceset="KEMET-C1210C104K4J" device="" value="0.1uF/16V"/>
 <part name="C4" library="CMS" deviceset="KEMET-C1210C106K8N" device="" value="10uF/10V"/>

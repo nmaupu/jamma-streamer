@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.025" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.00625" altunitdist="inch" altunit="inch"/>
+<grid distance="0.95" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.00625" altunitdist="inch" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
@@ -46,7 +46,7 @@
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -212,6 +212,9 @@
 <vertex x="147.32" y="0"/>
 <vertex x="32.385" y="0"/>
 </polygon>
+<text x="115.9" y="49.4" size="5" layer="21">NMA</text>
+<text x="115.9" y="43.7" size="4" layer="21">Jamma Streamer</text>
+<text x="147.25" y="38.95" size="3" layer="21">v0.0.1</text>
 </plain>
 <libraries>
 <library name="JAMMA">
@@ -2694,7 +2697,7 @@ design rules under a new name.</description>
 <attribute name="MP" value="DM3CS-SF" x="10.57125" y="58" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="3.619290625" y="82.21203125" size="1.27506875" layer="25" rot="R90"/>
 <attribute name="PACKAGE" value="None" x="10.57125" y="58" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="VALUE" x="18.106990625" y="66.97366875" size="1.27478125" layer="27" rot="R90"/>
+<attribute name="VALUE" x="1.458240625" y="65.86491875" size="1.27478125" layer="27"/>
 </element>
 <element name="U3" library="74HC4050D" package="SO16" value="74HC4050D" x="40.635" y="68.54" smashed="yes" rot="R270">
 <attribute name="AVAILABILITY" value="Unavailable" x="40.635" y="68.54" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2727,7 +2730,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="59.365" y="55.05" size="0.762" layer="25" rot="R180"/>
 <attribute name="VALUE" x="59.365" y="46.795" size="0.762" layer="27" rot="R180"/>
 </element>
-<element name="U4" library="LP2981-33DBVR" package="DBV5-M" value="LP298X" x="41.1125" y="36.7625" smashed="yes" rot="R180">
+<element name="U4" library="LP2981-33DBVR" package="DBV5-M" value="TLV757X / LP298X" x="41.1125" y="36.7625" smashed="yes" rot="R180">
 <attribute name="MANUFACTURER_PART_NUMBER" value="LP298133DBVR" x="41.1125" y="16.7625" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="43.7541" y="37.08" size="0.762" layer="25" ratio="6" rot="SR0"/>
 <attribute name="VENDOR" value="Texas Instruments" x="41.1125" y="16.7625" size="1.778" layer="27" rot="R180" display="off"/>
@@ -2796,17 +2799,17 @@ design rules under a new name.</description>
 </element>
 <element name="U1" library="CD74HC165M" package="D16-M" value="CD74HC165MD16-M" x="104.14" y="46.355" smashed="yes" rot="R90">
 <attribute name="MANUFACTURER_PART_NUMBER" value="CD74HC165M" x="104.14" y="46.355" size="0.762" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="104.775" y="43.0784" size="1.27" layer="25" ratio="6" rot="SR90"/>
+<attribute name="NAME" x="98.7425" y="44.6659" size="1.27" layer="25" ratio="6" rot="SR90"/>
 <attribute name="VENDOR" value="Texas Instruments" x="104.14" y="46.355" size="0.762" layer="27" rot="R90" display="off"/>
 </element>
 <element name="U5" library="CD74HC165M" package="D16-M" value="CD74HC165MD16-M" x="92.075" y="46.355" smashed="yes" rot="R90">
 <attribute name="MANUFACTURER_PART_NUMBER" value="CD74HC165M" x="92.075" y="46.355" size="0.762" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="92.71" y="43.0784" size="1.27" layer="25" ratio="6" rot="SR90"/>
+<attribute name="NAME" x="86.6775" y="44.6659" size="1.27" layer="25" ratio="6" rot="SR90"/>
 <attribute name="VENDOR" value="Texas Instruments" x="92.075" y="46.355" size="0.762" layer="27" rot="R90" display="off"/>
 </element>
 <element name="U6" library="CD74HC165M" package="D16-M" value="CD74HC165MD16-M" x="80.01" y="46.355" smashed="yes" rot="R90">
 <attribute name="MANUFACTURER_PART_NUMBER" value="CD74HC165M" x="80.01" y="46.355" size="0.762" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="80.645" y="43.0784" size="1.27" layer="25" ratio="6" rot="SR90"/>
+<attribute name="NAME" x="74.6125" y="44.6659" size="1.27" layer="25" ratio="6" rot="SR90"/>
 <attribute name="VENDOR" value="Texas Instruments" x="80.01" y="46.355" size="0.762" layer="27" rot="R90" display="off"/>
 </element>
 <element name="J4" library="292304-1" package="TE_292304-1" value="292304-1" x="6.35" y="32.385" smashed="yes" rot="R270">
