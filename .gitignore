@@ -54,3 +54,14 @@ eagle.epf
 *.swo
 *.swp
 .DS_Store
+
+# Legacy gerber files
+*.GBL
+*.GBO
+*.GBS
+*.GML
+*.GTL
+*.GTO
+*.GTP
+*.GTS
+*.TXT
