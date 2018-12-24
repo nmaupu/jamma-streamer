@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.2" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
@@ -94,10 +94,10 @@
 <wire x1="2.825" y1="-1.9" x2="2.825" y2="1.9" width="0.127" layer="21"/>
 <wire x1="-2.825" y1="1.9" x2="2.825" y2="1.9" width="0.127" layer="21"/>
 <wire x1="-2.825" y1="-1.9" x2="-2.825" y2="1.9" width="0.127" layer="21"/>
-<wire x1="-2.8" y1="2" x2="2.8" y2="2" width="0.127" layer="39"/>
-<wire x1="2.8" y1="2" x2="2.8" y2="-1.8" width="0.127" layer="39"/>
-<wire x1="2.8" y1="-1.8" x2="-2.8" y2="-1.8" width="0.127" layer="39"/>
-<wire x1="-2.8" y1="-1.8" x2="-2.8" y2="2" width="0.127" layer="39"/>
+<wire x1="-2.8" y1="1.873" x2="2.8" y2="1.873" width="0.127" layer="39"/>
+<wire x1="2.8" y1="1.873" x2="2.8" y2="-1.927" width="0.127" layer="39"/>
+<wire x1="2.8" y1="-1.927" x2="-2.8" y2="-1.927" width="0.127" layer="39"/>
+<wire x1="-2.8" y1="-1.927" x2="-2.8" y2="1.873" width="0.127" layer="39"/>
 </package>
 <package name="KEMET-C1210C106K8N">
 <smd name="1" x="-1.59" y="0" dx="1.62" dy="3.01" layer="1"/>
@@ -136,10 +136,10 @@
 <wire x1="-2.925" y1="-1.53" x2="2.925" y2="-1.53" width="0.127" layer="21"/>
 <wire x1="-2.925" y1="1.53" x2="-2.925" y2="-1.53" width="0.127" layer="21"/>
 <wire x1="2.925" y1="1.53" x2="2.925" y2="-1.53" width="0.127" layer="21"/>
-<wire x1="-3.2" y1="1.8" x2="3.2" y2="1.8" width="0.127" layer="39"/>
-<wire x1="3.2" y1="1.8" x2="3.2" y2="-1.8" width="0.127" layer="39"/>
-<wire x1="3.2" y1="-1.8" x2="-3.2" y2="-1.8" width="0.127" layer="39"/>
-<wire x1="-3.2" y1="-1.8" x2="-3.2" y2="1.8" width="0.127" layer="39"/>
+<wire x1="-2.946" y1="1.546" x2="2.946" y2="1.546" width="0.127" layer="39"/>
+<wire x1="2.946" y1="1.546" x2="2.946" y2="-1.546" width="0.127" layer="39"/>
+<wire x1="2.946" y1="-1.546" x2="-2.946" y2="-1.546" width="0.127" layer="39"/>
+<wire x1="-2.946" y1="-1.546" x2="-2.946" y2="1.546" width="0.127" layer="39"/>
 </package>
 <package name="BOURNS-CRM2512AJW-103ELF">
 <smd name="1" x="-2.575" y="0" dx="2.45" dy="3.7" layer="1"/>
