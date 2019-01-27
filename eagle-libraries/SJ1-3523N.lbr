@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="5" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -40,7 +40,7 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
@@ -59,10 +59,6 @@
 <library>
 <packages>
 <package name="CUI_SJ1-3523N">
-<wire x1="-0.4" y1="0.75" x2="0.4" y2="0.75" width="0.0001" layer="46"/>
-<wire x1="0.4" y1="0.75" x2="0.4" y2="-0.75" width="0.0001" layer="46"/>
-<wire x1="0.4" y1="-0.75" x2="-0.4" y2="-0.75" width="0.0001" layer="46"/>
-<wire x1="-0.4" y1="-0.75" x2="-0.4" y2="0.75" width="0.0001" layer="46"/>
 <wire x1="-4.5" y1="6" x2="-4.5" y2="2" width="0.0001" layer="46"/>
 <wire x1="-4.5" y1="2" x2="-3.3" y2="2" width="0.0001" layer="46"/>
 <wire x1="-3.3" y1="2" x2="-3.3" y2="-2" width="0.0001" layer="46"/>
@@ -77,14 +73,6 @@
 <text x="-3.501409375" y="7.30293125" size="1.270509375" layer="25">&gt;NAME</text>
 <text x="-3.50286875" y="-7.005740625" size="1.271040625" layer="27" align="top-left">&gt;VALUE</text>
 <text x="-12.5245" y="6.01176875" size="1.017990625" layer="49">PCB edge</text>
-<wire x1="4.25" y1="4.6" x2="4.25" y2="5.4" width="0.0001" layer="46"/>
-<wire x1="4.25" y1="5.4" x2="5.75" y2="5.4" width="0.0001" layer="46"/>
-<wire x1="5.75" y1="5.4" x2="5.75" y2="4.6" width="0.0001" layer="46"/>
-<wire x1="5.75" y1="4.6" x2="4.25" y2="4.6" width="0.0001" layer="46"/>
-<wire x1="4.25" y1="-5.4" x2="4.25" y2="-4.6" width="0.0001" layer="46"/>
-<wire x1="4.25" y1="-4.6" x2="5.75" y2="-4.6" width="0.0001" layer="46"/>
-<wire x1="5.75" y1="-4.6" x2="5.75" y2="-5.4" width="0.0001" layer="46"/>
-<wire x1="5.75" y1="-5.4" x2="4.25" y2="-5.4" width="0.0001" layer="46"/>
 <wire x1="7.5" y1="6.2" x2="-3.5" y2="6.2" width="0.127" layer="51"/>
 <wire x1="7.5" y1="6.2" x2="7.5" y2="-6.2" width="0.127" layer="51"/>
 <wire x1="7.5" y1="-6.2" x2="-3.5" y2="-6.2" width="0.127" layer="51"/>
@@ -108,9 +96,9 @@
 <wire x1="-6.75" y1="-3.25" x2="-4.75" y2="-3.25" width="0.05" layer="39"/>
 <wire x1="-4.75" y1="-3.25" x2="-4.75" y2="-6.45" width="0.05" layer="39"/>
 <circle x="0" y="6.8" radius="0.17" width="0.34" layer="21"/>
-<pad name="1" x="0" y="0" drill="0.8" shape="long" rot="R90"/>
-<pad name="2" x="5" y="-5" drill="0.8" shape="long" rot="R180"/>
-<pad name="3" x="5" y="5" drill="0.8" shape="long" rot="R180"/>
+<pad name="1" x="0" y="0" drill="1.5" diameter="2" shape="long" rot="R90"/>
+<pad name="2" x="5" y="-5" drill="1.5" diameter="2" shape="long" rot="R180"/>
+<pad name="3" x="5" y="5" drill="1.5" diameter="2" shape="long" rot="R180"/>
 <hole x="-2.5" y="5" drill="1.2"/>
 <hole x="0" y="5" drill="1.2"/>
 <hole x="5" y="0" drill="1.2"/>
