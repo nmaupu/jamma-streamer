@@ -10,6 +10,18 @@
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="23" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
@@ -8360,11 +8372,17 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 </package>
 </packages>
 <packages3d>
-<package3d name="SJ" urn="urn:adsk.eagle:package:15471/1" type="box" library_version="1">
+<package3d name="SJW" urn="urn:adsk.eagle:package:15507/1" type="box" library_version="2">
 <description>Solder jumper</description>
+<packageinstances>
+<packageinstance name="SJW"/>
+</packageinstances>
 </package3d>
-<package3d name="SJW" urn="urn:adsk.eagle:package:15507/1" type="box" library_version="1">
+<package3d name="SJ" urn="urn:adsk.eagle:package:15471/1" type="box" library_version="2">
 <description>Solder jumper</description>
+<packageinstances>
+<packageinstance name="SJ"/>
+</packageinstances>
 </package3d>
 </packages3d>
 <symbols>
@@ -8380,7 +8398,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="SJ" urn="urn:adsk.eagle:component:15508/1" prefix="SJ" uservalue="yes" library_version="1">
+<deviceset name="SJ" urn="urn:adsk.eagle:component:15508/1" prefix="SJ" uservalue="yes" library_version="2">
 <description>SMD solder &lt;b&gt;JUMPER&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="SJ" x="0" y="0"/>
@@ -9404,8 +9422,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <part name="D3-RX" library="CMS" deviceset="604-APTD1608LCGCK" device="" value="Green"/>
 <part name="R5" library="CMS" deviceset="BOURNS-652CHP0603FX1001ELF" device="" value="1K"/>
 <part name="D4-TX" library="CMS" deviceset="604-APTD1608LCGCK" device="" value="Green"/>
-<part name="SUPPLY16" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCCIO" device=""/>
-<part name="SUPPLY17" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCCIO" device=""/>
 <part name="D5" library="RRE07VTM4SFHTR" deviceset="RRE07VTM4SFHTR" device="" value="RRE07VTM4SFHTR"/>
 <part name="GND24" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="T1" library="TRIAD-TY-145P" deviceset="TRIAD-TY-145P" device="" value="TY-145P"/>
@@ -9420,7 +9436,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <part name="GND27" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="C11" library="CMS" deviceset="KEMET-C1210C104K4J" device="" value="0.1uF/16V"/>
 <part name="JP1" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X5" device="" package3d_urn="urn:adsk.eagle:package:22469/2"/>
-<part name="SJ1" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="SJ" device="W" package3d_urn="urn:adsk.eagle:package:15507/1"/>
+<part name="SJ1" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="SJ" device="" package3d_urn="urn:adsk.eagle:package:15471/1"/>
 <part name="U8" library="DS3231" deviceset="DS3231SNT&amp;R" device="21-0042B_16-M"/>
 <part name="SUPPLY18" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
 <part name="GND28" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
@@ -9444,6 +9460,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <part name="C13" library="CMS" deviceset="KEMET-C1210C104K4J" device="" value="0.1uF/16V"/>
 <part name="GND33" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY22" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
+<part name="SUPPLY23" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCCIO" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11325,12 +11342,6 @@ signal when using this atmega as ISP programmer</text>
 <attribute name="NAME" x="114.3" y="38.1" size="2.032" layer="94" rot="R180"/>
 <attribute name="VALUE" x="116.84" y="48.26" size="2.032" layer="94" rot="R180"/>
 </instance>
-<instance part="SUPPLY16" gate="G$1" x="137.16" y="43.18" smashed="yes" rot="R270">
-<attribute name="VALUE" x="139.954" y="43.18" size="1.778" layer="96" rot="R270" align="bottom-center"/>
-</instance>
-<instance part="SUPPLY17" gate="G$1" x="137.16" y="27.94" smashed="yes" rot="R270">
-<attribute name="VALUE" x="139.954" y="27.94" size="1.778" layer="96" rot="R270" align="bottom-center"/>
-</instance>
 <instance part="C11" gate="A" x="114.3" y="50.8" smashed="yes" rot="R180">
 <attribute name="NAME" x="117.3" y="49.3" size="1.27" layer="94" rot="R180"/>
 <attribute name="VALUE" x="117.3" y="53.8" size="1.27" layer="94" rot="R180"/>
@@ -11342,6 +11353,9 @@ signal when using this atmega as ISP programmer</text>
 <instance part="SJ1" gate="1" x="127" y="50.8" smashed="yes">
 <attribute name="NAME" x="124.46" y="53.34" size="1.778" layer="95"/>
 <attribute name="VALUE" x="124.46" y="46.99" size="1.778" layer="96"/>
+</instance>
+<instance part="SUPPLY23" gate="G$1" x="15.24" y="12.7" smashed="yes" rot="R90">
+<attribute name="VALUE" x="12.446" y="12.7" size="1.778" layer="96" rot="R90" align="bottom-center"/>
 </instance>
 </instances>
 <busses>
@@ -11450,24 +11464,6 @@ signal when using this atmega as ISP programmer</text>
 <label x="63.5" y="53.34" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="VCCIO" class="0">
-<segment>
-<pinref part="U7" gate="G$1" pin="VCCIO"/>
-<wire x1="68.58" y1="50.8" x2="68.58" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="68.58" y1="48.26" x2="66.04" y2="48.26" width="0.1524" layer="91"/>
-<label x="66.04" y="48.26" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<pinref part="R5" gate="A" pin="P$2"/>
-<wire x1="133" y1="43.18" x2="137.16" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="SUPPLY16" gate="G$1" pin="VCCIO"/>
-</segment>
-<segment>
-<pinref part="R4" gate="A" pin="P$2"/>
-<wire x1="133" y1="27.94" x2="137.16" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="SUPPLY17" gate="G$1" pin="VCCIO"/>
-</segment>
-</net>
 <net name="N$8" class="0">
 <segment>
 <pinref part="U7" gate="G$1" pin="RXLED"/>
@@ -11535,8 +11531,8 @@ signal when using this atmega as ISP programmer</text>
 <net name="RESET" class="0">
 <segment>
 <pinref part="SJ1" gate="1" pin="2"/>
-<wire x1="132.08" y1="50.8" x2="134.62" y2="50.8" width="0.1524" layer="91"/>
-<label x="134.62" y="50.8" size="1.27" layer="95" xref="yes"/>
+<wire x1="132.08" y1="50.8" x2="137.16" y2="50.8" width="0.1524" layer="91"/>
+<label x="137.16" y="50.8" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="CS" class="0">
@@ -11548,12 +11544,15 @@ signal when using this atmega as ISP programmer</text>
 </net>
 <net name="USBVCC" class="0">
 <segment>
+<pinref part="U7" gate="G$1" pin="VCCIO"/>
+<wire x1="68.58" y1="50.8" x2="68.58" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="C9" gate="A" pin="P$1"/>
 <pinref part="F1" gate="A" pin="P$2"/>
 <wire x1="38.1" y1="50.8" x2="43.18" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="50.8" x2="43.18" y2="46.172" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="50.8" x2="43.18" y2="48.26" width="0.1524" layer="91"/>
 <junction x="43.18" y="50.8"/>
 <pinref part="C10" gate="A" pin="P$1"/>
+<wire x1="43.18" y1="48.26" x2="43.18" y2="46.172" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="50.8" x2="43.18" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="46.172" x2="50.8" y2="50.8" width="0.1524" layer="91"/>
 <junction x="50.8" y="50.8"/>
@@ -11564,6 +11563,19 @@ signal when using this atmega as ISP programmer</text>
 <wire x1="43.18" y1="50.8" x2="43.18" y2="66.04" width="0.1524" layer="91"/>
 <junction x="43.18" y="50.8"/>
 <label x="43.18" y="66.04" size="1.27" layer="95" rot="R90" xref="yes"/>
+<wire x1="68.58" y1="48.26" x2="43.18" y2="48.26" width="0.1524" layer="91"/>
+<junction x="43.18" y="48.26"/>
+</segment>
+<segment>
+<pinref part="R5" gate="A" pin="P$2"/>
+<wire x1="133" y1="43.18" x2="134.62" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="R4" gate="A" pin="P$2"/>
+<wire x1="134.62" y1="43.18" x2="134.62" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="35.56" x2="134.62" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="27.94" x2="133" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="35.56" x2="137.16" y2="35.56" width="0.1524" layer="91"/>
+<junction x="134.62" y="35.56"/>
+<label x="137.16" y="35.56" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>

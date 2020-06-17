@@ -18,57 +18,54 @@ https://learn.adafruit.com/adafruit-micro-sd-breakout-board-card-tutorial?view=a
 ## Fuses
 
 Fuses can be calculated using: https://www.engbedded.com/fusecalc/
+
 More info here: http://www.martyncurrey.com/arduino-atmega-328p-fuse-settings/
 
 ## Using arduino bootloader (for debugging and fast upload via IDE)
 
-As ATmega328PB is used, I didn't find a way to make it work using IDE despite many projects found on github such as (more details below):
-- https://github.com/Optiboot/optiboot (good schematic is available here but can't find correct settings in Arduino for the upload button to work as expected: http://www.vwlowen.co.uk/arduino/bootloader/page2.htm)
-- https://github.com/MCUdude/MiniCore (not a bootloader per se, that's why)
+We are going to use [Minicore](https://github.com/MCUdude/MiniCore) as it supports ATmega328PB used on this project.
 
 ---
 
-To make it work using bootloader corresponding to an ordinary ATmega328P, use the following procedure.
+Use the following procedure:
+
+- First install minicore boards following the [procedure](https://github.com/MCUdude/MiniCore#boards-manager-installation).
 
 Use *arduino as ISP* method to upload the bootloader:
-  - First add the boards from [this arduino board file](arduino/boards.txt) to your Arduino `boards.txt` file (typically in `~/Library/Arduino15/packages/arduino/hardware/avr/1.8.2/boards.txt`)
-  - Restart Arduino IDE
-
-Then:
-  - Configure your IDE to use the ISP Arduino
-  - Upload Arduino ISP sketch to the arduino board to make it act as an ISP programmer (available as example sketch from the Arduino IDE)
-  - Plug all ICSP to Arduino ICSP except RST both sides
-  - RST Jamma Streamer (from ICSP) to pin 10 of the Arduino
+  - configure your IDE to use the source Arduino which will act as a programmer (ISP programmer)
+  - upload Arduino ISP sketch to the arduino board to make it act as an *ISP programmer* (available as example sketch from the Arduino IDE)
+  - plug all *Jamma Streamer's ICSP* to *Arduino ICSP* except *RST* both sides
+  - *RST Jamma Streamer* (from ICSP) to *pin 10* of the Arduino (this will act as the reset pin)
   - plug a 10uF capacitor between Arduino RESET (capacitor +) and GND (capacitor -)
 
-Your arduino is ready for ISP. Now you can configure to burn the NMA Jamma Streamer bootloader:
-  - from `Tools > Board`, select the newly added *NMA Jamma Streamer*
-  - select the following processor: *ATMega328PB*
+Now configure the board as per the following:
+![Arduino configuration for Minicore / ATmega328PB](images/328pb-arduino-conf.png)
+
+Your arduino is ready for ISP. Now you can configure to burn the bootloader:
   - `Tools > Port`: select the arduino device
   - `Tools > Burn Bootloader`
 
-This should work as expected.
+This should work as expected. From now on, you will be able to upload sketches via *NMA Jamma Streamer* USB port directly!
 
-From now on, you will be able to upload sketches using the following configuration:
-  - Board: *NMA Jamma Streamer*
-  - Processor: *ATmega328P*
-  - Port: *Port detected by your system*
+Fuses consideration:
+  - *Minicore* is forked from *Optiboot* (official Arduino UNO bootloader) and is `512 bytes` long.
+  - We are using an external crystal oscillator (and not the internal one).
+  - `EEPROM` save is enabled (this avoid erasing it at each upload reducing its lifetime).
+  - `BOOTSZ1` and `BOOTSZ2` are both disabled because 512 bytes can fit into the minimal 256 words (1 word = 2 bytes).
+  - `BOOTRST` is set to indicate we are using a bootloader.
+  - `BODLEVEL1` (2.7V) is enabled because why not.
 
----
-
-Here are the avrdude commands for the manual configuration:
-```
-avrdude -C $HOME/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -p atmega328pb -c stk500v1 -P /dev/cu.usbmodem141101 -b19200 -e -Ulock:w:0x3F:m -Uefuse:w:0xF5:m -Uhfuse:w:0xDA:m -Ulfuse:w:0xFF:m
-
-avrdude -C $HOME/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -p atmega328pb -c stk500v1 -P /dev/cu.usbmodem141101 -b19200 -Uflash:w:$HOME/Library/Arduino15/packages/arduino/hardware/avr/1.8.2/bootloaders/atmega/ATmegaBOOT_168_atmega328.hex:i -Ulock:w:0x0F:m 
-```
+This give the following fuses:
+  - low fuse: `0xff`
+  - high fuse: `0xd6`
+  - extended fuse: `0xf5` (Normally, it would be `0xfd` but after burning, there is a warning so `f5` is a good value)
 
 ## Without using arduino bootloader for runtime
 
 We are using Jamma Streamer board ICSP header for this.
 No need for a Arduino bootloader, we will be uploading sketch directly via ICSP header !
 
-As I am using Atmega328PB (instead of P), Arduino IDE is not recognising at first, we need to install this first to have the board available in Arduino’s IDE later on:
+As I am using Atmega328PB (instead of P), Arduino IDE is not recognizing at first, we need to install this first to have the board available in Arduino’s IDE later on:
 https://github.com/nmaupu/ATmega328PB-Testing
 
 ---
@@ -82,14 +79,9 @@ Plug cables as follow (using Arduino Duemilanove or Mega):
 - select tools > boards > atmega328PB Crystal Clock
 - `sketch > Upload using programmer`
 
-This will program the NMA Jamma Streamer atmega328PB !
+This will program the NMA Jamma Streamer ATmega328PB !
 
 ## Burn / read fuses (use the crystal oscillator instead of internal one)
-
-Notes when using a crystal oscillator:
-  - After burning the bootloader, first upload is working.
-  - Further uploads are not, even using the "reset trick" (push reset before pressing upload and releasing reset).
-  - using internal oscillator works all the time with the "reset trick".
 
 Use an external Arduino board to act as an ISP programmer like before:
 
@@ -98,29 +90,26 @@ Use an external Arduino board to act as an ISP programmer like before:
 - Plug Arduino via USB to computer and upload ArduinoISP sketch onto it.
 - plug a 10uF capacitor between Arduino RESET (capacitor +) and GND (capacitor -)
 
-Here are the avrdude commands needed:
-
-```
-# Default fuses (internal oscillator)
-avrdude -C $HOME/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328pb -cstk500v1 -P/dev/cu.usbserial-A700dZIw -b19200 -e -Ulock:w:0x3F:m -Uefuse:w:0xFD:m -Uhfuse:w:0xDA:m -Ulfuse:w:0xFF:m
-
-# Configured for a crystal oscillator (the one soldered on the board with two capacitors)
-avrdude -C $HOME/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328pb -cstk500v1 -P/dev/cu.usbserial-A700dZIw -b19200 -e -Ulock:w:0x3F:m -Uefuse:w:0xFD:m -Uhfuse:w:0xD9:m -Ulfuse:w:0xFF:m
-```
-
 To read the fuses, simply execute:
 ```
-avrdude -C $HOME/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328pb -cstk500v    1 -P/dev/cu.usbserial-A700dZIw -b19200 -U hfuse:r:-:h -U efuse:r:-:h -U lfuse:r:-:h
+avrdude -C /Users/nicolas_maupu/Library/Arduino15/packages/MiniCore/hardware/avr/2.0.5/avrdude.conf \
+  -p atmega328pb -c stk500v1 -P /dev/cu.usbmodem141101 -b19200 \
+  -U hfuse:r:-:h -U efuse:r:-:h -U lfuse:r:-:h
 ```
 
-## Burn the 328PB Optiboot bootloader manually
-
-Beware: Cannot find a configuration to upload via FTDI after that :/
-
-With arduino as ISP:
+To burn fuses:
 ```
-avrdude -C $HOME/Library/Arduino15/packages/m328pb/hardware/avr/1.1.4/tools/avrdude.conf -v -patmega328pb -cstk500v1 -P /dev/cu.usbmodem141101 -b19200 -e -Ulock:w:0xFF:m -Uefuse:w:0xFD:m -Uhfuse:w:0xD6:m -Ulfuse:w:0xFF:m
-avrdude -C $HOME/Library/Arduino15/packages/m328pb/hardware/avr/1.1.4/tools/avrdude.conf -v -patmega328pb -cstk500v1 -P /dev/cu.usbmodem141101 -b19200 -Uflash:w:$HOME/Library/Arduino15/packages/m328pb/hardware/avr/1.1.4/bootloaders/optiboot_m328pb.hex:i -Ulock:w:0xCF:m
+avrdude -C /Users/nicolas_maupu/Library/Arduino15/packages/MiniCore/hardware/avr/2.0.5/avrdude.conf \
+  -v -p atmega328pb -c stk500v1 -P /dev/cu.usbmodem141101 -b19200 \
+  -e -Ulock:w:0x3f:m -Uefuse:w:0xF5:m -Uhfuse:w:0xd6:m -Ulfuse:w:0xff:m 
+```
+
+To burn the Minicore bootloader:
+```
+avrdude -C /Users/nicolas_maupu/Library/Arduino15/packages/MiniCore/hardware/avr/2.0.5/avrdude.conf \
+  -v -p atmega328pb -c stk500v1 -P /dev/cu.usbmodem141101 -b19200 \
+  -Uflash:w:$HOME/Library/Arduino15/packages/MiniCore/hardware/avr/2.0.5/bootloaders/optiboot_flash/bootloaders/atmega328pb/16000000L/optiboot_flash_atmega328pb_UART0_115200_16000000L_B5.hex:i \
+  -Ulock:w:0x0f:m 
 ```
 
 # Thanks
