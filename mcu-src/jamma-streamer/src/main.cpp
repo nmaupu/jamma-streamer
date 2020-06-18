@@ -1,6 +1,6 @@
 #include "btns/buttonDetector.h"
-
 #include "btns/buttons.h"
+
 #define PLOAD PD4
 #define ENABLE PD5
 #define DATA PD6
@@ -10,19 +10,20 @@
 #define REFRESH_DELAY 1000
 #endif
 
-void disBtnsChange(uint32_t, uint32_t);
-void disBtnStatus(uint32_t, uint32_t);
+#ifndef SERIAL_SPEED
+#define SERIAL SPEED 19600
+#endif
+
+void displayButtonsChange(uint32_t, uint32_t);
 
 ButtonDetector *detector;
-ButtonsState *st;
-ButtonsState *prev_st;
+const ButtonsState *st;
+const ButtonsState *prev_st;
 
 void setup() {
-    Serial.begin(115200);
-    Serial.print("Initialization... ");
-
+    Serial.begin(SERIAL_SPEED);
+    Serial.print("Init...");
     detector = new ButtonDetector(PLOAD, ENABLE, DATA, CLOCK);
-
     Serial.println("Done.");
 }
 
@@ -36,58 +37,33 @@ void loop() {
     prev_st = detector->getButtonsPreviousState();
 
     // if XOR is zero -> no change between 2 loops
-    if (((st->states)^(prev_st->states)) == 0 ){
-#ifdef DEBUG_BUTTONS
-        Serial.println("No change detected");
-#endif
-    } else {
-        disBtnsChange(prev_st->states, st->states);
+    if (((st->states)^(prev_st->states)) != 0 ){
+        displayButtonsChange(prev_st->states, st->states);
     }
 
+#if REFRESH_DELAY > 0
     delay(REFRESH_DELAY);
-}
-
-void disBtnsChange(uint32_t prev, uint32_t cur) {
-  uint32_t x = prev ^ cur; // get only changes
-
-  if ((x & BTN_1P_UP) > 0) disBtnStatus(cur, BTN_1P_UP);
-  if ((x & BTN_1P_START) > 0) disBtnStatus(cur, BTN_1P_START);
-  if ((x & BTN_1P_COIN) > 0) disBtnStatus(cur, BTN_1P_COIN);
-  if ((x & BTN_TEST) > 0) disBtnStatus(cur, BTN_TEST);
-  if ((x & BTN_SERVICE) > 0) disBtnStatus(cur, BTN_SERVICE);
-  if ((x & BTN_2P_COIN) > 0) disBtnStatus(cur, BTN_2P_COIN);
-  if ((x & BTN_2P_START) > 0) disBtnStatus(cur, BTN_2P_START);
-  if ((x & BTN_2P_UP) > 0) disBtnStatus(cur, BTN_2P_UP);
-  if ((x & BTN_1P_1) > 0) disBtnStatus(cur, BTN_1P_1);
-  if ((x & BTN_1P_RIGHT) > 0) disBtnStatus(cur, BTN_1P_RIGHT);
-  if ((x & BTN_1P_LEFT) > 0) disBtnStatus(cur, BTN_1P_LEFT);
-  if ((x & BTN_1P_DOWN) > 0) disBtnStatus(cur, BTN_1P_DOWN);
-  if ((x & BTN_2P_DOWN) > 0) disBtnStatus(cur, BTN_2P_DOWN);
-  if ((x & BTN_2P_LEFT) > 0) disBtnStatus(cur, BTN_2P_LEFT);
-  if ((x & BTN_2P_RIGHT) > 0) disBtnStatus(cur, BTN_2P_RIGHT);
-  if ((x & BTN_2P_1) > 0) disBtnStatus(cur, BTN_2P_1);
-#ifdef EXTENDED_JAMMA
-  if ((x & BTN_1P_5) > 0) disBtnStatus(cur, BTN_1P_5);
-  if ((x & BTN_1P_4) > 0) disBtnStatus(cur, BTN_1P_4);
-#endif
-  if ((x & BTN_1P_3) > 0) disBtnStatus(cur, BTN_1P_3);
-  if ((x & BTN_1P_2) > 0) disBtnStatus(cur, BTN_1P_2);
-  if ((x & BTN_2P_2) > 0) disBtnStatus(cur, BTN_2P_2);
-  if ((x & BTN_2P_3) > 0) disBtnStatus(cur, BTN_2P_3);
-#ifdef EXTENDED_JAMMA
-  if ((x & BTN_2P_4) > 0) disBtnStatus(cur, BTN_2P_4);
-  if ((x & BTN_2P_5) > 0) disBtnStatus(cur, BTN_2P_5);
 #endif
 }
 
-void disBtnStatus(uint32_t cur, uint32_t btn) {
-    Serial.print("Button ");
-    Serial.print(getButtonAsString(btn));
-    Serial.print(" has been ");
-    if (BTN_IS_PRESSED(cur, btn))
-        Serial.print("pressed");
-    else
-        Serial.print("released");
+void displayButtonsChange(uint32_t prev, uint32_t cur) {
+// get only changes with a XOR between previous and current states
+#define XOR (prev ^ cur)
 
-    Serial.println();
+    // Check all buttons
+    for (uint8_t i = 0; i < NB_BUTTONS; i++) {
+#ifndef EXTENDED_JAMMA
+        // Ignoring those extended buttons
+        if (i == BTN_1P_4 || i == BTN_1P_5 || i == BTN_2P_4 || i == BTN_2P_5) {
+            continue;
+        }
+#endif
+        if ((XOR & BTN_MASK(buttons[i])) > 0) {
+            Serial.print("Button ");
+            Serial.print(buttonsName[buttons[i]]);
+            Serial.print(" has been ");
+            BTN_IS_PRESSED(cur, buttons[i]) ? Serial.print("pressed\n")
+                                            : Serial.print("released\n");
+        }
+    }
 }

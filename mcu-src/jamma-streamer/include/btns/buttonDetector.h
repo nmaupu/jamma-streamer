@@ -3,9 +3,7 @@
 
 #include "arduino.h"
 
-// Jamma buttons are active low
-#define BTN_STATE_PRESSED 0
-#define BTN_STATE_RELEASED 1
+#define NB_SHIFT_REGS 3
 
 union ButtonsState {
     uint32_t states;
@@ -24,8 +22,8 @@ class ButtonDetector {
      ButtonDetector(uint8_t pload_pin, uint8_t enable_pin, uint8_t data_pin, uint8_t clock_pin);
      void loadRegisters();
      void readRegisters();
-     ButtonsState* getButtonsState();
-     ButtonsState* getButtonsPreviousState();
+     const ButtonsState* getButtonsState();
+     const ButtonsState* getButtonsPreviousState();
 #ifdef DEBUG_BUTTONS
      void printSerial();
 #endif  // DEBUG_BUTTONS

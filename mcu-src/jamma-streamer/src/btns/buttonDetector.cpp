@@ -25,39 +25,28 @@ void ButtonDetector::loadRegisters() {
 void ButtonDetector::readRegisters() {
     previousBtns = currentBtns;
 
-    digitalWrite(clock_pin, HIGH);
+    digitalWrite(clock_pin, HIGH);  // this is needed !
     digitalWrite(enable_pin, LOW);
-    currentBtns.values[2] = shiftIn(data_pin, clock_pin, MSBFIRST);
-    currentBtns.values[1] = shiftIn(data_pin, clock_pin, MSBFIRST);
-    currentBtns.values[0] = shiftIn(data_pin, clock_pin, MSBFIRST);
+
+    // iterate over all shift registers
+    for (int8_t i = (NB_SHIFT_REGS-1); i >= 0; --i) {
+        currentBtns.values[i] = shiftIn(data_pin, clock_pin, MSBFIRST);
+    }
+
     digitalWrite(enable_pin, HIGH);
 }
 
-ButtonsState* ButtonDetector::getButtonsState() { return &currentBtns; }
-ButtonsState* ButtonDetector::getButtonsPreviousState() { return &previousBtns; }
+const ButtonsState* ButtonDetector::getButtonsState() { return &currentBtns; }
+const ButtonsState* ButtonDetector::getButtonsPreviousState() { return &previousBtns; }
 
 #ifdef DEBUG_BUTTONS
 void ButtonDetector::printSerial() {
-    for(int i=23; i>=0; i--) {
+    for (int8_t i = (NB_SHIFT_REGS * 8 - 1); i >= 0; --i) {
         Serial.print(bitRead(currentBtns.states, i));
         if (i % 8 == 0) {
             Serial.print(" ");
         }
     }
-    Serial.println();
-
-   /*for(int j=0; j<3; j++) {
-       byte b = currentBtns.values[j];
-       for (int i = 7; i >= 0; i--) {
-           if (bitRead(b, i) == 1) {
-               Serial.print("1");
-           } else {
-               Serial.print("0");
-           }
-       }
-       Serial.print(" ");
-   }
-   Serial.println();
-   */
+    Serial.println("");
 }
 #endif  // DEBUG_BUTTONS
