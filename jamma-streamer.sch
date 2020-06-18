@@ -9834,13 +9834,13 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <pinref part="JAMMA_IN" gate="G$1" pin="+12V@6"/>
 <pinref part="JAMMA_OUT_TOP" gate="G$1" pin="+12V"/>
 <wire x1="71.12" y1="95.25" x2="71.12" y2="76.2" width="0.1524" layer="91"/>
-<label x="71.12" y="93.98" size="0.508" layer="95" font="vector" rot="R180" xref="yes"/>
+<label x="71.12" y="93.98" size="1.27" layer="95" font="vector" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="JAMMA_OUT_BTM" gate="G$1" pin="+12V"/>
 <pinref part="JAMMA_IN" gate="G$1" pin="+12V@F"/>
 <wire x1="71.12" y1="154.94" x2="71.12" y2="138.43" width="0.1524" layer="91"/>
-<label x="71.12" y="149.86" size="0.508" layer="95" font="vector" rot="R180" xref="yes"/>
+<label x="71.12" y="149.86" size="1.27" layer="95" font="vector" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -10076,13 +10076,13 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <pinref part="JAMMA_OUT_BTM" gate="G$1" pin="-5V"/>
 <pinref part="JAMMA_IN" gate="G$1" pin="-5V@E"/>
 <wire x1="73.66" y1="154.94" x2="73.66" y2="138.43" width="0.1524" layer="91"/>
-<label x="73.66" y="152.4" size="0.508" layer="95" font="vector" rot="R180" xref="yes"/>
+<label x="73.66" y="152.4" size="1.27" layer="95" font="vector" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="JAMMA_OUT_TOP" gate="G$1" pin="-5V"/>
 <pinref part="JAMMA_IN" gate="G$1" pin="-5V@5"/>
 <wire x1="73.66" y1="76.2" x2="73.66" y2="95.25" width="0.1524" layer="91"/>
-<label x="73.66" y="91.44" size="0.508" layer="95" font="vector" rot="R180" xref="yes"/>
+<label x="73.66" y="91.44" size="1.27" layer="95" font="vector" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -10151,6 +10151,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <sheet>
 <description>Alimentation 12V -&gt; 5V -&gt; 3.3V</description>
 <plain>
+<text x="2.54" y="142.24" size="1.778" layer="91">VIN from jamma +12V</text>
 </plain>
 <instances>
 <instance part="IC1" gate="A1" x="50.8" y="86.36" smashed="yes">
@@ -10940,7 +10941,7 @@ GND</text>
 <sheet>
 <description>Buttons detection</description>
 <plain>
-<text x="-45.72" y="207.01" size="1.778" layer="91" font="vector">Jamma is HIGH when not pressed (~3V)
+<text x="-45.72" y="207.01" size="1.778" layer="91" font="vector">Jamma is HIGH when not pressed (~5V)
 and LOW when pressed !</text>
 <text x="96.52" y="119.38" size="1.27" layer="91" font="fixed">In the arduino code:
 
