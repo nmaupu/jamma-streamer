@@ -1,7 +1,8 @@
 #ifndef __BUTTON_DETECTOR__
 #define __BUTTON_DETECTOR__
 
-#include "arduino.h"
+#include <Arduino.h>
+#include "btns/buttonEvent.h"
 
 #define NB_SHIFT_REGS 3
 
@@ -18,11 +19,16 @@ class ButtonDetector {
      uint8_t enable_pin;
      uint8_t data_pin;
      uint8_t clock_pin;
+
     public:
      ButtonDetector(uint8_t pload_pin, uint8_t enable_pin, uint8_t data_pin, uint8_t clock_pin);
+     // Load registers with the current buttons' value
      void loadRegisters();
-     void readRegisters();
+     // Read registers and store values, call callback function when buttons' state change
+     void readRegisters(void (*callback)(ButtonEvent));
+     // Get current buttons' state
      const ButtonsState* getButtonsState();
+     // Get previous buttons' state
      const ButtonsState* getButtonsPreviousState();
 #ifdef DEBUG_BUTTONS
      void printSerial();
