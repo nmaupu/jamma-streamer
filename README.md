@@ -13,6 +13,12 @@ https://playground.arduino.cc/Code/ShiftRegSN74HC165N
 Source:
 https://learn.adafruit.com/adafruit-micro-sd-breakout-board-card-tutorial?view=all
 
+Beware: Arduino pins number and macros you can use in your code are sometimes not equivalent to what you expect when using third party libraries like the one used for SD card... One example is the pin `PB2` (Arduino pin number 10) used for `CS`. If you use the macro `PB2`, it returns `2` instead of `10`... This leads to long painful debugging session...
+
+Here is an image with all the related pin numbering for reference:
+![Arduino ATmega pinout diagram](images/arduino-atmega-pinout-diag.jpg)
+
+
 # How to program the ATMEGA328PB
 
 ## Fuses

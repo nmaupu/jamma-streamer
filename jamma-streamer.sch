@@ -10532,14 +10532,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <wire x1="101.6" y1="10.16" x2="96.52" y2="10.16" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="10.16" x2="96.52" y2="7.62" width="0.1524" layer="91"/>
 <junction x="96.52" y="7.62"/>
-<pinref part="J3" gate="G$1" pin="DAT1"/>
-<wire x1="101.6" y1="20.32" x2="96.52" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="20.32" x2="96.52" y2="17.78" width="0.1524" layer="91"/>
-<junction x="96.52" y="10.16"/>
-<pinref part="J3" gate="G$1" pin="DAT2"/>
-<wire x1="96.52" y1="17.78" x2="96.52" y2="10.16" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="17.78" x2="96.52" y2="17.78" width="0.1524" layer="91"/>
-<junction x="96.52" y="17.78"/>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="GND"/>
@@ -10570,7 +10562,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <label x="5.08" y="26.67" size="1.27" layer="95" font="vector" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="N$15" class="0">
+<net name="SD_CMD" class="0">
 <segment>
 <pinref part="U3" gate="G$1" pin="1Y"/>
 <wire x1="45.72" y1="26.67" x2="54.61" y2="26.67" width="0.1524" layer="91"/>
@@ -10591,7 +10583,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <junction x="10.16" y="24.13"/>
 </segment>
 </net>
-<net name="N$17" class="0">
+<net name="SD_CLK" class="0">
 <segment>
 <pinref part="U3" gate="G$1" pin="2Y"/>
 <wire x1="45.72" y1="24.13" x2="57.15" y2="24.13" width="0.1524" layer="91"/>
@@ -10601,7 +10593,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <wire x1="81.28" y1="30.48" x2="101.6" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$14" class="0">
+<net name="SD_CS" class="0">
 <segment>
 <pinref part="J3" gate="G$1" pin="CD/DAT3"/>
 <wire x1="101.6" y1="15.24" x2="83.82" y2="15.24" width="0.1524" layer="91"/>
