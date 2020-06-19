@@ -845,13 +845,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pin name="VCC_2" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
 <text x="0" y="2.794" size="1.778" layer="96" align="bottom-center">&gt;VALUE</text>
 </symbol>
-<symbol name="VCCIO" urn="urn:adsk.eagle:symbol:39421/1" library_version="1">
-<description>&lt;h3&gt;VCC I/O Voltage Supply&lt;/h3&gt;</description>
-<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
-<pin name="VCCIO" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
-<text x="0" y="2.794" size="1.778" layer="96" align="bottom-center">&gt;VALUE</text>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="GND" urn="urn:adsk.eagle:component:39439/1" prefix="GND" library_version="1">
@@ -887,20 +880,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 &lt;p&gt;Secondary VCC voltage supply - Useful for a system with multiple VCC supplies.&lt;/p&gt;</description>
 <gates>
 <gate name="G$1" symbol="VCC_2" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="VCCIO" urn="urn:adsk.eagle:component:39451/1" prefix="SUPPLY" library_version="1">
-<description>&lt;h3&gt;VCC I/O Supply&lt;/h3&gt;
-&lt;p&gt;Power supply for a chip's input and output pins.&lt;/p&gt;</description>
-<gates>
-<gate name="G$1" symbol="VCCIO" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -9460,7 +9439,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <part name="C13" library="CMS" deviceset="KEMET-C1210C104K4J" device="" value="0.1uF/16V"/>
 <part name="GND33" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY22" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
-<part name="SUPPLY23" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCCIO" device=""/>
+<part name="C14" library="CMS" deviceset="KEMET-C1210C104K4J" device="" value="0.1uF/16V"/>
+<part name="GND34" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="SUPPLY16" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -10465,13 +10446,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <junction x="116.84" y="139.7"/>
 </segment>
 </net>
-<net name="USBVCC" class="0">
-<segment>
-<pinref part="U9" gate="A" pin="D"/>
-<wire x1="101.6" y1="109.22" x2="109.22" y2="109.22" width="0.1524" layer="91"/>
-<label x="109.22" y="109.22" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
 <net name="N$23" class="0">
 <segment>
 <pinref part="U10" gate="A" pin="1OUT"/>
@@ -10483,11 +10457,26 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <wire x1="124.46" y1="137.16" x2="114.3" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="USBVCC" class="0">
+<segment>
+<pinref part="U9" gate="A" pin="D"/>
+<wire x1="101.6" y1="109.22" x2="111.76" y2="109.22" width="0.1524" layer="91"/>
+<label x="111.76" y="109.22" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
 <description>Micro SD CARD related circuitry</description>
 <plain>
+<text x="-5.08" y="50.8" size="1.27" layer="91" font="fixed">After tests:
+  - DAT1 and DAT2 could be floating or GND
+  - DI  = MOSI = CMD
+  - DO  = MISO
+  - SCK = CLOCK
+
+SD Status is working and inspired from the following:
+https://learn.adafruit.com/adafruit-micro-sd-breakout-board-card-tutorial?view=all</text>
 </plain>
 <instances>
 <instance part="J3" gate="G$1" x="114.3" y="22.86" smashed="yes">
@@ -10532,6 +10521,14 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <wire x1="101.6" y1="10.16" x2="96.52" y2="10.16" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="10.16" x2="96.52" y2="7.62" width="0.1524" layer="91"/>
 <junction x="96.52" y="7.62"/>
+<pinref part="J3" gate="G$1" pin="DAT2"/>
+<wire x1="101.6" y1="17.78" x2="96.52" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="17.78" x2="96.52" y2="10.16" width="0.1524" layer="91"/>
+<junction x="96.52" y="10.16"/>
+<pinref part="J3" gate="G$1" pin="DAT1"/>
+<wire x1="101.6" y1="20.32" x2="96.52" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="20.32" x2="96.52" y2="17.78" width="0.1524" layer="91"/>
+<junction x="96.52" y="17.78"/>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="GND"/>
@@ -10676,8 +10673,8 @@ GND</text>
 <instance part="SUPPLY9" gate="G$1" x="111.76" y="106.68" smashed="yes">
 <attribute name="VALUE" x="111.76" y="109.474" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="GND6" gate="1" x="111.76" y="45.72" smashed="yes">
-<attribute name="VALUE" x="111.76" y="45.466" size="1.778" layer="96" align="top-center"/>
+<instance part="GND6" gate="1" x="111.76" y="50.8" smashed="yes" rot="R90">
+<attribute name="VALUE" x="112.014" y="50.8" size="1.778" layer="96" rot="R90" align="top-center"/>
 </instance>
 <instance part="R2" gate="A" x="45.72" y="50.8" smashed="yes">
 <attribute name="NAME" x="42.72" y="52.8" size="1.27" layer="94"/>
@@ -10715,6 +10712,16 @@ GND</text>
 <instance part="GND15" gate="1" x="27.94" y="93.98" smashed="yes">
 <attribute name="VALUE" x="27.94" y="93.726" size="1.778" layer="96" align="top-center"/>
 </instance>
+<instance part="C14" gate="A" x="119.38" y="101.6" smashed="yes" rot="R90">
+<attribute name="NAME" x="117.88" y="98.6" size="1.27" layer="94" rot="R90"/>
+<attribute name="VALUE" x="122.38" y="98.6" size="1.27" layer="94" rot="R90"/>
+</instance>
+<instance part="GND34" gate="1" x="119.38" y="93.98" smashed="yes">
+<attribute name="VALUE" x="119.38" y="93.726" size="1.778" layer="96" align="top-center"/>
+</instance>
+<instance part="SUPPLY16" gate="G$1" x="119.38" y="106.68" smashed="yes">
+<attribute name="VALUE" x="119.38" y="109.474" size="1.778" layer="96" align="bottom-center"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -10722,9 +10729,8 @@ GND</text>
 <net name="GND" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="GND"/>
-<wire x1="91.44" y1="50.8" x2="111.76" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="50.8" x2="109.22" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="GND6" gate="1" pin="GND"/>
-<wire x1="111.76" y1="50.8" x2="111.76" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND14" gate="1" pin="GND"/>
@@ -10753,6 +10759,11 @@ GND</text>
 <pinref part="J2" gate="G$1" pin="6"/>
 <wire x1="27.94" y1="97.79" x2="24.13" y2="97.79" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="C14" gate="A" pin="P$2"/>
+<wire x1="119.38" y1="98.608" x2="119.38" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="GND34" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="VCC" class="0">
 <segment>
@@ -10775,6 +10786,11 @@ GND</text>
 <pinref part="J2" gate="G$1" pin="2"/>
 <wire x1="24.13" y1="102.87" x2="26.67" y2="102.87" width="0.1524" layer="91"/>
 <label x="26.67" y="102.87" size="1.27" layer="95" font="vector" xref="yes"/>
+</segment>
+<segment>
+<pinref part="C14" gate="A" pin="P$1"/>
+<wire x1="119.38" y1="104.592" x2="119.38" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="SUPPLY16" gate="G$1" pin="VCC"/>
 </segment>
 </net>
 <net name="PB6" class="0">
@@ -11275,9 +11291,9 @@ Pin18 = d2
 <sheet>
 <description>USB input</description>
 <plain>
-<text x="104.14" y="73.66" size="1.778" layer="91">CS = PB2 = Pin 10
-Used by ArduinoISP sketch to send a reset
-signal when using this atmega as ISP programmer</text>
+<text x="104.14" y="73.66" size="1.778" layer="91">CS = PB2 (atmega) = Pin 10 (arduino pin number)
+Used by "ArduinoISP sketch" to send a reset
+signal when using this ATmega as ISP programmer.</text>
 </plain>
 <instances>
 <instance part="J4" gate="G$1" x="7.62" y="60.96" smashed="yes" rot="R180">
@@ -11346,9 +11362,6 @@ signal when using this atmega as ISP programmer</text>
 <instance part="SJ1" gate="1" x="127" y="50.8" smashed="yes">
 <attribute name="NAME" x="124.46" y="53.34" size="1.778" layer="95"/>
 <attribute name="VALUE" x="124.46" y="46.99" size="1.778" layer="96"/>
-</instance>
-<instance part="SUPPLY23" gate="G$1" x="15.24" y="12.7" smashed="yes" rot="R90">
-<attribute name="VALUE" x="12.446" y="12.7" size="1.778" layer="96" rot="R90" align="bottom-center"/>
 </instance>
 </instances>
 <busses>
@@ -11553,11 +11566,12 @@ signal when using this atmega as ISP programmer</text>
 <wire x1="68.58" y1="55.88" x2="66.04" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="55.88" x2="66.04" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="50.8" x2="43.18" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="50.8" x2="43.18" y2="66.04" width="0.1524" layer="91"/>
 <junction x="43.18" y="50.8"/>
-<label x="43.18" y="66.04" size="1.27" layer="95" rot="R90" xref="yes"/>
+<label x="43.18" y="73.66" size="1.27" layer="95" rot="R90" xref="yes"/>
 <wire x1="68.58" y1="48.26" x2="43.18" y2="48.26" width="0.1524" layer="91"/>
 <junction x="43.18" y="48.26"/>
+<wire x1="43.18" y1="50.8" x2="43.18" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="72.12" x2="43.18" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R5" gate="A" pin="P$2"/>
