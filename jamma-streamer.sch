@@ -3138,18 +3138,6 @@ https://b2b.harting.com/files/download/PRD/PDF_TS/0956152X613_100510341DRW001D.p
 <wire x1="-3.75" y1="-2.45" x2="3.75" y2="-2.45" width="0.1" layer="21"/>
 <wire x1="3.75" y1="-2.45" x2="3.75" y2="-2" width="0.1" layer="21"/>
 </package>
-<package name="S8411-45R">
-<smd name="4" x="0" y="8.425" dx="2.3" dy="4.5" layer="1"/>
-<smd name="1" x="0" y="-7.975" dx="2.3" dy="4.5" layer="1"/>
-<text x="8.467" y="0.93" size="1.27" layer="21">&gt;Name</text>
-<text x="8.467" y="-1.398" size="1.27" layer="21">&gt;Value</text>
-<circle x="0" y="0" radius="7.4" width="0.2" layer="21"/>
-<text x="2.032" y="6.604" size="7" layer="21">-</text>
-<text x="2.159" y="-11.43" size="4" layer="21">+</text>
-<wire x1="-7.4" y1="-7.4" x2="7.4" y2="-7.4" width="0.2" layer="21"/>
-<pad name="3" x="0" y="3.725" drill="1" shape="octagon"/>
-<pad name="2" x="0" y="-3.725" drill="1.25"/>
-</package>
 <package name="21-0042B_16-M">
 <smd name="1" x="-4.7371" y="4.445" dx="2.286" dy="0.5842" layer="1"/>
 <smd name="2" x="-4.7371" y="3.175" dx="2.286" dy="0.5842" layer="1"/>
@@ -3458,6 +3446,25 @@ https://b2b.harting.com/files/download/PRD/PDF_TS/0956152X613_100510341DRW001D.p
 </polygon>
 <text x="-5.461" y="4.8006" size="1.27" layer="21" ratio="6" rot="SR0">*</text>
 <text x="-3.2766" y="-0.635" size="1.27" layer="25" ratio="6" rot="SR0">&gt;Name</text>
+</package>
+<package name="796136-1">
+<description>&lt;b&gt;796136-1&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-15.52" y="0" dx="4.78" dy="3.15" layer="1" rot="R90"/>
+<smd name="2" x="15.52" y="0" dx="4.78" dy="3.15" layer="1" rot="R90"/>
+<text x="-10.62896875" y="11.51636875" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="-10.62896875" y="-11.34363125" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-13.655" y1="9.525" x2="13.655" y2="9.525" width="0.2" layer="51"/>
+<wire x1="13.655" y1="9.525" x2="13.655" y2="-9.525" width="0.2" layer="51"/>
+<wire x1="13.655" y1="-9.525" x2="-13.655" y2="-9.525" width="0.2" layer="51"/>
+<wire x1="-13.655" y1="-9.525" x2="-13.655" y2="9.525" width="0.2" layer="51"/>
+<wire x1="-13.655" y1="9.525" x2="13.655" y2="9.525" width="0.2" layer="21"/>
+<wire x1="13.655" y1="9.525" x2="13.655" y2="-9.525" width="0.2" layer="21"/>
+<wire x1="13.655" y1="-9.525" x2="-13.655" y2="-9.525" width="0.2" layer="21"/>
+<wire x1="-13.655" y1="-9.525" x2="-13.655" y2="9.525" width="0.2" layer="21"/>
+<circle x="-18.525" y="-3.762" radius="0.339" width="0.5" layer="25"/>
+<text x="-16.51" y="2.54" size="2.032" layer="25">+</text>
+<text x="15.24" y="2.54" size="2.032" layer="25">-</text>
 </package>
 </packages>
 <packages3d>
@@ -4072,16 +4079,6 @@ KEL 1168-056-009&lt;br&gt;</description>
 <pin name="MH3" x="22.86" y="-5.08" length="middle" rot="R180"/>
 <pin name="MH4" x="22.86" y="-7.62" length="middle" rot="R180"/>
 </symbol>
-<symbol name="S8411-45R">
-<pin name="-" x="5.08" y="2.54" length="middle" direction="pwr" rot="R180"/>
-<pin name="+" x="5.08" y="-2.54" length="middle" direction="pwr" rot="R180"/>
-<wire x1="0" y1="-5.08" x2="0" y2="5.08" width="0.254" layer="94"/>
-<wire x1="0" y1="5.08" x2="-10.16" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="5.08" x2="-10.16" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-5.08" x2="0" y2="-5.08" width="0.254" layer="94"/>
-<text x="-10.16" y="7.62" size="1.27" layer="94">&gt;Name</text>
-<text x="-10.16" y="5.842" size="1.27" layer="94">&gt;Value</text>
-</symbol>
 <symbol name="DS3231SNT&amp;R">
 <pin name="!INT/SQW" x="2.54" y="0" length="middle" direction="pas"/>
 <pin name="!RST" x="2.54" y="-2.54" length="middle" direction="pas"/>
@@ -4105,6 +4102,16 @@ KEL 1168-056-009&lt;br&gt;</description>
 <wire x1="38.1" y1="7.62" x2="7.62" y2="7.62" width="0.1524" layer="94"/>
 <text x="18.1356" y="11.6586" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;Name</text>
 <text x="17.5006" y="9.1186" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;Value</text>
+</symbol>
+<symbol name="796136-1">
+<wire x1="5.08" y1="2.54" x2="15.24" y2="2.54" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-5.08" x2="15.24" y2="2.54" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<text x="5.08" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="5.08" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="+" x="0" y="0" length="middle"/>
+<pin name="-" x="0" y="-2.54" length="middle"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -5136,22 +5143,6 @@ Source: &lt;a href="http://www.kycon.com/Pub_Eng_Draw/KMMX-BSMT35S-BTR.pdf"&gt; 
 </device>
 </devices>
 </deviceset>
-<deviceset name="S8411-45R" prefix="B">
-<gates>
-<gate name="G$1" symbol="S8411-45R" x="5.08" y="0"/>
-</gates>
-<devices>
-<device name="" package="S8411-45R">
-<connects>
-<connect gate="G$1" pin="+" pad="1 2"/>
-<connect gate="G$1" pin="-" pad="3 4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="DS3231SNT&amp;R" prefix="U">
 <gates>
 <gate name="A" symbol="DS3231SNT&amp;R" x="0" y="0"/>
@@ -5232,6 +5223,31 @@ Source: &lt;a href="http://www.kycon.com/Pub_Eng_Draw/KMMX-BSMT35S-BTR.pdf"&gt; 
 <technology name="">
 <attribute name="MANUFACTURER_PART_NUMBER" value="DS3231SN#T&amp;R" constant="no"/>
 <attribute name="VENDOR" value="Maxim Integrated Products" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="796136-1" prefix="J">
+<description>&lt;b&gt;Holder pcb 2 way Battery TE Connectivity Surface Mount Battery Holder for 1, Leaf Spring Contact&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href=""&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="796136-1" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="796136-1">
+<connects>
+<connect gate="G$1" pin="+" pad="1"/>
+<connect gate="G$1" pin="-" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value="Holder pcb 2 way Battery TE Connectivity Surface Mount Battery Holder for 1, Leaf Spring Contact" constant="no"/>
+<attribute name="HEIGHT" value="mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="TE Connectivity" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="796136-1" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="571-796136-1" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/TE-Connectivity/796136-1?qs=PfIaAWlFPdz%252BdW7QT0YDTw%3D%3D" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -5355,7 +5371,6 @@ Source: &lt;a href="http://www.kycon.com/Pub_Eng_Draw/KMMX-BSMT35S-BTR.pdf"&gt; 
 <part name="R7" library="nma-eagle" deviceset="BOURNS-CRM2512AJW103ELF" device="" value="10K"/>
 <part name="SUPPLY19" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
 <part name="GND29" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="B1" library="nma-eagle" deviceset="S8411-45R" device=""/>
 <part name="C8" library="nma-eagle" deviceset="KEMET-C1210C106K8N" device="" value="10uF/10V"/>
 <part name="SUPPLY20" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
 <part name="GND30" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
@@ -5385,6 +5400,7 @@ Source: &lt;a href="http://www.kycon.com/Pub_Eng_Draw/KMMX-BSMT35S-BTR.pdf"&gt; 
 <part name="R14" library="nma-eagle" deviceset="ERJ-14NF2200U" device="" value="220 ohms"/>
 <part name="R15" library="nma-eagle" deviceset="ERJ-14NF2200U" device="" value="220 ohms"/>
 <part name="R16" library="nma-eagle" deviceset="ERJ-14NF2200U" device="" value="220 ohms"/>
+<part name="J3" library="nma-eagle" deviceset="796136-1" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7569,12 +7585,8 @@ signal when using this ATmega as ISP programmer.</text>
 <instance part="SUPPLY19" gate="G$1" x="38.1" y="50.8" smashed="yes" rot="R180">
 <attribute name="VALUE" x="38.1" y="48.006" size="1.778" layer="96" rot="R180" align="bottom-center"/>
 </instance>
-<instance part="GND29" gate="1" x="60.96" y="41.91" smashed="yes" rot="R180">
-<attribute name="VALUE" x="60.96" y="42.164" size="1.778" layer="96" rot="R180" align="top-center"/>
-</instance>
-<instance part="B1" gate="G$1" x="53.34" y="35.56" smashed="yes">
-<attribute name="NAME" x="43.18" y="43.18" size="1.27" layer="94"/>
-<attribute name="VALUE" x="43.18" y="41.402" size="1.27" layer="94"/>
+<instance part="GND29" gate="1" x="60.96" y="39.37" smashed="yes" rot="R180">
+<attribute name="VALUE" x="60.96" y="39.624" size="1.778" layer="96" rot="R180" align="top-center"/>
 </instance>
 <instance part="C8" gate="A" x="114.3" y="40.64" smashed="yes" rot="R90">
 <attribute name="NAME" x="112.8" y="37.64" size="1.27" layer="94" rot="R90"/>
@@ -7585,6 +7597,10 @@ signal when using this ATmega as ISP programmer.</text>
 </instance>
 <instance part="GND30" gate="1" x="114.3" y="30.48" smashed="yes">
 <attribute name="VALUE" x="114.3" y="30.226" size="1.778" layer="96" align="top-center"/>
+</instance>
+<instance part="J3" gate="G$1" x="58.42" y="33.02" smashed="yes" rot="R180">
+<attribute name="NAME" x="43.18" y="27.94" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="43.18" y="25.4" size="1.778" layer="96" align="center-left"/>
 </instance>
 </instances>
 <busses>
@@ -7616,9 +7632,9 @@ signal when using this ATmega as ISP programmer.</text>
 <net name="GND" class="0">
 <segment>
 <pinref part="GND29" gate="1" pin="GND"/>
-<wire x1="58.42" y1="38.1" x2="60.96" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="38.1" x2="60.96" y2="39.37" width="0.1524" layer="91"/>
-<pinref part="B1" gate="G$1" pin="-"/>
+<wire x1="60.96" y1="35.56" x2="60.96" y2="36.83" width="0.1524" layer="91"/>
+<pinref part="J3" gate="G$1" pin="-"/>
+<wire x1="60.96" y1="35.56" x2="58.42" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U8" gate="A" pin="GND"/>
@@ -7654,7 +7670,7 @@ signal when using this ATmega as ISP programmer.</text>
 <segment>
 <pinref part="U8" gate="A" pin="VBAT"/>
 <wire x1="58.42" y1="33.02" x2="66.04" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="B1" gate="G$1" pin="+"/>
+<pinref part="J3" gate="G$1" pin="+"/>
 </segment>
 </net>
 </nets>
