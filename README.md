@@ -2,6 +2,15 @@
 
 Jamma PCB video recorder and more (hardware)
 
+# New mouser components
+
+* https://www.mouser.fr/ProductDetail/652-CR2512-JW-221ELF
+* https://www.mouser.fr/ProductDetail/652-CHP2512FX1001ELF
+* https://www.mouser.fr/ProductDetail/652-CHP2512JW103ELF
+* https://www.mouser.fr/ProductDetail/806-KMMXBSMT35SB30TR
+* https://www.mouser.fr/ProductDetail/806-KMMXBSMT35SB30TR
+
+
 # Buttons detection
 
 Buttons detection are done using shift registers (8 bits parallel in / serial out such as the 75HC165).
