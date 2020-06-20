@@ -2,7 +2,20 @@
 
 Jamma PCB video recorder and more (hardware)
 
-# New mouser components
+# Eagle library and parts used
+
+* `nma-eagle` library: https://github.com/nmaupu/electronics/blob/master/eagle-libs/nma-eagle.lbr
+* SparkFun libraries (https://github.com/sparkfun/SparkFun-Eagle-Libraries):
+  - SparkFun-Connectors
+  - SparkFun-IC-Comms
+  - SparkFun-PowerSymbols
+  - SparkFun-Retired
+* Default eagle libraries:
+  - linear
+  - pinhead
+  - jumper
+
+# New mouser parts
 
 * https://www.mouser.fr/ProductDetail/652-CR2512-JW-221ELF
 * https://www.mouser.fr/ProductDetail/652-CHP2512FX1001ELF
