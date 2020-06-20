@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -5153,73 +5153,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 </deviceset>
 </devicesets>
 </library>
-<library name="CR2512-JW-221ELF">
-<description>&lt;Thick Film Resistors - SMD 220OHM 1WATT 5%&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
-<packages>
-<package name="RESC6331X75N">
-<description>&lt;b&gt;CR2512&lt;/b&gt;&lt;br&gt;
-</description>
-<smd name="1" x="-3" y="0" dx="3.3" dy="1.25" layer="1" rot="R90"/>
-<smd name="2" x="3" y="0" dx="3.3" dy="1.25" layer="1" rot="R90"/>
-<text x="0" y="2.54" size="1.27" layer="25" align="center">&gt;NAME</text>
-<text x="0" y="-2.54" size="1.27" layer="27" align="center">&gt;VALUE</text>
-<wire x1="-3.875" y1="1.9" x2="3.875" y2="1.9" width="0.05" layer="51"/>
-<wire x1="3.875" y1="1.9" x2="3.875" y2="-1.9" width="0.05" layer="51"/>
-<wire x1="3.875" y1="-1.9" x2="-3.875" y2="-1.9" width="0.05" layer="51"/>
-<wire x1="-3.875" y1="-1.9" x2="-3.875" y2="1.9" width="0.05" layer="51"/>
-<wire x1="-3.15" y1="1.55" x2="3.15" y2="1.55" width="0.1" layer="51"/>
-<wire x1="3.15" y1="1.55" x2="3.15" y2="-1.55" width="0.1" layer="51"/>
-<wire x1="3.15" y1="-1.55" x2="-3.15" y2="-1.55" width="0.1" layer="51"/>
-<wire x1="-3.15" y1="-1.55" x2="-3.15" y2="1.55" width="0.1" layer="51"/>
-<wire x1="0" y1="1.45" x2="0" y2="-1.45" width="0.2" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="CR2512-JW-221ELF">
-<text x="3.175" y="2.54" size="1.778" layer="95" align="center-left">&gt;NAME</text>
-<text x="3.175" y="-1.905" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
-<pin name="1" x="0" y="0" visible="pad" length="middle"/>
-<pin name="2" x="15.24" y="0" visible="pad" length="middle" rot="R180"/>
-<wire x1="5.08" y1="0" x2="5.715" y2="1.27" width="0.127" layer="94"/>
-<wire x1="5.715" y1="1.27" x2="6.35" y2="-0.635" width="0.127" layer="94"/>
-<wire x1="6.35" y1="-0.635" x2="6.985" y2="1.27" width="0.127" layer="94"/>
-<wire x1="6.985" y1="1.27" x2="7.62" y2="-0.635" width="0.127" layer="94"/>
-<wire x1="7.62" y1="-0.635" x2="8.255" y2="1.27" width="0.127" layer="94"/>
-<wire x1="8.255" y1="1.27" x2="8.89" y2="-0.635" width="0.127" layer="94"/>
-<wire x1="8.89" y1="-0.635" x2="9.525" y2="1.27" width="0.127" layer="94"/>
-<wire x1="9.525" y1="1.27" x2="10.16" y2="0" width="0.127" layer="94"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="CR2512-JW-221ELF" prefix="R">
-<description>&lt;b&gt;Thick Film Resistors - SMD 220OHM 1WATT 5%&lt;/b&gt;&lt;p&gt;
-Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/CR2512-JW-221ELF.pdf"&gt; Datasheet &lt;/a&gt;</description>
-<gates>
-<gate name="G$1" symbol="CR2512-JW-221ELF" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="RESC6331X75N">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="DESCRIPTION" value="Thick Film Resistors - SMD 220OHM 1WATT 5%" constant="no"/>
-<attribute name="HEIGHT" value="0.75mm" constant="no"/>
-<attribute name="MANUFACTURER_NAME" value="Bourns" constant="no"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="CR2512-JW-221ELF" constant="no"/>
-<attribute name="MOUSER_PART_NUMBER" value="652-CR2512-JW-221ELF" constant="no"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-CR2512-JW-221ELF" constant="no"/>
-<attribute name="VAL" value="220" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="KMMX-BSMT35S-B30TR">
 <description>&lt;CONN RCPT USB MICRO B SMD RA&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
@@ -5409,6 +5342,105 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 </deviceset>
 </devicesets>
 </library>
+<library name="nma-mouser">
+<packages>
+<package name="TE_3550_SERIES">
+<smd name="1" x="-5" y="0" dx="3.9" dy="5.5" layer="1"/>
+<smd name="2" x="5" y="0" dx="3.9" dy="5.5" layer="1"/>
+<wire x1="-6.95" y1="2.75" x2="6.95" y2="2.75" width="0.127" layer="51"/>
+<wire x1="6.95" y1="2.75" x2="6.95" y2="-2.75" width="0.127" layer="51"/>
+<wire x1="6.95" y1="-2.75" x2="-6.95" y2="-2.75" width="0.127" layer="51"/>
+<wire x1="-6.95" y1="-2.75" x2="-6.95" y2="2.75" width="0.127" layer="51"/>
+<wire x1="0" y1="-2.75" x2="0" y2="2.75" width="0.127" layer="21"/>
+<text x="-7" y="3.5" size="1.27" layer="25">&gt;NAME</text>
+<text x="-7" y="-4.5" size="1.27" layer="27">&gt;VALUE</text>
+<wire x1="-5.5" y1="2.5" x2="5.5" y2="2.5" width="0.127" layer="51"/>
+<wire x1="5.5" y1="2.5" x2="5.5" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="5.5" y1="-2.5" x2="-5.5" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="-5.5" y1="-2.5" x2="-5.5" y2="2.5" width="0.127" layer="51"/>
+</package>
+<package name="RESC3225X70N">
+<description>&lt;b&gt;ERJ14R/B&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.5" y="0" dx="2.7" dy="1.15" layer="1" rot="R90"/>
+<smd name="2" x="1.5" y="0" dx="2.7" dy="1.15" layer="1" rot="R90"/>
+<text x="0" y="2.09" size="0.8128" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="-2.09" size="0.8128" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-2.325" y1="1.6" x2="2.325" y2="1.6" width="0.05" layer="51"/>
+<wire x1="2.325" y1="1.6" x2="2.325" y2="-1.6" width="0.05" layer="51"/>
+<wire x1="2.325" y1="-1.6" x2="-2.325" y2="-1.6" width="0.05" layer="51"/>
+<wire x1="-2.325" y1="-1.6" x2="-2.325" y2="1.6" width="0.05" layer="51"/>
+<wire x1="-1.6" y1="1.25" x2="1.6" y2="1.25" width="0.1" layer="51"/>
+<wire x1="1.6" y1="1.25" x2="1.6" y2="-1.25" width="0.1" layer="51"/>
+<wire x1="1.6" y1="-1.25" x2="-1.6" y2="-1.25" width="0.1" layer="51"/>
+<wire x1="-1.6" y1="-1.25" x2="-1.6" y2="1.25" width="0.1" layer="51"/>
+<wire x1="0" y1="1.15" x2="0" y2="-1.15" width="0.2" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="RESISTOR">
+<pin name="P$1" x="-5.08" y="0" visible="off" length="short" direction="pas"/>
+<pin name="P$2" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+<wire x1="-2.54" y1="0" x2="-1.905" y2="0.635" width="0.127" layer="94"/>
+<wire x1="-1.905" y1="0.635" x2="-1.27" y2="-0.635" width="0.127" layer="94"/>
+<wire x1="-1.27" y1="-0.635" x2="-0.635" y2="0.635" width="0.127" layer="94"/>
+<wire x1="-0.635" y1="0.635" x2="0" y2="-0.635" width="0.127" layer="94"/>
+<wire x1="0" y1="-0.635" x2="0.635" y2="0.635" width="0.127" layer="94"/>
+<wire x1="0.635" y1="0.635" x2="1.27" y2="-0.635" width="0.127" layer="94"/>
+<wire x1="1.27" y1="-0.635" x2="1.905" y2="0.635" width="0.127" layer="94"/>
+<wire x1="1.905" y1="0.635" x2="2.54" y2="0" width="0.127" layer="94"/>
+<text x="-3.81" y="1.27" size="1.27" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-2.54" size="1.27" layer="96">&gt;VALUE</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="TE3550" prefix="R" uservalue="yes">
+<description>TE Connectivity - SMD High Power Resistors</description>
+<gates>
+<gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TE_3550_SERIES">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DATASHEET" value="https://www.mouser.fr/datasheet/2/418/4/NG_DS_1773204-6_A-1533241.pdf"/>
+<attribute name="POWER" value="5W"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="ERJ-14NF2200U" prefix="R">
+<description>&lt;b&gt;Thick Film Resistors - SMD 1210 220ohms 1% AEC-Q200&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C84.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="RESC3225X70N">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value="Thick Film Resistors - SMD 1210 220ohms 1% AEC-Q200" constant="no"/>
+<attribute name="HEIGHT" value="0.7mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Panasonic" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="ERJ-14NF2200U" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="667-ERJ-14NF2200U" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Panasonic/ERJ-14NF2200U?qs=cYDwVL8Dk%2FntiwgKbjgkoQ%3D%3D" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -5427,7 +5459,9 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <part name="GND2" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="GND3" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="GND4" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="J1" library="SJ1-3523N" deviceset="SJ1-3523N" device="" value="Audio line out"/>
+<part name="J1" library="SJ1-3523N" deviceset="SJ1-3523N" device="" value="Audio line out">
+<attribute name="SPICEPREFIX" value="J"/>
+</part>
 <part name="SYNC_POT" library="SparkFun-Retired" library_urn="urn:adsk.eagle:library:533" deviceset="TRIMPOT" device="PTH" value="1k"/>
 <part name="GND8" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="U3" library="74HC4050D" deviceset="74HC4050D" device=""/>
@@ -5492,13 +5526,27 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <part name="R5" library="CMS" deviceset="BOURNS-652CHP0603FX1001ELF" device="" value="1K"/>
 <part name="D4-TX" library="CMS" deviceset="604-APTD1608LCGCK" device="" value="Green"/>
 <part name="D5" library="RRE07VTM4SFHTR" deviceset="RRE07VTM4SFHTR" device="" value="RRE07VTM4SFHTR"/>
-<part name="GND24" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="T1" library="TRIAD-TY-145P" deviceset="TRIAD-TY-145P" device="" value="TY-145P"/>
-<part name="T2" library="TRIAD-TY-145P" deviceset="TRIAD-TY-145P" device="" value="TY-145P"/>
-<part name="S2" library="SamacSys_Parts" deviceset="SS22SDP2" device=""/>
-<part name="GND25" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="GND26" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="GND27" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
+<part name="GND24" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device="">
+<attribute name="SPICEPREFIX" value="G"/>
+</part>
+<part name="T1" library="TRIAD-TY-145P" deviceset="TRIAD-TY-145P" device="" value="TY-145P">
+<attribute name="SPICEPREFIX" value="X"/>
+</part>
+<part name="T2" library="TRIAD-TY-145P" deviceset="TRIAD-TY-145P" device="" value="TY-145P">
+<attribute name="SPICEPREFIX" value="X"/>
+</part>
+<part name="S2" library="SamacSys_Parts" deviceset="SS22SDP2" device="">
+<attribute name="SPICEPREFIX" value="X"/>
+</part>
+<part name="GND25" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device="">
+<attribute name="SPICEPREFIX" value="G"/>
+</part>
+<part name="GND26" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device="">
+<attribute name="SPICEPREFIX" value="G"/>
+</part>
+<part name="GND27" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device="">
+<attribute name="SPICEPREFIX" value="G"/>
+</part>
 <part name="C11" library="CMS" deviceset="KEMET-C1210C104K4J" device="" value="0.1uF/16V"/>
 <part name="JP1" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X5" device="" package3d_urn="urn:adsk.eagle:package:22469/2"/>
 <part name="SJ1" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="SJ" device="" package3d_urn="urn:adsk.eagle:package:15471/1"/>
@@ -5528,17 +5576,17 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <part name="C14" library="CMS" deviceset="KEMET-C1210C104K4J" device="" value="0.1uF/16V"/>
 <part name="GND34" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY16" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
-<part name="R13-1K" library="CMS" deviceset="BOURNS-652CHP0603FX1001ELF" device=""/>
-<part name="R14-10K" library="CMS" deviceset="BOURNS-CRM2512AJW103ELF" device=""/>
-<part name="R15-10K" library="CMS" deviceset="BOURNS-CRM2512AJW103ELF" device=""/>
-<part name="R10-220OHMS" library="CR2512-JW-221ELF" deviceset="CR2512-JW-221ELF" device=""/>
-<part name="R11-220OHMS" library="CR2512-JW-221ELF" deviceset="CR2512-JW-221ELF" device=""/>
-<part name="R12-220OHMS" library="CR2512-JW-221ELF" deviceset="CR2512-JW-221ELF" device=""/>
-<part name="R16-1K" library="CMS" deviceset="BOURNS-652CHP0603FX1001ELF" device=""/>
 <part name="J5" library="KMMX-BSMT35S-B30TR" deviceset="KMMX-BSMT35S-B30TR" device=""/>
 <part name="GND35" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="GND36" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="J4" library="DM3AT-SF-PEJM5" deviceset="DM3AT-SF-PEJM5" device=""/>
+<part name="R10" library="nma-mouser" deviceset="TE3550" device="" value="75 ohms"/>
+<part name="R11" library="nma-mouser" deviceset="TE3550" device="" value="75 ohms"/>
+<part name="R12" library="nma-mouser" deviceset="TE3550" device="" value="8.2 ohms"/>
+<part name="R13" library="nma-mouser" deviceset="TE3550" device="" value="8.2 ohms"/>
+<part name="R14" library="nma-mouser" deviceset="ERJ-14NF2200U" device="" value="220 ohms"/>
+<part name="R15" library="nma-mouser" deviceset="ERJ-14NF2200U" device="" value="220 ohms"/>
+<part name="R16" library="nma-mouser" deviceset="ERJ-14NF2200U" device="" value="220 ohms"/>
 </parts>
 <sheets>
 <sheet>
@@ -5606,33 +5654,33 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <instance part="GND27" gate="1" x="213.36" y="71.12" smashed="yes">
 <attribute name="VALUE" x="213.36" y="70.866" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="R13-1K" gate="A" x="175.26" y="76.2" smashed="yes" rot="R90">
-<attribute name="NAME" x="173.26" y="73.2" size="1.27" layer="94" rot="R90"/>
-<attribute name="VALUE" x="178.26" y="73.2" size="1.27" layer="94" rot="R90" display="off"/>
+<instance part="R10" gate="G$1" x="157.48" y="66.04" smashed="yes">
+<attribute name="NAME" x="153.67" y="67.31" size="1.27" layer="95"/>
+<attribute name="VALUE" x="153.67" y="63.5" size="1.27" layer="96"/>
 </instance>
-<instance part="R14-10K" gate="A" x="157.48" y="66.04" smashed="yes">
-<attribute name="NAME" x="154.48" y="68.04" size="1.27" layer="94"/>
-<attribute name="VALUE" x="146.86" y="63.04" size="1.27" layer="94" display="off"/>
+<instance part="R11" gate="G$1" x="157.48" y="81.28" smashed="yes">
+<attribute name="NAME" x="153.67" y="82.55" size="1.27" layer="95"/>
+<attribute name="VALUE" x="153.67" y="78.74" size="1.27" layer="96"/>
 </instance>
-<instance part="R15-10K" gate="A" x="157.48" y="81.28" smashed="yes">
-<attribute name="NAME" x="154.48" y="83.28" size="1.27" layer="94"/>
-<attribute name="VALUE" x="136.7" y="78.28" size="1.27" layer="94" display="off"/>
+<instance part="R12" gate="G$1" x="175.26" y="76.2" smashed="yes" rot="R90">
+<attribute name="NAME" x="173.99" y="72.39" size="1.27" layer="95" rot="R90"/>
+<attribute name="VALUE" x="177.8" y="72.39" size="1.27" layer="96" rot="R90"/>
 </instance>
-<instance part="R10-220OHMS" gate="G$1" x="106.68" y="170.18" smashed="yes">
-<attribute name="NAME" x="107.315" y="172.72" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="107.315" y="168.275" size="1.778" layer="96" align="center-left" display="off"/>
+<instance part="R13" gate="G$1" x="175.26" y="60.96" smashed="yes" rot="R90">
+<attribute name="NAME" x="173.99" y="57.15" size="1.27" layer="95" rot="R90"/>
+<attribute name="VALUE" x="177.8" y="57.15" size="1.27" layer="96" rot="R90"/>
 </instance>
-<instance part="R11-220OHMS" gate="G$1" x="106.68" y="162.56" smashed="yes">
-<attribute name="NAME" x="107.315" y="165.1" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="107.315" y="160.655" size="1.778" layer="96" align="center-left" display="off"/>
+<instance part="R14" gate="G$1" x="114.3" y="170.18" smashed="yes">
+<attribute name="NAME" x="110.49" y="171.45" size="1.27" layer="95"/>
+<attribute name="VALUE" x="110.49" y="167.64" size="1.27" layer="96"/>
 </instance>
-<instance part="R12-220OHMS" gate="G$1" x="106.68" y="154.94" smashed="yes">
-<attribute name="NAME" x="107.315" y="157.48" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="107.315" y="153.035" size="1.778" layer="96" align="center-left" display="off"/>
+<instance part="R15" gate="G$1" x="114.3" y="162.56" smashed="yes">
+<attribute name="NAME" x="110.49" y="163.83" size="1.27" layer="95"/>
+<attribute name="VALUE" x="110.49" y="160.02" size="1.27" layer="96"/>
 </instance>
-<instance part="R16-1K" gate="A" x="175.26" y="60.96" smashed="yes" rot="R90">
-<attribute name="NAME" x="173.26" y="57.96" size="1.27" layer="94" rot="R90"/>
-<attribute name="VALUE" x="178.26" y="57.96" size="1.27" layer="94" rot="R90" display="off"/>
+<instance part="R16" gate="G$1" x="114.3" y="154.94" smashed="yes">
+<attribute name="NAME" x="110.49" y="156.21" size="1.27" layer="95"/>
+<attribute name="VALUE" x="110.49" y="152.4" size="1.27" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -5737,8 +5785,8 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <wire x1="55.88" y1="147.32" x2="99.06" y2="147.32" width="0.1524" layer="91"/>
 <junction x="55.88" y="147.32"/>
 <wire x1="99.06" y1="147.32" x2="99.06" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="162.56" x2="106.68" y2="162.56" width="0.1524" layer="91"/>
-<pinref part="R11-220OHMS" gate="G$1" pin="1"/>
+<wire x1="99.06" y1="162.56" x2="109.22" y2="162.56" width="0.1524" layer="91"/>
+<pinref part="R15" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 <net name="SPK-" class="0">
@@ -5856,8 +5904,8 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <wire x1="53.34" y1="86.36" x2="104.14" y2="86.36" width="0.1524" layer="91"/>
 <junction x="53.34" y="86.36"/>
 <wire x1="104.14" y1="86.36" x2="104.14" y2="154.94" width="0.1524" layer="91"/>
-<pinref part="R12-220OHMS" gate="G$1" pin="1"/>
-<wire x1="104.14" y1="154.94" x2="106.68" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="154.94" x2="104.14" y2="154.94" width="0.1524" layer="91"/>
+<pinref part="R16" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 <net name="RED" class="0">
@@ -5869,8 +5917,8 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <wire x1="55.88" y1="88.9" x2="101.6" y2="88.9" width="0.1524" layer="91"/>
 <junction x="55.88" y="88.9"/>
 <wire x1="101.6" y1="88.9" x2="101.6" y2="170.18" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="170.18" x2="106.68" y2="170.18" width="0.1524" layer="91"/>
-<pinref part="R10-220OHMS" gate="G$1" pin="1"/>
+<wire x1="101.6" y1="170.18" x2="109.22" y2="170.18" width="0.1524" layer="91"/>
+<pinref part="R14" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 <net name="SPK+" class="0">
@@ -5887,7 +5935,7 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <wire x1="127" y1="81.28" x2="127" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="127" y1="81.28" x2="152.4" y2="81.28" width="0.1524" layer="91"/>
 <junction x="127" y="81.28"/>
-<pinref part="R15-10K" gate="A" pin="P$1"/>
+<pinref part="R11" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 <net name="9" class="0">
@@ -6052,10 +6100,8 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <pinref part="VGA_OUT" gate="G$1" pin="1"/>
 <wire x1="132.08" y1="134.62" x2="129.54" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="134.62" x2="129.54" y2="170.18" width="0.1524" layer="91"/>
-<wire x1="123.19" y1="170.18" x2="124.46" y2="170.18" width="0.1524" layer="91"/>
-<pinref part="R10-220OHMS" gate="G$1" pin="2"/>
-<wire x1="124.46" y1="170.18" x2="129.54" y2="170.18" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="170.18" x2="123.19" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="170.18" x2="129.54" y2="170.18" width="0.1524" layer="91"/>
+<pinref part="R14" gate="G$1" pin="P$2"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -6063,10 +6109,8 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <wire x1="127" y1="162.56" x2="127" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="VGA_OUT" gate="G$1" pin="2"/>
 <wire x1="127" y1="132.08" x2="132.08" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="123.19" y1="162.56" x2="124.46" y2="162.56" width="0.1524" layer="91"/>
-<pinref part="R11-220OHMS" gate="G$1" pin="2"/>
-<wire x1="124.46" y1="162.56" x2="127" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="162.56" x2="123.19" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="162.56" x2="127" y2="162.56" width="0.1524" layer="91"/>
+<pinref part="R15" gate="G$1" pin="P$2"/>
 </segment>
 </net>
 <net name="N$16" class="0">
@@ -6074,8 +6118,8 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <wire x1="124.46" y1="154.94" x2="124.46" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="VGA_OUT" gate="G$1" pin="3"/>
 <wire x1="124.46" y1="129.54" x2="132.08" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="R12-220OHMS" gate="G$1" pin="2"/>
-<wire x1="121.92" y1="154.94" x2="124.46" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="154.94" x2="119.38" y2="154.94" width="0.1524" layer="91"/>
+<pinref part="R16" gate="G$1" pin="P$2"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -6165,8 +6209,8 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <net name="N$4" class="0">
 <segment>
 <pinref part="S2" gate="G$1" pin="2"/>
-<pinref part="R14-10K" gate="A" pin="P$1"/>
 <wire x1="149.86" y1="66.04" x2="152.4" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="R10" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 <net name="N$26" class="0">
@@ -6187,40 +6231,40 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 </net>
 <net name="N$11" class="0">
 <segment>
-<pinref part="R15-10K" gate="A" pin="P$2"/>
-<pinref part="R13-1K" gate="A" pin="P$2"/>
-<wire x1="162.56" y1="81.28" x2="175.26" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="T1" gate="G$1" pin="1"/>
+<wire x1="162.56" y1="81.28" x2="175.26" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="R12" gate="G$1" pin="P$2"/>
 <wire x1="175.26" y1="81.28" x2="182.88" y2="81.28" width="0.1524" layer="91"/>
 <junction x="175.26" y="81.28"/>
+<pinref part="R11" gate="G$1" pin="P$2"/>
 </segment>
 </net>
 <net name="N$14" class="0">
 <segment>
 <pinref part="T2" gate="G$1" pin="1"/>
-<pinref part="R16-1K" gate="A" pin="P$2"/>
 <wire x1="182.88" y1="66.04" x2="175.26" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="R14-10K" gate="A" pin="P$2"/>
+<pinref part="R13" gate="G$1" pin="P$2"/>
 <wire x1="175.26" y1="66.04" x2="162.56" y2="66.04" width="0.1524" layer="91"/>
 <junction x="175.26" y="66.04"/>
+<pinref part="R10" gate="G$1" pin="P$2"/>
 </segment>
 </net>
 <net name="N$25" class="0">
 <segment>
 <pinref part="T1" gate="G$1" pin="3"/>
-<pinref part="R13-1K" gate="A" pin="P$1"/>
-<wire x1="175.26" y1="71.12" x2="182.88" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="T2" gate="G$1" pin="3"/>
-<pinref part="R16-1K" gate="A" pin="P$1"/>
-<wire x1="182.88" y1="55.88" x2="175.26" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="S2" gate="G$1" pin="5"/>
 <wire x1="149.86" y1="55.88" x2="166.37" y2="55.88" width="0.1524" layer="91"/>
-<junction x="175.26" y="55.88"/>
 <wire x1="166.37" y1="55.88" x2="175.26" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="55.88" x2="182.88" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="71.12" x2="175.26" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="71.12" x2="166.37" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="166.37" y1="71.12" x2="166.37" y2="55.88" width="0.1524" layer="91"/>
-<junction x="175.26" y="71.12"/>
 <junction x="166.37" y="55.88"/>
+<pinref part="R13" gate="G$1" pin="P$1"/>
+<junction x="175.26" y="55.88"/>
+<pinref part="R12" gate="G$1" pin="P$1"/>
+<junction x="175.26" y="71.12"/>
 </segment>
 </net>
 </nets>
