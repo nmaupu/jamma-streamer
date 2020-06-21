@@ -5401,6 +5401,7 @@ Source: &lt;a href=""&gt; Datasheet &lt;/a&gt;</description>
 <part name="R15" library="nma-eagle" deviceset="ERJ-14NF2200U" device="" value="220 ohms"/>
 <part name="R16" library="nma-eagle" deviceset="ERJ-14NF2200U" device="" value="220 ohms"/>
 <part name="J3" library="nma-eagle" deviceset="796136-1" device=""/>
+<part name="R17" library="nma-eagle" deviceset="BOURNS-CRM2512AJW103ELF" device="" value="10K"/>
 </parts>
 <sheets>
 <sheet>
@@ -6891,6 +6892,13 @@ GND</text>
 <label x="50.8" y="60.96" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
+<net name="RTC_SQW" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="PC3"/>
+<wire x1="55.88" y1="63.5" x2="50.8" y2="63.5" width="0.1524" layer="91"/>
+<label x="50.8" y="63.5" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -7585,8 +7593,8 @@ signal when using this ATmega as ISP programmer.</text>
 <instance part="SUPPLY19" gate="G$1" x="38.1" y="50.8" smashed="yes" rot="R180">
 <attribute name="VALUE" x="38.1" y="48.006" size="1.778" layer="96" rot="R180" align="bottom-center"/>
 </instance>
-<instance part="GND29" gate="1" x="60.96" y="39.37" smashed="yes" rot="R180">
-<attribute name="VALUE" x="60.96" y="39.624" size="1.778" layer="96" rot="R180" align="top-center"/>
+<instance part="GND29" gate="1" x="53.34" y="44.45" smashed="yes" rot="R180">
+<attribute name="VALUE" x="53.34" y="44.704" size="1.778" layer="96" rot="R180" align="top-center"/>
 </instance>
 <instance part="C8" gate="A" x="114.3" y="40.64" smashed="yes" rot="R90">
 <attribute name="NAME" x="112.8" y="37.64" size="1.27" layer="94" rot="R90"/>
@@ -7598,9 +7606,13 @@ signal when using this ATmega as ISP programmer.</text>
 <instance part="GND30" gate="1" x="114.3" y="30.48" smashed="yes">
 <attribute name="VALUE" x="114.3" y="30.226" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="J3" gate="G$1" x="58.42" y="33.02" smashed="yes" rot="R180">
-<attribute name="NAME" x="43.18" y="27.94" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="43.18" y="25.4" size="1.778" layer="96" align="center-left"/>
+<instance part="J3" gate="G$1" x="50.8" y="33.02" smashed="yes" rot="R180">
+<attribute name="NAME" x="35.56" y="27.94" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="35.56" y="25.4" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="R17" gate="A" x="48.26" y="71.12" smashed="yes">
+<attribute name="NAME" x="45.26" y="73.12" size="1.27" layer="94"/>
+<attribute name="VALUE" x="45.26" y="68.12" size="1.27" layer="94"/>
 </instance>
 </instances>
 <busses>
@@ -7616,6 +7628,10 @@ signal when using this ATmega as ISP programmer.</text>
 <wire x1="43.18" y1="55.88" x2="38.1" y2="55.88" width="0.1524" layer="91"/>
 <junction x="38.1" y="55.88"/>
 <pinref part="SUPPLY19" gate="G$1" pin="VCC"/>
+<pinref part="R17" gate="A" pin="P$1"/>
+<wire x1="43.18" y1="71.12" x2="38.1" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="71.12" x2="38.1" y2="63.5" width="0.1524" layer="91"/>
+<junction x="38.1" y="63.5"/>
 </segment>
 <segment>
 <pinref part="U8" gate="A" pin="VCC"/>
@@ -7632,9 +7648,42 @@ signal when using this ATmega as ISP programmer.</text>
 <net name="GND" class="0">
 <segment>
 <pinref part="GND29" gate="1" pin="GND"/>
-<wire x1="60.96" y1="35.56" x2="60.96" y2="36.83" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="35.56" x2="53.34" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="J3" gate="G$1" pin="-"/>
-<wire x1="60.96" y1="35.56" x2="58.42" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="38.1" x2="53.34" y2="41.91" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="35.56" x2="50.8" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="U8" gate="A" pin="NC_2"/>
+<wire x1="66.04" y1="55.88" x2="63.5" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="55.88" x2="63.5" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="53.34" x2="63.5" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="50.8" x2="63.5" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="48.26" x2="63.5" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="45.72" x2="63.5" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="43.18" x2="63.5" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="40.64" x2="63.5" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="38.1" x2="53.34" y2="38.1" width="0.1524" layer="91"/>
+<junction x="53.34" y="38.1"/>
+<pinref part="U8" gate="A" pin="NC"/>
+<wire x1="66.04" y1="38.1" x2="63.5" y2="38.1" width="0.1524" layer="91"/>
+<junction x="63.5" y="38.1"/>
+<pinref part="U8" gate="A" pin="NC_8"/>
+<wire x1="66.04" y1="40.64" x2="63.5" y2="40.64" width="0.1524" layer="91"/>
+<junction x="63.5" y="40.64"/>
+<pinref part="U8" gate="A" pin="NC_7"/>
+<wire x1="66.04" y1="43.18" x2="63.5" y2="43.18" width="0.1524" layer="91"/>
+<junction x="63.5" y="43.18"/>
+<pinref part="U8" gate="A" pin="NC_6"/>
+<wire x1="66.04" y1="45.72" x2="63.5" y2="45.72" width="0.1524" layer="91"/>
+<junction x="63.5" y="45.72"/>
+<pinref part="U8" gate="A" pin="NC_5"/>
+<wire x1="66.04" y1="48.26" x2="63.5" y2="48.26" width="0.1524" layer="91"/>
+<junction x="63.5" y="48.26"/>
+<pinref part="U8" gate="A" pin="NC_4"/>
+<wire x1="66.04" y1="50.8" x2="63.5" y2="50.8" width="0.1524" layer="91"/>
+<junction x="63.5" y="50.8"/>
+<pinref part="U8" gate="A" pin="NC_3"/>
+<wire x1="66.04" y1="53.34" x2="63.5" y2="53.34" width="0.1524" layer="91"/>
+<junction x="63.5" y="53.34"/>
 </segment>
 <segment>
 <pinref part="U8" gate="A" pin="GND"/>
@@ -7669,8 +7718,19 @@ signal when using this ATmega as ISP programmer.</text>
 <net name="N$31" class="0">
 <segment>
 <pinref part="U8" gate="A" pin="VBAT"/>
-<wire x1="58.42" y1="33.02" x2="66.04" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="33.02" x2="66.04" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="J3" gate="G$1" pin="+"/>
+</segment>
+</net>
+<net name="RTC_SQW" class="0">
+<segment>
+<pinref part="R17" gate="A" pin="P$2"/>
+<wire x1="55.88" y1="71.12" x2="53.34" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="71.12" x2="55.88" y2="73.66" width="0.1524" layer="91"/>
+<junction x="55.88" y="71.12"/>
+<label x="55.88" y="73.66" size="1.27" layer="95" rot="R90" xref="yes"/>
+<pinref part="U8" gate="A" pin="!INT/SQW"/>
+<wire x1="66.04" y1="71.12" x2="55.88" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

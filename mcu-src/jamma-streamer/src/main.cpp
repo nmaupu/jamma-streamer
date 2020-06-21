@@ -1,46 +1,23 @@
 #include <SD.h>
 #include <SPI.h>
 
+#include "globals.h"
 #include "btns/buttonDetector.h"
+#include "rtc/jammaTime.h"
 #include "storage/sdstorage.h"
-
-// Special attention to pin numbers because Arduino library pinout macros can be
-// confusing...
-// As far as I know, PDx are ok whereas PBx are not ...
-
-#define APP_NAME "NMA Jamma Streamer"
-#ifndef APP_VERSION
-#define APP_VERSION "master"
-#endif
-
-// Shift registers
-#define PLOAD PD4   // PD4 = Arduino pin 4
-#define ENABLE PD5  // PD5 = Arduino pin 5
-#define DATA PD6    // PD6 = Arduino pin 6
-#define CLOCK PD7   // PD7 = Arduino pin 7
-
-// SD card
-#define SD_CS 10    // PB2 = Arduino pin 10 (SS)
-#define SD_MOSI 11  // PB3 = Arduino pin 11 (MOSI)
-#define SD_MISO 12  // PB4 = Arduino pin 12 (MISO)
-#define SD_CLK 13   // PB5 = Arduino pin 13 (SCK)
-
-#ifndef REFRESH_DELAY_US
-#define REFRESH_DELAY_US 100000
-#endif
-
-#ifndef SERIAL_SPEED
-#define SERIAL SPEED 19600
-#endif
 
 void buttonChangeCallback(ButtonEvent e);
 
+// Singleton objects
 ButtonDetector* detector;
 const ButtonsState* st;
 const ButtonsState* prev_st;
 
 SDStorage* sto;
 
+JammaTime* time;
+
+//
 void setup() {
     Serial.begin(SERIAL_SPEED);
     while (!Serial) {
@@ -52,23 +29,33 @@ void setup() {
     Serial.println(APP_VERSION);
     Serial.println();
 
-    Serial.print("Initializing SD card...");
+    /*Serial.print("Initializing SD card...");
     sto = new SDStorage(SD_CS, SD_MOSI,SD_MISO, SD_CLK);
     if(!sto->initSDCard()) {
         Serial.println("Failed. Card present ? Formatted as FAT16/32 ?");
     } else {
         Serial.println("OK");
-    }
+    }*/
 
     // Buttons detection
     Serial.print("Configuring buttons detection...");
     detector = new ButtonDetector(PLOAD, ENABLE, DATA, CLOCK);
     Serial.println("OK");
 
+    // RTC
+    Serial.print("Initializing RTC...");
+    time = new JammaTime();
+    Serial.println("OK");
+
     Serial.println("Listening for inputs.");
 }
 
 void loop() {
+    Serial.print("millis=");
+    Serial.print(millis());
+    Serial.print(", time=");
+    Serial.println(time->getJammaTime());
+
     detector->loadRegisters();
     detector->readRegisters(buttonChangeCallback);
 
@@ -76,10 +63,12 @@ void loop() {
     detector->printSerial();
 #endif
 
-#if REFRESH_DELAY_US > 0
+#if REFRESH_DELAY_US > 0 && REFRESH_DELAY_US < 65535
     delayMicroseconds(REFRESH_DELAY_US);
+#elif REFRESH_DELAY_US > 0
+    delay(REFRESH_DELAY_US/1000);
 #endif
-}
+    }
 
 // Function called when a button state has changed.
 void buttonChangeCallback(ButtonEvent e) {

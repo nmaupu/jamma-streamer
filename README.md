@@ -23,6 +23,18 @@ Jamma PCB video recorder and more (hardware)
 * https://www.mouser.fr/ProductDetail/806-KMMXBSMT35SB30TR
 * https://www.mouser.fr/ProductDetail/806-KMMXBSMT35SB30TR
 
+# RTC
+
+## Interrupts for milliseconds counting
+
+* We will be using the chip `DS3231`. Pin `INT/SWQ` is the one.
+* Datasheet https://datasheets.maximintegrated.com/en/ds/DS3231.pdf page 13 indicates how to configure the register to enable a 1KHz signal on this pin.
+* The configuration of the register should be: `0b10001000`.
+* Configuration is done using I2C protocol.
+* `PC3` for `pin change interrupt` on the ATmega side.
+
+Example on how to use `PCINT` is available here: https://gist.github.com/Wollw/2598827
+Example on how to configure chip registers via I2C: https://github.com/FabioCuomo/FabioCuomo-DS3231/blob/master/RTClibExtended.cpp
 
 # Buttons detection
 
