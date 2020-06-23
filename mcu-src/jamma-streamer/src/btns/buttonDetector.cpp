@@ -5,6 +5,7 @@ ButtonDetector::ButtonDetector(uint8_t pload_pin, uint8_t enable_pin, uint8_t da
     this->enable_pin = enable_pin;
     this->data_pin = data_pin;
     this->clock_pin = clock_pin;
+    callbackIndex = 0;
 
     pinMode(pload_pin, OUTPUT);
     pinMode(enable_pin, OUTPUT);
@@ -15,6 +16,14 @@ ButtonDetector::ButtonDetector(uint8_t pload_pin, uint8_t enable_pin, uint8_t da
     digitalWrite(enable_pin, HIGH);
 }
 
+ButtonDetector::~ButtonDetector() {}
+
+bool ButtonDetector::addButtonEventListener(buttonEventCallback callback) {
+    if (callbackIndex >= MAX_NB_OF_CALLBACKS || callback == NULL) return false;
+    callbacks[callbackIndex++] = callback;
+    return true;
+}
+
 void ButtonDetector::loadRegisters() {
     digitalWrite(pload_pin, LOW);
     delayMicroseconds(5);
@@ -22,7 +31,7 @@ void ButtonDetector::loadRegisters() {
     delayMicroseconds(5);
 }
 
-void ButtonDetector::readRegisters(void (*callback)(ButtonEvent)) {
+void ButtonDetector::readRegisters() {
     previousBtns = currentBtns;
 
     digitalWrite(clock_pin, HIGH);  // this is needed !
@@ -37,7 +46,8 @@ void ButtonDetector::readRegisters(void (*callback)(ButtonEvent)) {
 
     // verify changes with a XOR between previous and new values
     uint32_t x = previousBtns.states ^ currentBtns.states;
-    if (x != 0 && callback != NULL) {
+    ButtonEvent evt;
+    if (x != 0 && callbackIndex > 0) {
         for(uint8_t i=0; i<NB_BUTTONS; i++) {
 #ifndef EXTENDED_JAMMA
             // Ignoring those extended buttons
@@ -48,9 +58,14 @@ void ButtonDetector::readRegisters(void (*callback)(ButtonEvent)) {
 #endif
             // Calling callback func for each change detected
             if((x & BTN_MASK(buttons[i])) > 0){
-                ButtonEvent* e = new ButtonEvent(buttons[i], BTN_IS_PRESSED(currentBtns.states, buttons[i]) ? PRESSED : RELEASED);
-                callback(*e);
-                delete e;
+                evt.setButton(buttons[i]);
+                evt.setStatus(BTN_IS_PRESSED(currentBtns.states, buttons[i])
+                                  ? PRESSED
+                                  : RELEASED);
+                // Calling all callbacks
+                for(uint8_t i=0; i<callbackIndex; i++) {
+                    callbacks[i](&evt);
+                }
             }
         }
     }
@@ -68,5 +83,6 @@ void ButtonDetector::printSerial() {
         }
     }
     Serial.println("");
+    Serial.flush();
 }
 #endif  // DEBUG_BUTTONS

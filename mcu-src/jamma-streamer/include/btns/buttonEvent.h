@@ -12,8 +12,11 @@ class ButtonEvent {
 
    public:
     ButtonEvent(Button btn, ButtonStatus st);
+    ButtonEvent();
     const Button getButton();
     const ButtonStatus getStatus();
+    void setButton(Button);
+    void setStatus(ButtonStatus);
     bool isPressed();
     bool isReleased();
 };

@@ -6,7 +6,9 @@
 #include "rtc/jammaTime.h"
 #include "storage/sdstorage.h"
 
-void buttonChangeCallback(ButtonEvent e);
+int availableMemory();
+void serialLoggerButtonCallback(ButtonEvent* e);
+void sdcardLoggerButtonCallback(ButtonEvent* e);
 
 // Singleton objects
 ButtonDetector* detector;
@@ -28,6 +30,7 @@ void setup() {
     Serial.print("version: ");
     Serial.println(APP_VERSION);
     Serial.println();
+    delay(2000);
 
     /*Serial.print("Initializing SD card...");
     sto = new SDStorage(SD_CS, SD_MOSI,SD_MISO, SD_CLK);
@@ -40,6 +43,8 @@ void setup() {
     // Buttons detection
     Serial.print("Configuring buttons detection...");
     detector = new ButtonDetector(PLOAD, ENABLE, DATA, CLOCK);
+    detector->addButtonEventListener(serialLoggerButtonCallback);
+    detector->addButtonEventListener(sdcardLoggerButtonCallback);
     Serial.println("OK");
 
     // RTC
@@ -51,13 +56,15 @@ void setup() {
 }
 
 void loop() {
+    /*
     Serial.print("millis=");
     Serial.print(millis());
     Serial.print(", time=");
     Serial.println(time->getJammaTime());
+    */
 
     detector->loadRegisters();
-    detector->readRegisters(buttonChangeCallback);
+    detector->readRegisters();
 
 #ifdef DEBUG_BUTTONS
     detector->printSerial();
@@ -68,12 +75,18 @@ void loop() {
 #elif REFRESH_DELAY_US > 0
     delay(REFRESH_DELAY_US/1000);
 #endif
-    }
+}
 
 // Function called when a button state has changed.
-void buttonChangeCallback(ButtonEvent e) {
+void serialLoggerButtonCallback(ButtonEvent* e) {
     Serial.print("Button ");
-    Serial.print(buttonsName[e.getButton()]);
+    Serial.print(buttonsName[e->getButton()]);
     Serial.print(" has been ");
-    Serial.println(e.isPressed() ? "pressed" : "released");
+    Serial.println(e->isPressed() ? "pressed" : "released");
+    Serial.flush();
+}
+
+void sdcardLoggerButtonCallback(ButtonEvent* e) {
+    Serial.println("SDCard logger not implemented yet.");
+    Serial.flush();
 }
