@@ -3498,7 +3498,6 @@ To solder a straight connector used originally with wires.</description>
 <smd name="26" x="45.54" y="0" dx="2.3" dy="10" layer="1"/>
 <smd name="27" x="49.5" y="0" dx="2.3" dy="10" layer="1"/>
 <smd name="28" x="53.46" y="0" dx="2.3" dy="10" layer="1"/>
-<rectangle x1="-57.4" y1="-5.5" x2="57.4" y2="5" layer="29"/>
 <smd name="7" x="-29.55" y="0" dx="2.3" dy="10" layer="1"/>
 </package>
 <package name="JAMMA_HORIZ_BOTTOM">
@@ -3533,7 +3532,6 @@ To solder a straight connector used originally with wires.</description>
 <smd name="_D" x="45.54" y="0" dx="2.3" dy="10" layer="16"/>
 <smd name="_E" x="49.5" y="0" dx="2.3" dy="10" layer="16"/>
 <smd name="_F" x="53.46" y="0" dx="2.3" dy="10" layer="16"/>
-<rectangle x1="-57.4" y1="-5.5" x2="57.4" y2="5" layer="29"/>
 <smd name="H" x="-29.55" y="0" dx="2.3" dy="10" layer="16"/>
 </package>
 </packages>
