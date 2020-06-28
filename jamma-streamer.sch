@@ -241,290 +241,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
-<library name="linear" urn="urn:adsk.eagle:library:262">
-<description>&lt;b&gt;Linear Devices&lt;/b&gt;&lt;p&gt;
-Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="TO92" urn="urn:adsk.eagle:footprint:16150/1" library_version="2">
-<description>&lt;b&gt;TO-92&lt;/b&gt;</description>
-<wire x1="-2.095" y1="-1.651" x2="-0.7869" y2="2.5484" width="0.1524" layer="21" curve="-111.097684"/>
-<wire x1="0.7869" y1="2.5484" x2="2.095" y2="-1.651" width="0.1524" layer="21" curve="-111.097684"/>
-<wire x1="-2.095" y1="-1.651" x2="2.095" y2="-1.651" width="0.1524" layer="21"/>
-<wire x1="-2.254" y1="-0.254" x2="-0.286" y2="-0.254" width="0.1524" layer="51"/>
-<wire x1="-2.655" y1="-0.254" x2="-2.254" y2="-0.254" width="0.1524" layer="21"/>
-<wire x1="-0.286" y1="-0.254" x2="0.286" y2="-0.254" width="0.1524" layer="21"/>
-<wire x1="2.254" y1="-0.254" x2="2.655" y2="-0.254" width="0.1524" layer="21"/>
-<wire x1="0.286" y1="-0.254" x2="2.254" y2="-0.254" width="0.1524" layer="51"/>
-<wire x1="-0.7864" y1="2.5484" x2="0.7864" y2="2.5484" width="0.1524" layer="51" curve="-34.298964"/>
-<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="0" y="1.905" drill="0.8128" shape="octagon"/>
-<pad name="3" x="1.27" y="0" drill="0.8128" shape="octagon"/>
-<text x="2.413" y="1.651" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="2.921" y="-1.27" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-</package>
-<package name="TO220H" urn="urn:adsk.eagle:footprint:16151/1" library_version="2">
-<description>&lt;b&gt;TO-220&lt;/b&gt;</description>
-<wire x1="-5.207" y1="-7.62" x2="5.207" y2="-7.62" width="0.1524" layer="21"/>
-<wire x1="5.207" y1="8.255" x2="-5.207" y2="8.255" width="0.1524" layer="21"/>
-<wire x1="5.207" y1="-7.62" x2="5.207" y2="4.826" width="0.1524" layer="21"/>
-<wire x1="5.207" y1="4.826" x2="4.318" y2="4.826" width="0.1524" layer="21"/>
-<wire x1="4.318" y1="4.826" x2="4.318" y2="6.35" width="0.1524" layer="21"/>
-<wire x1="4.318" y1="6.35" x2="5.207" y2="6.35" width="0.1524" layer="21"/>
-<wire x1="5.207" y1="6.35" x2="5.207" y2="8.255" width="0.1524" layer="21"/>
-<wire x1="-5.207" y1="-7.62" x2="-5.207" y2="4.826" width="0.1524" layer="21"/>
-<wire x1="-5.207" y1="4.826" x2="-4.318" y2="4.826" width="0.1524" layer="21"/>
-<wire x1="-4.318" y1="4.826" x2="-4.318" y2="6.35" width="0.1524" layer="21"/>
-<wire x1="-4.318" y1="6.35" x2="-5.207" y2="6.35" width="0.1524" layer="21"/>
-<wire x1="-5.207" y1="6.35" x2="-5.207" y2="8.255" width="0.1524" layer="21"/>
-<wire x1="-4.572" y1="-6.985" x2="4.572" y2="-6.985" width="0.0508" layer="21"/>
-<wire x1="4.572" y1="1.27" x2="4.572" y2="-6.985" width="0.0508" layer="21"/>
-<wire x1="4.572" y1="1.27" x2="-4.572" y2="1.27" width="0.0508" layer="21"/>
-<wire x1="-4.572" y1="-6.985" x2="-4.572" y2="1.27" width="0.0508" layer="21"/>
-<circle x="0" y="4.826" radius="1.8034" width="0.1524" layer="21"/>
-<circle x="0" y="4.826" radius="2.54" width="0" layer="43"/>
-<circle x="0" y="4.826" radius="2.54" width="0" layer="42"/>
-<pad name="1" x="-2.54" y="-10.16" drill="1.1176" shape="long" rot="R90"/>
-<pad name="2" x="0" y="-10.16" drill="1.1176" shape="long" rot="R90"/>
-<pad name="3" x="2.54" y="-10.16" drill="1.1176" shape="long" rot="R90"/>
-<text x="-5.461" y="-10.922" size="1.778" layer="25" ratio="10" rot="R90">&gt;NAME</text>
-<text x="7.366" y="-11.049" size="1.778" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
-<rectangle x1="2.159" y1="-11.049" x2="2.921" y2="-10.414" layer="21"/>
-<rectangle x1="-0.381" y1="-11.049" x2="0.381" y2="-10.414" layer="21"/>
-<rectangle x1="-2.921" y1="-11.049" x2="-2.159" y2="-10.414" layer="21"/>
-<rectangle x1="-3.175" y1="-10.414" x2="-1.905" y2="-7.62" layer="21"/>
-<rectangle x1="-0.635" y1="-10.414" x2="0.635" y2="-7.62" layer="21"/>
-<rectangle x1="1.905" y1="-10.414" x2="3.175" y2="-7.62" layer="21"/>
-<hole x="0" y="4.826" drill="3.302"/>
-</package>
-<package name="TO39" urn="urn:adsk.eagle:footprint:16152/1" library_version="2">
-<description>&lt;b&gt;Metal Can Package&lt;/b&gt;</description>
-<wire x1="-4.0386" y1="-3.5306" x2="-3.5052" y2="-2.9972" width="0.1524" layer="21"/>
-<wire x1="-2.9718" y1="-3.5306" x2="-3.5052" y2="-4.064" width="0.1524" layer="21"/>
-<wire x1="-3.5052" y1="-4.064" x2="-4.0386" y2="-3.5306" width="0.1524" layer="21"/>
-<circle x="0" y="0" radius="4.572" width="0.1524" layer="21"/>
-<circle x="0" y="0" radius="3.8608" width="0.0508" layer="21"/>
-<pad name="1" x="0" y="-2.54" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="3" x="0" y="2.54" drill="0.8128" shape="octagon"/>
-<text x="-2.794" y="4.826" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-3.302" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-</package>
-<package name="TO252" urn="urn:adsk.eagle:footprint:16153/1" library_version="2">
-<description>&lt;b&gt;SMALL OUTLINE TRANSISTOR&lt;/b&gt;&lt;p&gt;
-TS-003</description>
-<wire x1="3.2766" y1="3.8354" x2="3.277" y2="-2.159" width="0.2032" layer="21"/>
-<wire x1="3.277" y1="-2.159" x2="-3.277" y2="-2.159" width="0.2032" layer="21"/>
-<wire x1="-3.277" y1="-2.159" x2="-3.2766" y2="3.8354" width="0.2032" layer="21"/>
-<wire x1="-3.277" y1="3.835" x2="3.2774" y2="3.8346" width="0.2032" layer="51"/>
-<wire x1="-2.5654" y1="3.937" x2="-2.5654" y2="4.6482" width="0.2032" layer="51"/>
-<wire x1="-2.5654" y1="4.6482" x2="-2.1082" y2="5.1054" width="0.2032" layer="51"/>
-<wire x1="-2.1082" y1="5.1054" x2="2.1082" y2="5.1054" width="0.2032" layer="51"/>
-<wire x1="2.1082" y1="5.1054" x2="2.5654" y2="4.6482" width="0.2032" layer="51"/>
-<wire x1="2.5654" y1="4.6482" x2="2.5654" y2="3.937" width="0.2032" layer="51"/>
-<wire x1="2.5654" y1="3.937" x2="-2.5654" y2="3.937" width="0.2032" layer="51"/>
-<smd name="3" x="0" y="2.5" dx="5.4" dy="6.2" layer="1"/>
-<smd name="1" x="-2.28" y="-4.8" dx="1" dy="1.6" layer="1"/>
-<smd name="2" x="2.28" y="-4.8" dx="1" dy="1.6" layer="1"/>
-<text x="-3.81" y="-2.54" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="5.08" y="-2.54" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
-<rectangle x1="-2.7178" y1="-5.1562" x2="-1.8542" y2="-2.2606" layer="51"/>
-<rectangle x1="1.8542" y1="-5.1562" x2="2.7178" y2="-2.2606" layer="51"/>
-<rectangle x1="-0.4318" y1="-3.0226" x2="0.4318" y2="-2.2606" layer="21"/>
-<polygon width="0.1998" layer="51">
-<vertex x="-2.5654" y="3.937"/>
-<vertex x="-2.5654" y="4.6482"/>
-<vertex x="-2.1082" y="5.1054"/>
-<vertex x="2.1082" y="5.1054"/>
-<vertex x="2.5654" y="4.6482"/>
-<vertex x="2.5654" y="3.937"/>
-</polygon>
-</package>
-<package name="TO220V" urn="urn:adsk.eagle:footprint:16154/1" library_version="2">
-<description>&lt;b&gt;TO 200 vertical&lt;/b&gt;</description>
-<wire x1="5.08" y1="-1.143" x2="4.953" y2="-4.064" width="0.127" layer="21"/>
-<wire x1="4.699" y1="-4.318" x2="4.953" y2="-4.064" width="0.127" layer="21"/>
-<wire x1="4.699" y1="-4.318" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
-<wire x1="-4.953" y1="-4.064" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
-<wire x1="-4.953" y1="-4.064" x2="-5.08" y2="-1.143" width="0.127" layer="21"/>
-<circle x="-4.4958" y="-3.7084" radius="0.254" width="0.127" layer="21"/>
-<pad name="1" x="-2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<pad name="2" x="0" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<pad name="3" x="2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<text x="-5.08" y="-6.0452" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-5.08" y="-7.62" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-3.175" y="-3.175" size="1.27" layer="51" ratio="10">1</text>
-<text x="-0.635" y="-3.175" size="1.27" layer="51" ratio="10">2</text>
-<text x="1.905" y="-3.175" size="1.27" layer="51" ratio="10">3</text>
-<rectangle x1="-5.334" y1="-0.762" x2="5.334" y2="0" layer="21"/>
-<rectangle x1="-5.334" y1="-1.27" x2="-3.429" y2="-0.762" layer="21"/>
-<rectangle x1="-1.651" y1="-1.27" x2="-0.889" y2="-0.762" layer="21"/>
-<rectangle x1="-3.429" y1="-1.27" x2="-1.651" y2="-0.762" layer="51"/>
-<rectangle x1="0.889" y1="-1.27" x2="1.651" y2="-0.762" layer="21"/>
-<rectangle x1="3.429" y1="-1.27" x2="5.334" y2="-0.762" layer="21"/>
-<rectangle x1="-0.889" y1="-1.27" x2="0.889" y2="-0.762" layer="51"/>
-<rectangle x1="1.651" y1="-1.27" x2="3.429" y2="-0.762" layer="51"/>
-</package>
-</packages>
-<packages3d>
-<package3d name="TO92" urn="urn:adsk.eagle:package:16416/2" type="model" library_version="2">
-<description>TO-92</description>
-</package3d>
-<package3d name="TO220H" urn="urn:adsk.eagle:package:16414/1" type="box" library_version="2">
-<description>TO-220</description>
-</package3d>
-<package3d name="TO39" urn="urn:adsk.eagle:package:16419/1" type="box" library_version="2">
-<description>Metal Can Package</description>
-</package3d>
-<package3d name="TO252" urn="urn:adsk.eagle:package:16415/2" type="model" library_version="2">
-<description>SMALL OUTLINE TRANSISTOR
-TS-003</description>
-</package3d>
-<package3d name="TO220V" urn="urn:adsk.eagle:package:16417/1" type="box" library_version="2">
-<description>TO 200 vertical</description>
-</package3d>
-</packages3d>
-<symbols>
-<symbol name="78XX" urn="urn:adsk.eagle:symbol:16149/1" library_version="2">
-<wire x1="-7.62" y1="-5.08" x2="7.62" y2="-5.08" width="0.4064" layer="94"/>
-<wire x1="7.62" y1="-5.08" x2="7.62" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="7.62" y1="2.54" x2="-7.62" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="-7.62" y1="2.54" x2="-7.62" y2="-5.08" width="0.4064" layer="94"/>
-<text x="-7.62" y="5.715" size="1.778" layer="95">&gt;NAME</text>
-<text x="-7.62" y="3.175" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-2.032" y="-4.318" size="1.524" layer="95">GND</text>
-<pin name="VI" x="-10.16" y="0" length="short" direction="in"/>
-<pin name="GND" x="0" y="-7.62" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="VO" x="10.16" y="0" length="short" direction="pas" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="78*" urn="urn:adsk.eagle:component:16686/3" prefix="IC" library_version="2">
-<description>Positive &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;&lt;p&gt;
-Source:&lt;br&gt;
-http://cache.national.com/ds/LM/LM78L05.pdf&lt;br&gt;
-http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
-<gates>
-<gate name="A1" symbol="78XX" x="0" y="0"/>
-</gates>
-<devices>
-<device name="Z" package="TO92">
-<connects>
-<connect gate="A1" pin="GND" pad="2"/>
-<connect gate="A1" pin="VI" pad="3"/>
-<connect gate="A1" pin="VO" pad="1"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16416/2"/>
-</package3dinstances>
-<technologies>
-<technology name="L05"/>
-<technology name="L08"/>
-<technology name="L12"/>
-<technology name="L15"/>
-<technology name="L18"/>
-<technology name="L24"/>
-</technologies>
-</device>
-<device name="T" package="TO220H">
-<connects>
-<connect gate="A1" pin="GND" pad="2"/>
-<connect gate="A1" pin="VI" pad="1"/>
-<connect gate="A1" pin="VO" pad="3"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16414/1"/>
-</package3dinstances>
-<technologies>
-<technology name="05"/>
-<technology name="06"/>
-<technology name="08"/>
-<technology name="12"/>
-<technology name="15"/>
-<technology name="18"/>
-<technology name="24"/>
-</technologies>
-</device>
-<device name="H" package="TO39">
-<connects>
-<connect gate="A1" pin="GND" pad="3"/>
-<connect gate="A1" pin="VI" pad="1"/>
-<connect gate="A1" pin="VO" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16419/1"/>
-</package3dinstances>
-<technologies>
-<technology name="05"/>
-<technology name="06"/>
-<technology name="08"/>
-<technology name="12"/>
-<technology name="15"/>
-<technology name="18"/>
-<technology name="24"/>
-</technologies>
-</device>
-<device name="L" package="TO92">
-<connects>
-<connect gate="A1" pin="GND" pad="2"/>
-<connect gate="A1" pin="VI" pad="3"/>
-<connect gate="A1" pin="VO" pad="1"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16416/2"/>
-</package3dinstances>
-<technologies>
-<technology name="05"/>
-<technology name="06"/>
-<technology name="08"/>
-<technology name="12"/>
-<technology name="15"/>
-<technology name="18"/>
-<technology name="24"/>
-</technologies>
-</device>
-<device name="DT" package="TO252">
-<connects>
-<connect gate="A1" pin="GND" pad="3"/>
-<connect gate="A1" pin="VI" pad="1"/>
-<connect gate="A1" pin="VO" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16415/2"/>
-</package3dinstances>
-<technologies>
-<technology name="05"/>
-<technology name="06"/>
-<technology name="08"/>
-<technology name="12"/>
-<technology name="15"/>
-<technology name="18"/>
-<technology name="24"/>
-</technologies>
-</device>
-<device name="TV" package="TO220V">
-<connects>
-<connect gate="A1" pin="GND" pad="2"/>
-<connect gate="A1" pin="VI" pad="1"/>
-<connect gate="A1" pin="VO" pad="3"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16417/1"/>
-</package3dinstances>
-<technologies>
-<technology name="05"/>
-<technology name="12"/>
-<technology name="15"/>
-<technology name="18"/>
-<technology name="24"/>
-<technology name="6"/>
-<technology name="8"/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-Connectors" urn="urn:adsk.eagle:library:513">
 <description>&lt;h3&gt;SparkFun Connectors&lt;/h3&gt;
 This library contains electrically-functional connectors. 
@@ -1041,195 +757,6 @@ CONN_03x2
 <technology name="">
 <attribute name="PROD_ID" value="CONN-11566"/>
 <attribute name="VALUE" value="FEMALE 2x3"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
-<library name="SparkFun-IC-Comms" urn="urn:adsk.eagle:library:521">
-<description>&lt;h3&gt;SparkFun Communication ICs&lt;/h3&gt;
-This is the communications library, which contains things that exist on wired busses.  This includes USB to serial conversion ICs, like the FTDI line, plus high speed line drivers, level shifters, bus drivers, CAN transceivers and ethernet PHYs.
-&lt;br&gt;
-&lt;br&gt;
-We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application. 
-&lt;br&gt;
-&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
-&lt;br&gt;
-&lt;br&gt;
-&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
-&lt;br&gt;
-&lt;br&gt;
-You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
-<packages>
-<package name="SSOP28DB" urn="urn:adsk.eagle:footprint:38688/1" library_version="1">
-<description>&lt;h3&gt;Small Shrink Outline Package - 28 DB&lt;/h3&gt;
-&lt;p&gt;Specifications:
-&lt;ul&gt;&lt;li&gt;Pin count: 28&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;FT232RL&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<wire x1="5.2" y1="2.925" x2="5.2" y2="-2.925" width="0.1524" layer="21"/>
-<wire x1="-5.2" y1="-2.925" x2="-5.2" y2="2.925" width="0.1524" layer="21"/>
-<wire x1="-5.038" y1="2.763" x2="5.038" y2="2.763" width="0.0508" layer="27"/>
-<wire x1="5.038" y1="2.763" x2="5.038" y2="-2.763" width="0.0508" layer="27"/>
-<wire x1="5.038" y1="-2.763" x2="-5.038" y2="-2.763" width="0.0508" layer="27"/>
-<wire x1="-5.038" y1="-2.763" x2="-5.038" y2="2.763" width="0.0508" layer="27"/>
-<wire x1="-5.2" y1="2.925" x2="-4.6" y2="2.925" width="0.1524" layer="21"/>
-<wire x1="5.2" y1="2.925" x2="4.6" y2="2.925" width="0.1524" layer="21"/>
-<wire x1="-5.2" y1="-2.925" x2="-4.6" y2="-2.925" width="0.1524" layer="21"/>
-<wire x1="5.2" y1="-2.925" x2="4.6" y2="-2.925" width="0.1524" layer="21"/>
-<smd name="28" x="-4.225" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="27" x="-3.575" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="26" x="-2.925" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="25" x="-2.275" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="24" x="-1.625" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="23" x="-0.975" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="22" x="-0.325" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="20" x="0.975" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="21" x="0.325" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="19" x="1.625" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="18" x="2.275" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="17" x="2.925" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="16" x="3.575" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="15" x="4.225" y="3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="1" x="-4.225" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="2" x="-3.575" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="3" x="-2.925" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="4" x="-2.275" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="5" x="-1.625" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="6" x="-0.975" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="7" x="-0.325" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="8" x="0.325" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="9" x="0.975" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="10" x="1.625" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="11" x="2.275" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="12" x="2.925" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="13" x="3.575" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<smd name="14" x="4.225" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
-<rectangle x1="-4.3875" y1="2.9656" x2="-4.0625" y2="3.9" layer="51"/>
-<rectangle x1="-4.3875" y1="-3.9" x2="-4.0625" y2="-2.9656" layer="51"/>
-<rectangle x1="-3.7375" y1="-3.9" x2="-3.4125" y2="-2.9656" layer="51"/>
-<rectangle x1="-3.0875" y1="-3.9" x2="-2.7625" y2="-2.9656" layer="51"/>
-<rectangle x1="-3.7375" y1="2.9656" x2="-3.4125" y2="3.9" layer="51"/>
-<rectangle x1="-3.0875" y1="2.9656" x2="-2.7625" y2="3.9" layer="51"/>
-<rectangle x1="-2.4375" y1="2.9656" x2="-2.1125" y2="3.9" layer="51"/>
-<rectangle x1="-1.7875" y1="2.9656" x2="-1.4625" y2="3.9" layer="51"/>
-<rectangle x1="-1.1375" y1="2.9656" x2="-0.8125" y2="3.9" layer="51"/>
-<rectangle x1="-0.4875" y1="2.9656" x2="-0.1625" y2="3.9" layer="51"/>
-<rectangle x1="0.1625" y1="2.9656" x2="0.4875" y2="3.9" layer="51"/>
-<rectangle x1="0.8125" y1="2.9656" x2="1.1375" y2="3.9" layer="51"/>
-<rectangle x1="1.4625" y1="2.9656" x2="1.7875" y2="3.9" layer="51"/>
-<rectangle x1="2.1125" y1="2.9656" x2="2.4375" y2="3.9" layer="51"/>
-<rectangle x1="2.7625" y1="2.9656" x2="3.0875" y2="3.9" layer="51"/>
-<rectangle x1="3.4125" y1="2.9656" x2="3.7375" y2="3.9" layer="51"/>
-<rectangle x1="4.0625" y1="2.9656" x2="4.3875" y2="3.9" layer="51"/>
-<rectangle x1="-2.4375" y1="-3.9" x2="-2.1125" y2="-2.9656" layer="51"/>
-<rectangle x1="-1.7875" y1="-3.9" x2="-1.4625" y2="-2.9656" layer="51"/>
-<rectangle x1="-1.1375" y1="-3.9" x2="-0.8125" y2="-2.9656" layer="51"/>
-<rectangle x1="-0.4875" y1="-3.9" x2="-0.1625" y2="-2.9656" layer="51"/>
-<rectangle x1="0.1625" y1="-3.9" x2="0.4875" y2="-2.9656" layer="51"/>
-<rectangle x1="0.8125" y1="-3.9" x2="1.1375" y2="-2.9656" layer="51"/>
-<rectangle x1="1.4625" y1="-3.9" x2="1.7875" y2="-2.9656" layer="51"/>
-<rectangle x1="2.1125" y1="-3.9" x2="2.4375" y2="-2.9656" layer="51"/>
-<rectangle x1="2.7625" y1="-3.9" x2="3.0875" y2="-2.9656" layer="51"/>
-<rectangle x1="3.4125" y1="-3.9" x2="3.7375" y2="-2.9656" layer="51"/>
-<rectangle x1="4.0625" y1="-3.9" x2="4.3875" y2="-2.9656" layer="51"/>
-<circle x="-5" y="-3.6" radius="0.3592" width="0" layer="21"/>
-<text x="-5.55625" y="0" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center">&gt;NAME</text>
-<text x="6.19125" y="0" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="bottom-center">&gt;VALUE</text>
-</package>
-</packages>
-<packages3d>
-<package3d name="SSOP28DB" urn="urn:adsk.eagle:package:38718/1" type="box" library_version="1">
-<description>Small Shrink Outline Package - 28 DB
-Specifications:
-Pin count: 28
-
-Example device(s):
-FT232RL
-</description>
-</package3d>
-</packages3d>
-<symbols>
-<symbol name="FT232R-BASIC" urn="urn:adsk.eagle:symbol:38689/1" library_version="1">
-<wire x1="-10.16" y1="15.24" x2="10.16" y2="15.24" width="0.254" layer="94"/>
-<wire x1="10.16" y1="15.24" x2="10.16" y2="-17.78" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-17.78" x2="-10.16" y2="-17.78" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-17.78" x2="-10.16" y2="15.24" width="0.254" layer="94"/>
-<text x="-7.62" y="15.748" size="1.778" layer="95">&gt;NAME</text>
-<text x="-7.62" y="-20.32" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="3V3OUT" x="-15.24" y="2.54" length="middle" direction="out"/>
-<pin name="USBDM" x="-15.24" y="12.7" length="middle"/>
-<pin name="USBDP" x="-15.24" y="10.16" length="middle"/>
-<pin name="GND1" x="-15.24" y="-10.16" length="middle" direction="pwr"/>
-<pin name="GND2" x="-15.24" y="-12.7" length="middle" direction="pwr"/>
-<pin name="GND3" x="-15.24" y="-15.24" length="middle" direction="pwr"/>
-<pin name="TXD" x="15.24" y="12.7" length="middle" direction="out" rot="R180"/>
-<pin name="RXD" x="15.24" y="10.16" length="middle" direction="in" rot="R180"/>
-<pin name="VCCIO" x="-15.24" y="0" length="middle" direction="pwr"/>
-<pin name="AGND" x="-15.24" y="-7.62" length="middle" direction="pwr"/>
-<pin name="TEST" x="-15.24" y="-5.08" length="middle" direction="in"/>
-<pin name="VCC" x="-15.24" y="5.08" length="middle" direction="pwr"/>
-<pin name="TXLED" x="15.24" y="-12.7" length="middle" function="dot" rot="R180"/>
-<pin name="RXLED" x="15.24" y="-15.24" length="middle" function="dot" rot="R180"/>
-<pin name="RTS" x="15.24" y="2.54" length="middle" function="dot" rot="R180"/>
-<pin name="CTS" x="15.24" y="5.08" length="middle" function="dot" rot="R180"/>
-<pin name="DTR" x="15.24" y="0" length="middle" function="dot" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="FT232RL-BASIC" urn="urn:adsk.eagle:component:38736/1" prefix="U" library_version="1">
-<description>&lt;h3&gt;FT232RL USB UART&lt;/h3&gt;
-&lt;p&gt;This is the simplified version of the FT232RL unit. Only what you need, nothing you don't.&lt;/p&gt;
-&lt;p&gt;FT232RL 4&lt;sup&gt;th&lt;/sup&gt; Generation USB UART (USB &amp;lt;-&amp;gt; Serial) Controller.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.sparkfun.com/datasheets/IC/FT232R_v104.pdf"&gt;Datasheet&lt;/a&gt;&lt;/p&gt;
-&lt;h4&gt;SparkFun Products&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/650"&gt;Component&lt;/a&gt; (COM-00650)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/12097"&gt;SparkFun RedBot Mainboard&lt;/a&gt; (ROB-12097)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/9716"&gt;SparkFun FTDI Basic Breakout - 5V&lt;/a&gt; (DEV-09716)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/9873"&gt;SparkFun FTDI Basic Breakout - 3.3V&lt;/a&gt; (DEV-09873)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/12942"&gt;Bus Pirate - v3.6a&lt;/a&gt; (TOL-12942)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/12731"&gt;SparkFun USB to Serial Breakout - FT232RL&lt;/a&gt; (BOB-12731)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/11888"&gt;SparkFun PicoBoard&lt;/a&gt; (WIG-11888)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/9963"&gt;SparkFun RFID USB Reader&lt;/a&gt; (SEN-09963)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/10275"&gt;LilyPad FTDI Basic Breakout - 5V&lt;/a&gt; (DEV-10275)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/13899"&gt;SparkFun Stepoko&lt;/a&gt; (ROB-13899)&lt;/li&gt;
-&lt;/ul&gt;</description>
-<gates>
-<gate name="G$1" symbol="FT232R-BASIC" x="0" y="0"/>
-</gates>
-<devices>
-<device name="SSOP" package="SSOP28DB">
-<connects>
-<connect gate="G$1" pin="3V3OUT" pad="17"/>
-<connect gate="G$1" pin="AGND" pad="25"/>
-<connect gate="G$1" pin="CTS" pad="11"/>
-<connect gate="G$1" pin="DTR" pad="2"/>
-<connect gate="G$1" pin="GND1" pad="7"/>
-<connect gate="G$1" pin="GND2" pad="18"/>
-<connect gate="G$1" pin="GND3" pad="21"/>
-<connect gate="G$1" pin="RTS" pad="3"/>
-<connect gate="G$1" pin="RXD" pad="5"/>
-<connect gate="G$1" pin="RXLED" pad="22"/>
-<connect gate="G$1" pin="TEST" pad="26"/>
-<connect gate="G$1" pin="TXD" pad="1"/>
-<connect gate="G$1" pin="TXLED" pad="23"/>
-<connect gate="G$1" pin="USBDM" pad="16"/>
-<connect gate="G$1" pin="USBDP" pad="15"/>
-<connect gate="G$1" pin="VCC" pad="20"/>
-<connect gate="G$1" pin="VCCIO" pad="4"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:38718/1"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="IC-00870"/>
-<attribute name="VALUE" value="FT232RL" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -2765,7 +2292,7 @@ https://b2b.harting.com/files/download/PRD/PDF_TS/0956152X613_100510341DRW001D.p
 <vertex x="-2.5" y="-1.6"/>
 </polygon>
 </package>
-<package name="KEMET-C1206C334M5RAC">
+<package name="KEMET-C1206C220K3HACTU">
 <smd name="1" x="-1.6" y="0" dx="1.35" dy="1.9" layer="1"/>
 <smd name="2" x="1.6" y="0" dx="1.35" dy="1.9" layer="1"/>
 <text x="-3.2" y="2.184" size="1.27" layer="21">&gt;Name</text>
@@ -3534,6 +3061,84 @@ To solder a straight connector used originally with wires.</description>
 <smd name="_F" x="53.46" y="0" dx="2.3" dy="10" layer="16"/>
 <smd name="H" x="-29.55" y="0" dx="2.3" dy="10" layer="16"/>
 </package>
+<package name="SSOP28DB" urn="urn:adsk.eagle:footprint:38688/1">
+<description>&lt;h3&gt;Small Shrink Outline Package - 28 DB&lt;/h3&gt;
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count: 28&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;FT232RL&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<wire x1="5.2" y1="2.925" x2="5.2" y2="-2.925" width="0.1524" layer="21"/>
+<wire x1="-5.2" y1="-2.925" x2="-5.2" y2="2.925" width="0.1524" layer="21"/>
+<wire x1="-5.038" y1="2.763" x2="5.038" y2="2.763" width="0.0508" layer="27"/>
+<wire x1="5.038" y1="2.763" x2="5.038" y2="-2.763" width="0.0508" layer="27"/>
+<wire x1="5.038" y1="-2.763" x2="-5.038" y2="-2.763" width="0.0508" layer="27"/>
+<wire x1="-5.038" y1="-2.763" x2="-5.038" y2="2.763" width="0.0508" layer="27"/>
+<wire x1="-5.2" y1="2.925" x2="-4.6" y2="2.925" width="0.1524" layer="21"/>
+<wire x1="5.2" y1="2.925" x2="4.6" y2="2.925" width="0.1524" layer="21"/>
+<wire x1="-5.2" y1="-2.925" x2="-4.6" y2="-2.925" width="0.1524" layer="21"/>
+<wire x1="5.2" y1="-2.925" x2="4.6" y2="-2.925" width="0.1524" layer="21"/>
+<smd name="28" x="-4.225" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="27" x="-3.575" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="26" x="-2.925" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="25" x="-2.275" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="24" x="-1.625" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="23" x="-0.975" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="22" x="-0.325" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="20" x="0.975" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="21" x="0.325" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="19" x="1.625" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="18" x="2.275" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="17" x="2.925" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="16" x="3.575" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="15" x="4.225" y="3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="1" x="-4.225" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="2" x="-3.575" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="3" x="-2.925" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="4" x="-2.275" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="5" x="-1.625" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="6" x="-0.975" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="7" x="-0.325" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="8" x="0.325" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="9" x="0.975" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="10" x="1.625" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="11" x="2.275" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="12" x="2.925" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="13" x="3.575" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<smd name="14" x="4.225" y="-3.656" dx="0.348" dy="1.397" layer="1"/>
+<rectangle x1="-4.3875" y1="2.9656" x2="-4.0625" y2="3.9" layer="51"/>
+<rectangle x1="-4.3875" y1="-3.9" x2="-4.0625" y2="-2.9656" layer="51"/>
+<rectangle x1="-3.7375" y1="-3.9" x2="-3.4125" y2="-2.9656" layer="51"/>
+<rectangle x1="-3.0875" y1="-3.9" x2="-2.7625" y2="-2.9656" layer="51"/>
+<rectangle x1="-3.7375" y1="2.9656" x2="-3.4125" y2="3.9" layer="51"/>
+<rectangle x1="-3.0875" y1="2.9656" x2="-2.7625" y2="3.9" layer="51"/>
+<rectangle x1="-2.4375" y1="2.9656" x2="-2.1125" y2="3.9" layer="51"/>
+<rectangle x1="-1.7875" y1="2.9656" x2="-1.4625" y2="3.9" layer="51"/>
+<rectangle x1="-1.1375" y1="2.9656" x2="-0.8125" y2="3.9" layer="51"/>
+<rectangle x1="-0.4875" y1="2.9656" x2="-0.1625" y2="3.9" layer="51"/>
+<rectangle x1="0.1625" y1="2.9656" x2="0.4875" y2="3.9" layer="51"/>
+<rectangle x1="0.8125" y1="2.9656" x2="1.1375" y2="3.9" layer="51"/>
+<rectangle x1="1.4625" y1="2.9656" x2="1.7875" y2="3.9" layer="51"/>
+<rectangle x1="2.1125" y1="2.9656" x2="2.4375" y2="3.9" layer="51"/>
+<rectangle x1="2.7625" y1="2.9656" x2="3.0875" y2="3.9" layer="51"/>
+<rectangle x1="3.4125" y1="2.9656" x2="3.7375" y2="3.9" layer="51"/>
+<rectangle x1="4.0625" y1="2.9656" x2="4.3875" y2="3.9" layer="51"/>
+<rectangle x1="-2.4375" y1="-3.9" x2="-2.1125" y2="-2.9656" layer="51"/>
+<rectangle x1="-1.7875" y1="-3.9" x2="-1.4625" y2="-2.9656" layer="51"/>
+<rectangle x1="-1.1375" y1="-3.9" x2="-0.8125" y2="-2.9656" layer="51"/>
+<rectangle x1="-0.4875" y1="-3.9" x2="-0.1625" y2="-2.9656" layer="51"/>
+<rectangle x1="0.1625" y1="-3.9" x2="0.4875" y2="-2.9656" layer="51"/>
+<rectangle x1="0.8125" y1="-3.9" x2="1.1375" y2="-2.9656" layer="51"/>
+<rectangle x1="1.4625" y1="-3.9" x2="1.7875" y2="-2.9656" layer="51"/>
+<rectangle x1="2.1125" y1="-3.9" x2="2.4375" y2="-2.9656" layer="51"/>
+<rectangle x1="2.7625" y1="-3.9" x2="3.0875" y2="-2.9656" layer="51"/>
+<rectangle x1="3.4125" y1="-3.9" x2="3.7375" y2="-2.9656" layer="51"/>
+<rectangle x1="4.0625" y1="-3.9" x2="4.3875" y2="-2.9656" layer="51"/>
+<circle x="-5" y="-3.6" radius="0.3592" width="0" layer="21"/>
+<text x="-5.55625" y="0" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center">&gt;NAME</text>
+<text x="6.19125" y="0" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="bottom-center">&gt;VALUE</text>
+</package>
 </packages>
 <packages3d>
 <package3d name="HC49US" urn="urn:adsk.eagle:package:37515/1" type="box">
@@ -3548,6 +3153,18 @@ Example Datasheet</description>
 Example: 16MHz SMD Crystal (Datasheet)</description>
 <packageinstances>
 <packageinstance name="CRYSTAL-SMD-5X3.2-4PAD"/>
+</packageinstances>
+</package3d>
+<package3d name="SSOP28DB" urn="urn:adsk.eagle:package:38718/1" type="box">
+<description>Small Shrink Outline Package - 28 DB
+Specifications:
+Pin count: 28
+
+Example device(s):
+FT232RL
+</description>
+<packageinstances>
+<packageinstance name="SSOP28DB"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -4176,6 +3793,31 @@ KEL 1168-056-009&lt;br&gt;</description>
 <pin name="D+" x="-10.16" y="0" visible="pin" length="middle"/>
 <pin name="GND" x="-10.16" y="-2.54" visible="pin" length="middle" direction="pwr"/>
 </symbol>
+<symbol name="FT232R-BASIC">
+<wire x1="-10.16" y1="15.24" x2="10.16" y2="15.24" width="0.254" layer="94"/>
+<wire x1="10.16" y1="15.24" x2="10.16" y2="-17.78" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-17.78" x2="-10.16" y2="-17.78" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-17.78" x2="-10.16" y2="15.24" width="0.254" layer="94"/>
+<text x="-7.62" y="15.748" size="1.778" layer="95">&gt;NAME</text>
+<text x="-7.62" y="-20.32" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="3V3OUT" x="-15.24" y="2.54" length="middle" direction="out"/>
+<pin name="USBDM" x="-15.24" y="12.7" length="middle"/>
+<pin name="USBDP" x="-15.24" y="10.16" length="middle"/>
+<pin name="GND1" x="-15.24" y="-10.16" length="middle" direction="pwr"/>
+<pin name="GND2" x="-15.24" y="-12.7" length="middle" direction="pwr"/>
+<pin name="GND3" x="-15.24" y="-15.24" length="middle" direction="pwr"/>
+<pin name="TXD" x="15.24" y="12.7" length="middle" direction="out" rot="R180"/>
+<pin name="RXD" x="15.24" y="10.16" length="middle" direction="in" rot="R180"/>
+<pin name="VCCIO" x="-15.24" y="0" length="middle" direction="pwr"/>
+<pin name="AGND" x="-15.24" y="-7.62" length="middle" direction="pwr"/>
+<pin name="TEST" x="-15.24" y="-5.08" length="middle" direction="in"/>
+<pin name="VCC" x="-15.24" y="5.08" length="middle" direction="pwr"/>
+<pin name="TXLED" x="15.24" y="-12.7" length="middle" function="dot" rot="R180"/>
+<pin name="RXLED" x="15.24" y="-15.24" length="middle" function="dot" rot="R180"/>
+<pin name="RTS" x="15.24" y="2.54" length="middle" function="dot" rot="R180"/>
+<pin name="CTS" x="15.24" y="5.08" length="middle" function="dot" rot="R180"/>
+<pin name="DTR" x="15.24" y="0" length="middle" function="dot" rot="R180"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="JAMMA_FEMALE_56">
@@ -4243,7 +3885,9 @@ KEL 1168-056-009&lt;br&gt;</description>
 <connect gate="G$1" pin="_D" pad="_D"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_REF" value="798-CR7E-56DA-3.96E"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4364,13 +4008,14 @@ Source: &lt;a href="https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/A
 <attribute name="MANUFACTURER_PART_NUMBER" value="ERJ-14NF2200U" constant="no"/>
 <attribute name="MOUSER_PART_NUMBER" value="667-ERJ-14NF2200U" constant="no"/>
 <attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Panasonic/ERJ-14NF2200U?qs=cYDwVL8Dk%2FntiwgKbjgkoQ%3D%3D" constant="no"/>
+<attribute name="MOUSER_REF" value="667-ERJ-14NF2200U"/>
 </technology>
 </technologies>
 </device>
 </devices>
 </deviceset>
 <deviceset name="TRIMPOT" prefix="R" uservalue="yes">
-<description>Various small potentiometers for "set-and-forget" applications</description>
+<description>Various small potentiometers for set-and-forget applications</description>
 <gates>
 <gate name="R?" symbol="TRIMPOT-1" x="0" y="0"/>
 </gates>
@@ -4405,6 +4050,7 @@ Source: &lt;a href="https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/A
 </connects>
 <technologies>
 <technology name="">
+<attribute name="MOUSER_REF" value="652-3306F-1-102"/>
 <attribute name="PROD_ID" value="RES-08445"/>
 </technology>
 </technologies>
@@ -4481,7 +4127,9 @@ Source: &lt;a href="https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/A
 <connect gate="G$1" pin="9" pad="9"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_REF" value="617-09-56-152-7613"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4509,6 +4157,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <attribute name="MANUFACTURER_NAME" value="NKK Switches" constant="no"/>
 <attribute name="MANUFACTURER_PART_NUMBER" value="SS22SDP2" constant="no"/>
 <attribute name="MOUSER_PART_NUMBER" value="633-SS22SDP2" constant="no"/>
+<attribute name="MOUSER_REF" value="633-SS22SDP2"/>
 </technology>
 </technologies>
 </device>
@@ -4529,7 +4178,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <connect gate="G$1" pin="6" pad="6"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_REF" value="553-TY145P"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4549,10 +4200,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <technologies>
 <technology name="">
 <attribute name="CUI_PURCHASE_URL" value="https://www.cui.com/product/interconnect/audio-connectors/jacks/3.5-mm-jacks/sj1-352xn-series?utm_source=snapeda.com&amp;utm_medium=referral&amp;utm_campaign=snapedaBOM"/>
-<attribute name="DESCRIPTION" value=" SJ1 Series 3.5 mm 12 V Right Angle Through Hole Stereo Audio Jack "/>
+<attribute name="DESCRIPTION" value="SJ1 Series 3.5 mm 12 V Right Angle Through Hole Stereo Audio Jack"/>
 <attribute name="DIGI-KEY_PART_NUMBER" value="CP1-3523N-ND"/>
 <attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.fr/product-detail/en/cui-inc/SJ1-3523N/CP1-3523N-ND/738689?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
 <attribute name="MF" value="CUI Inc."/>
+<attribute name="MOUSER_REF" value="490-SJ1-3523N"/>
 <attribute name="MP" value="SJ1-3523N"/>
 <attribute name="PACKAGE" value="None"/>
 </technology>
@@ -4571,7 +4223,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <connect gate="A" pin="P$2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_REF" value="652-CRM2512AJW103ELF"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4587,7 +4241,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <connect gate="A" pin="P$2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_REF" value="80-C1210C104K4J"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4629,6 +4285,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <technologies>
 <technology name="">
 <attribute name="MANUFACTURER_PART_NUMBER" value="LM358DT" constant="no"/>
+<attribute name="MOUSER_REF" value="595-LM358D"/>
 <attribute name="VENDOR" value="Texas Instruments" constant="no"/>
 </technology>
 </technologies>
@@ -4682,6 +4339,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <technologies>
 <technology name="">
 <attribute name="MANUFACTURER_PART_NUMBER" value="NDT2955" constant="no"/>
+<attribute name="MOUSER_REF" value="512-NDT2955"/>
 <attribute name="VENDOR" value="Fairchild Semiconductor" constant="no"/>
 </technology>
 </technologies>
@@ -4713,7 +4371,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <connect gate="A" pin="P$2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_REF" value="755-RRE07VTM4SFHTR"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4729,7 +4389,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <connect gate="A" pin="P$2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_REF" value="80-C1206X334K5R"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4745,7 +4407,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <connect gate="A" pin="P$2" pad="-"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_REF" value="604-APTD1608LCGCK"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4761,7 +4425,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <connect gate="A" pin="P$2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_REF" value="652-CHP0603FX1001ELF"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4797,6 +4463,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <technologies>
 <technology name="">
 <attribute name="MANUFACTURER_PART_NUMBER" value="LP298133DBVR" constant="no"/>
+<attribute name="MOUSER_REF" value="595-LP2981-33DBVR"/>
 <attribute name="VENDOR" value="Texas Instruments" constant="no"/>
 </technology>
 </technologies>
@@ -4829,7 +4496,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <connect gate="A" pin="P$2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_REF" value="80-C1210C106K8N"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4848,6 +4517,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <technologies>
 <technology name="">
 <attribute name="DATASHEET" value="https://www.mouser.fr/datasheet/2/418/4/NG_DS_1773204-6_A-1533241.pdf"/>
+<attribute name="MOUSER_REF" value="Depends on value" constant="no"/>
 <attribute name="POWER" value="5W"/>
 </technology>
 </technologies>
@@ -4883,6 +4553,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SS22SDP2.pdf"
 <attribute name="AVAILABILITY" value="Unavailable"/>
 <attribute name="DESCRIPTION" value=" Buffer/Converter 6-CH Non-Inverting 3-ST CMOS 16-Pin SOIC "/>
 <attribute name="MF" value="Toshiba Semiconductor"/>
+<attribute name="MOUSER_REF" value="757-74HC4050DBJ"/>
 <attribute name="MP" value="74HC4050D"/>
 <attribute name="PACKAGE" value="SOIC-16 Toshiba"/>
 <attribute name="PRICE" value="None"/>
@@ -4919,6 +4590,7 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <attribute name="MANUFACTURER_PART_NUMBER" value="DM3AT-SF-PEJM5" constant="no"/>
 <attribute name="MOUSER_PART_NUMBER" value="798-DM3AT-SF-PEJM5" constant="no"/>
 <attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Hirose-Connector/DM3AT-SF-PEJM5?qs=LZSZKJVF%252B2WTDKp%252BR7IYAQ%3D%3D" constant="no"/>
+<attribute name="MOUSER_REF" value="798-DM3AT-SF-PEJM5"/>
 </technology>
 </technologies>
 </device>
@@ -4966,10 +4638,9 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 </connects>
 <technologies>
 <technology name="">
-<attribute name="DESCRIPTION" value=" AVR microcontroller; EEPROM: 1024B; SRAM: 2kB; Flash: 32kB; TQFP32 "/>
-<attribute name="DIGI-KEY_PART_NUMBER" value="ATMEGA328PB-AURCT-ND"/>
-<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.fr/product-detail/en/microchip-technology/ATMEGA328PB-AUR/ATMEGA328PB-AURCT-ND/5722706?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
+<attribute name="DESCRIPTION" value="AVR microcontroller - EEPROM: 1024B - SRAM: 2kB - Flash: 32kB - TQFP32 "/>
 <attribute name="MF" value="Microchip"/>
+<attribute name="MOUSER_REF" value="556-ATMEGA328PB-AUR"/>
 <attribute name="MP" value="ATMEGA328PB-AUR"/>
 <attribute name="PACKAGE" value="TQFP-32 Microchip"/>
 </technology>
@@ -5018,6 +4689,7 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="MOUSER_REF" value="815-ABL-16-B1U"/>
 <attribute name="PROD_ID" value="XTAL-08181"/>
 <attribute name="SF_ID" value="COM-00536"/>
 <attribute name="VALUE" value="16MHz"/>
@@ -5026,18 +4698,20 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 </device>
 </devices>
 </deviceset>
-<deviceset name="KEMET-C1206C334M5RAC" prefix="C">
+<deviceset name="KEMET-C1206C220K3HACTU" prefix="C">
 <gates>
 <gate name="A" symbol="CMS-CAPACITOR" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="KEMET-C1206C334M5RAC">
+<device name="" package="KEMET-C1206C220K3HACTU">
 <connects>
 <connect gate="A" pin="P$1" pad="1"/>
 <connect gate="A" pin="P$2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_REF" value="80-C1206C220K3HACTU"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -5065,6 +4739,7 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/te-connectivity-alcoswitch-switches/1825910-7/450-1804-ND/1731414?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
 <attribute name="EU_ROHS_COMPLIANCE" value="Compliant"/>
 <attribute name="MF" value="TE Connectivity"/>
+<attribute name="MOUSER_REF" value="506-FSM4JAH"/>
 <attribute name="MP" value="1825910-7"/>
 <attribute name="PACKAGE" value="None"/>
 <attribute name="TE_PURCHASE_URL" value="https://www.te.com/usa-en/product-1825910-7.html?te_bu=Cor&amp;te_type=disp&amp;te_campaign=seda_glo_cor-seda-global-disp-prtnr-fy19-seda-model-bom-cta_sma-317_1&amp;elqCampaignId=32493"/>
@@ -5126,6 +4801,7 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <technologies>
 <technology name="">
 <attribute name="MANUFACTURER_PART_NUMBER" value="CD74HC165M" constant="no"/>
+<attribute name="MOUSER_REF" value="757-74HC165DBJ"/>
 <attribute name="VENDOR" value="Texas Instruments" constant="no"/>
 </technology>
 </technologies>
@@ -5169,7 +4845,9 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <connect gate="A" pin="P$2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_REF" value="576-1206L050YR"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -5227,6 +4905,7 @@ Source: &lt;a href="https://www.hirose.com/product/en/download_file/key_name/DM3
 <technologies>
 <technology name="">
 <attribute name="MANUFACTURER_PART_NUMBER" value="DS3231SN#T&amp;R" constant="no"/>
+<attribute name="MOUSER_REF" value="700-DS3231SN#T&amp;R-"/>
 <attribute name="VENDOR" value="Maxim Integrated Products" constant="no"/>
 </technology>
 </technologies>
@@ -5279,6 +4958,7 @@ Source: &lt;a href=""&gt; Datasheet &lt;/a&gt;</description>
 <attribute name="MANUFACTURER_PART_NUMBER" value="796136-1" constant="no"/>
 <attribute name="MOUSER_PART_NUMBER" value="571-796136-1" constant="no"/>
 <attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/TE-Connectivity/796136-1?qs=PfIaAWlFPdz%252BdW7QT0YDTw%3D%3D" constant="no"/>
+<attribute name="MOUSER_REF" value="571-796136-1"/>
 </technology>
 </technologies>
 </device>
@@ -5305,6 +4985,7 @@ Source: &lt;a href=""&gt; Datasheet &lt;/a&gt;</description>
 <attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.fr/product-detail/en/te-connectivity-amp-connectors/292304-1/A31725-ND/773785?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
 <attribute name="EU_ROHS_COMPLIANCE" value="Compliant"/>
 <attribute name="MF" value="TE Connectivity"/>
+<attribute name="MOUSER_REF" value="571-292304-1"/>
 <attribute name="MP" value="292304-1"/>
 <attribute name="PACKAGE" value="None"/>
 <attribute name="TE_PURCHASE_URL" value="https://www.te.com/usa-en/product-292304-1.html?te_bu=Cor&amp;te_type=disp&amp;te_campaign=seda_glo_cor-seda-global-disp-prtnr-fy19-seda-model-bom-cta_sma-317_1&amp;elqCampaignId=32493"/>
@@ -5391,6 +5072,61 @@ Source: &lt;a href=""&gt; Datasheet &lt;/a&gt;</description>
 </connects>
 <technologies>
 <technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="FT232RL-BASIC" prefix="U">
+<description>&lt;h3&gt;FT232RL USB UART&lt;/h3&gt;
+&lt;p&gt;This is the simplified version of the FT232RL unit. Only what you need, nothing you don't.&lt;/p&gt;
+&lt;p&gt;FT232RL 4&lt;sup&gt;th&lt;/sup&gt; Generation USB UART (USB &amp;lt;-&amp;gt; Serial) Controller.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.sparkfun.com/datasheets/IC/FT232R_v104.pdf"&gt;Datasheet&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;SparkFun Products&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/650"&gt;Component&lt;/a&gt; (COM-00650)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/12097"&gt;SparkFun RedBot Mainboard&lt;/a&gt; (ROB-12097)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/9716"&gt;SparkFun FTDI Basic Breakout - 5V&lt;/a&gt; (DEV-09716)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/9873"&gt;SparkFun FTDI Basic Breakout - 3.3V&lt;/a&gt; (DEV-09873)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/12942"&gt;Bus Pirate - v3.6a&lt;/a&gt; (TOL-12942)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/12731"&gt;SparkFun USB to Serial Breakout - FT232RL&lt;/a&gt; (BOB-12731)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/11888"&gt;SparkFun PicoBoard&lt;/a&gt; (WIG-11888)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/9963"&gt;SparkFun RFID USB Reader&lt;/a&gt; (SEN-09963)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/10275"&gt;LilyPad FTDI Basic Breakout - 5V&lt;/a&gt; (DEV-10275)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/13899"&gt;SparkFun Stepoko&lt;/a&gt; (ROB-13899)&lt;/li&gt;
+&lt;/ul&gt;</description>
+<gates>
+<gate name="G$1" symbol="FT232R-BASIC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="SSOP" package="SSOP28DB">
+<connects>
+<connect gate="G$1" pin="3V3OUT" pad="17"/>
+<connect gate="G$1" pin="AGND" pad="25"/>
+<connect gate="G$1" pin="CTS" pad="11"/>
+<connect gate="G$1" pin="DTR" pad="2"/>
+<connect gate="G$1" pin="GND1" pad="7"/>
+<connect gate="G$1" pin="GND2" pad="18"/>
+<connect gate="G$1" pin="GND3" pad="21"/>
+<connect gate="G$1" pin="RTS" pad="3"/>
+<connect gate="G$1" pin="RXD" pad="5"/>
+<connect gate="G$1" pin="RXLED" pad="22"/>
+<connect gate="G$1" pin="TEST" pad="26"/>
+<connect gate="G$1" pin="TXD" pad="1"/>
+<connect gate="G$1" pin="TXLED" pad="23"/>
+<connect gate="G$1" pin="USBDM" pad="16"/>
+<connect gate="G$1" pin="USBDP" pad="15"/>
+<connect gate="G$1" pin="VCC" pad="20"/>
+<connect gate="G$1" pin="VCCIO" pad="4"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:38718/1"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MOUSER_REF" value="895-FT232RL"/>
+<attribute name="PROD_ID" value="IC-00870"/>
+<attribute name="VALUE" value="FT232RL" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -6449,6 +6185,305 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </deviceset>
 </devicesets>
 </library>
+<library name="linear" urn="urn:adsk.eagle:library:262">
+<description>&lt;b&gt;Linear Devices&lt;/b&gt;&lt;p&gt;
+Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="TO252" urn="urn:adsk.eagle:footprint:16153/1" library_version="7">
+<description>&lt;b&gt;SMALL OUTLINE TRANSISTOR&lt;/b&gt;&lt;p&gt;
+TS-003</description>
+<wire x1="3.2766" y1="3.8354" x2="3.277" y2="-2.159" width="0.2032" layer="21"/>
+<wire x1="3.277" y1="-2.159" x2="-3.277" y2="-2.159" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="-2.159" x2="-3.2766" y2="3.8354" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="3.835" x2="3.2774" y2="3.8346" width="0.2032" layer="51"/>
+<wire x1="-2.5654" y1="3.937" x2="-2.5654" y2="4.6482" width="0.2032" layer="51"/>
+<wire x1="-2.5654" y1="4.6482" x2="-2.1082" y2="5.1054" width="0.2032" layer="51"/>
+<wire x1="-2.1082" y1="5.1054" x2="2.1082" y2="5.1054" width="0.2032" layer="51"/>
+<wire x1="2.1082" y1="5.1054" x2="2.5654" y2="4.6482" width="0.2032" layer="51"/>
+<wire x1="2.5654" y1="4.6482" x2="2.5654" y2="3.937" width="0.2032" layer="51"/>
+<wire x1="2.5654" y1="3.937" x2="-2.5654" y2="3.937" width="0.2032" layer="51"/>
+<smd name="3" x="0" y="2.5" dx="5.4" dy="6.2" layer="1"/>
+<smd name="1" x="-2.28" y="-4.8" dx="1" dy="1.6" layer="1"/>
+<smd name="2" x="2.28" y="-4.8" dx="1" dy="1.6" layer="1"/>
+<text x="-3.81" y="-2.54" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="5.08" y="-2.54" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-2.7178" y1="-5.1562" x2="-1.8542" y2="-2.2606" layer="51"/>
+<rectangle x1="1.8542" y1="-5.1562" x2="2.7178" y2="-2.2606" layer="51"/>
+<rectangle x1="-0.4318" y1="-3.0226" x2="0.4318" y2="-2.2606" layer="21"/>
+<polygon width="0.1998" layer="51">
+<vertex x="-2.5654" y="3.937"/>
+<vertex x="-2.5654" y="4.6482"/>
+<vertex x="-2.1082" y="5.1054"/>
+<vertex x="2.1082" y="5.1054"/>
+<vertex x="2.5654" y="4.6482"/>
+<vertex x="2.5654" y="3.937"/>
+</polygon>
+</package>
+<package name="TO92" urn="urn:adsk.eagle:footprint:16150/1" library_version="7">
+<description>&lt;b&gt;TO-92&lt;/b&gt;</description>
+<wire x1="-2.095" y1="-1.651" x2="-0.7869" y2="2.5484" width="0.1524" layer="21" curve="-111.097684"/>
+<wire x1="0.7869" y1="2.5484" x2="2.095" y2="-1.651" width="0.1524" layer="21" curve="-111.097684"/>
+<wire x1="-2.095" y1="-1.651" x2="2.095" y2="-1.651" width="0.1524" layer="21"/>
+<wire x1="-2.254" y1="-0.254" x2="-0.286" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="-2.655" y1="-0.254" x2="-2.254" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="-0.286" y1="-0.254" x2="0.286" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="2.254" y1="-0.254" x2="2.655" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="0.286" y1="-0.254" x2="2.254" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="-0.7864" y1="2.5484" x2="0.7864" y2="2.5484" width="0.1524" layer="51" curve="-34.298964"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="2" x="0" y="1.905" drill="0.8128" shape="octagon"/>
+<pad name="3" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<text x="2.413" y="1.651" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="2.921" y="-1.27" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+<package name="TO220H" urn="urn:adsk.eagle:footprint:16151/1" library_version="7">
+<description>&lt;b&gt;TO-220&lt;/b&gt;</description>
+<wire x1="-5.207" y1="-7.62" x2="5.207" y2="-7.62" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="8.255" x2="-5.207" y2="8.255" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="-7.62" x2="5.207" y2="4.826" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="4.826" x2="4.318" y2="4.826" width="0.1524" layer="21"/>
+<wire x1="4.318" y1="4.826" x2="4.318" y2="6.35" width="0.1524" layer="21"/>
+<wire x1="4.318" y1="6.35" x2="5.207" y2="6.35" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="6.35" x2="5.207" y2="8.255" width="0.1524" layer="21"/>
+<wire x1="-5.207" y1="-7.62" x2="-5.207" y2="4.826" width="0.1524" layer="21"/>
+<wire x1="-5.207" y1="4.826" x2="-4.318" y2="4.826" width="0.1524" layer="21"/>
+<wire x1="-4.318" y1="4.826" x2="-4.318" y2="6.35" width="0.1524" layer="21"/>
+<wire x1="-4.318" y1="6.35" x2="-5.207" y2="6.35" width="0.1524" layer="21"/>
+<wire x1="-5.207" y1="6.35" x2="-5.207" y2="8.255" width="0.1524" layer="21"/>
+<wire x1="-4.572" y1="-6.985" x2="4.572" y2="-6.985" width="0.0508" layer="21"/>
+<wire x1="4.572" y1="1.27" x2="4.572" y2="-6.985" width="0.0508" layer="21"/>
+<wire x1="4.572" y1="1.27" x2="-4.572" y2="1.27" width="0.0508" layer="21"/>
+<wire x1="-4.572" y1="-6.985" x2="-4.572" y2="1.27" width="0.0508" layer="21"/>
+<circle x="0" y="4.826" radius="1.8034" width="0.1524" layer="21"/>
+<circle x="0" y="4.826" radius="2.54" width="0" layer="43"/>
+<circle x="0" y="4.826" radius="2.54" width="0" layer="42"/>
+<pad name="1" x="-2.54" y="-10.16" drill="1.1176" shape="long" rot="R90"/>
+<pad name="2" x="0" y="-10.16" drill="1.1176" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="-10.16" drill="1.1176" shape="long" rot="R90"/>
+<text x="-5.461" y="-10.922" size="1.778" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="7.366" y="-11.049" size="1.778" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
+<rectangle x1="2.159" y1="-11.049" x2="2.921" y2="-10.414" layer="21"/>
+<rectangle x1="-0.381" y1="-11.049" x2="0.381" y2="-10.414" layer="21"/>
+<rectangle x1="-2.921" y1="-11.049" x2="-2.159" y2="-10.414" layer="21"/>
+<rectangle x1="-3.175" y1="-10.414" x2="-1.905" y2="-7.62" layer="21"/>
+<rectangle x1="-0.635" y1="-10.414" x2="0.635" y2="-7.62" layer="21"/>
+<rectangle x1="1.905" y1="-10.414" x2="3.175" y2="-7.62" layer="21"/>
+<hole x="0" y="4.826" drill="3.302"/>
+</package>
+<package name="TO39" urn="urn:adsk.eagle:footprint:16152/1" library_version="7">
+<description>&lt;b&gt;Metal Can Package&lt;/b&gt;</description>
+<wire x1="-4.0386" y1="-3.5306" x2="-3.5052" y2="-2.9972" width="0.1524" layer="21"/>
+<wire x1="-2.9718" y1="-3.5306" x2="-3.5052" y2="-4.064" width="0.1524" layer="21"/>
+<wire x1="-3.5052" y1="-4.064" x2="-4.0386" y2="-3.5306" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="4.572" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="3.8608" width="0.0508" layer="21"/>
+<pad name="1" x="0" y="-2.54" drill="0.8128" shape="octagon"/>
+<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="3" x="0" y="2.54" drill="0.8128" shape="octagon"/>
+<text x="-2.794" y="4.826" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.302" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+<package name="TO220V" urn="urn:adsk.eagle:footprint:16154/1" library_version="7">
+<description>&lt;b&gt;TO 200 vertical&lt;/b&gt;</description>
+<wire x1="5.08" y1="-1.143" x2="4.953" y2="-4.064" width="0.127" layer="21"/>
+<wire x1="4.699" y1="-4.318" x2="4.953" y2="-4.064" width="0.127" layer="21"/>
+<wire x1="4.699" y1="-4.318" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
+<wire x1="-4.953" y1="-4.064" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
+<wire x1="-4.953" y1="-4.064" x2="-5.08" y2="-1.143" width="0.127" layer="21"/>
+<circle x="-4.4958" y="-3.7084" radius="0.254" width="0.127" layer="21"/>
+<pad name="1" x="-2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<pad name="2" x="0" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<text x="-5.08" y="-6.0452" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-5.08" y="-7.62" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-3.175" y="-3.175" size="1.27" layer="51" ratio="10">1</text>
+<text x="-0.635" y="-3.175" size="1.27" layer="51" ratio="10">2</text>
+<text x="1.905" y="-3.175" size="1.27" layer="51" ratio="10">3</text>
+<rectangle x1="-5.334" y1="-0.762" x2="5.334" y2="0" layer="21"/>
+<rectangle x1="-5.334" y1="-1.27" x2="-3.429" y2="-0.762" layer="21"/>
+<rectangle x1="-1.651" y1="-1.27" x2="-0.889" y2="-0.762" layer="21"/>
+<rectangle x1="-3.429" y1="-1.27" x2="-1.651" y2="-0.762" layer="51"/>
+<rectangle x1="0.889" y1="-1.27" x2="1.651" y2="-0.762" layer="21"/>
+<rectangle x1="3.429" y1="-1.27" x2="5.334" y2="-0.762" layer="21"/>
+<rectangle x1="-0.889" y1="-1.27" x2="0.889" y2="-0.762" layer="51"/>
+<rectangle x1="1.651" y1="-1.27" x2="3.429" y2="-0.762" layer="51"/>
+</package>
+</packages>
+<packages3d>
+<package3d name="TO252" urn="urn:adsk.eagle:package:16415/2" type="model" library_version="7">
+<description>SMALL OUTLINE TRANSISTOR
+TS-003</description>
+<packageinstances>
+<packageinstance name="TO252"/>
+</packageinstances>
+</package3d>
+<package3d name="TO92" urn="urn:adsk.eagle:package:16416/2" type="model" library_version="7">
+<description>TO-92</description>
+<packageinstances>
+<packageinstance name="TO92"/>
+</packageinstances>
+</package3d>
+<package3d name="TO220H" urn="urn:adsk.eagle:package:16414/1" type="box" library_version="7">
+<description>TO-220</description>
+<packageinstances>
+<packageinstance name="TO220H"/>
+</packageinstances>
+</package3d>
+<package3d name="TO39" urn="urn:adsk.eagle:package:16419/1" type="box" library_version="7">
+<description>Metal Can Package</description>
+<packageinstances>
+<packageinstance name="TO39"/>
+</packageinstances>
+</package3d>
+<package3d name="TO220V" urn="urn:adsk.eagle:package:16417/1" type="box" library_version="7">
+<description>TO 200 vertical</description>
+<packageinstances>
+<packageinstance name="TO220V"/>
+</packageinstances>
+</package3d>
+</packages3d>
+<symbols>
+<symbol name="78XX" urn="urn:adsk.eagle:symbol:16149/1" library_version="7">
+<wire x1="-7.62" y1="-5.08" x2="7.62" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="7.62" y2="2.54" width="0.4064" layer="94"/>
+<wire x1="7.62" y1="2.54" x2="-7.62" y2="2.54" width="0.4064" layer="94"/>
+<wire x1="-7.62" y1="2.54" x2="-7.62" y2="-5.08" width="0.4064" layer="94"/>
+<text x="-7.62" y="5.715" size="1.778" layer="95">&gt;NAME</text>
+<text x="-7.62" y="3.175" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-2.032" y="-4.318" size="1.524" layer="95">GND</text>
+<pin name="VI" x="-10.16" y="0" length="short" direction="in"/>
+<pin name="GND" x="0" y="-7.62" visible="pad" length="short" direction="pas" rot="R90"/>
+<pin name="VO" x="10.16" y="0" length="short" direction="pas" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="78*" urn="urn:adsk.eagle:component:16686/3" prefix="IC" library_version="7">
+<description>Positive &lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;&lt;p&gt;
+Source:&lt;br&gt;
+http://cache.national.com/ds/LM/LM78L05.pdf&lt;br&gt;
+http://www.fairchildsemi.com/ds/LM/LM7805.pdf</description>
+<gates>
+<gate name="A1" symbol="78XX" x="0" y="0"/>
+</gates>
+<devices>
+<device name="Z" package="TO92">
+<connects>
+<connect gate="A1" pin="GND" pad="2"/>
+<connect gate="A1" pin="VI" pad="3"/>
+<connect gate="A1" pin="VO" pad="1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16416/2"/>
+</package3dinstances>
+<technologies>
+<technology name="L05"/>
+<technology name="L08"/>
+<technology name="L12"/>
+<technology name="L15"/>
+<technology name="L18"/>
+<technology name="L24"/>
+</technologies>
+</device>
+<device name="T" package="TO220H">
+<connects>
+<connect gate="A1" pin="GND" pad="2"/>
+<connect gate="A1" pin="VI" pad="1"/>
+<connect gate="A1" pin="VO" pad="3"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16414/1"/>
+</package3dinstances>
+<technologies>
+<technology name="05"/>
+<technology name="06"/>
+<technology name="08"/>
+<technology name="12"/>
+<technology name="15"/>
+<technology name="18"/>
+<technology name="24"/>
+</technologies>
+</device>
+<device name="H" package="TO39">
+<connects>
+<connect gate="A1" pin="GND" pad="3"/>
+<connect gate="A1" pin="VI" pad="1"/>
+<connect gate="A1" pin="VO" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16419/1"/>
+</package3dinstances>
+<technologies>
+<technology name="05"/>
+<technology name="06"/>
+<technology name="08"/>
+<technology name="12"/>
+<technology name="15"/>
+<technology name="18"/>
+<technology name="24"/>
+</technologies>
+</device>
+<device name="L" package="TO92">
+<connects>
+<connect gate="A1" pin="GND" pad="2"/>
+<connect gate="A1" pin="VI" pad="3"/>
+<connect gate="A1" pin="VO" pad="1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16416/2"/>
+</package3dinstances>
+<technologies>
+<technology name="05"/>
+<technology name="06"/>
+<technology name="08"/>
+<technology name="12"/>
+<technology name="15"/>
+<technology name="18"/>
+<technology name="24"/>
+</technologies>
+</device>
+<device name="DT" package="TO252">
+<connects>
+<connect gate="A1" pin="GND" pad="3"/>
+<connect gate="A1" pin="VI" pad="1"/>
+<connect gate="A1" pin="VO" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16415/2"/>
+</package3dinstances>
+<technologies>
+<technology name="05"/>
+<technology name="06"/>
+<technology name="08"/>
+<technology name="12"/>
+<technology name="15"/>
+<technology name="18"/>
+<technology name="24"/>
+</technologies>
+</device>
+<device name="TV" package="TO220V">
+<connects>
+<connect gate="A1" pin="GND" pad="2"/>
+<connect gate="A1" pin="VI" pad="1"/>
+<connect gate="A1" pin="VO" pad="3"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16417/1"/>
+</package3dinstances>
+<technologies>
+<technology name="05"/>
+<technology name="12"/>
+<technology name="15"/>
+<technology name="18"/>
+<technology name="24"/>
+<technology name="6"/>
+<technology name="8"/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -6477,7 +6512,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="R1" library="nma-eagle" deviceset="BOURNS-652CHP0603FX1001ELF" device="" value="1K"/>
 <part name="D1" library="nma-eagle" deviceset="604-APTD1608LCGCK" device="" value="Green"/>
 <part name="U2" library="nma-eagle" deviceset="ATMEGA328PB-AUR" device=""/>
-<part name="IC1" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="78*" device="DT" package3d_urn="urn:adsk.eagle:package:16415/2" technology="05" value="LM7805"/>
+<part name="IC1" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="78*" device="DT" package3d_urn="urn:adsk.eagle:package:16415/2" technology="05" value="LM7805">
+<attribute name="MOUSER_REF" value="621-AS7805ADTR-G1"/>
+</part>
 <part name="GND10" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="SUPPLY1" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
 <part name="U4" library="nma-eagle" deviceset="LP2981-33DBVR" device="DBV5-M" value="TLV757X / LP298X"/>
@@ -6497,7 +6534,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="SUPPLY8" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC_2" device="" value="VCC_3.3"/>
 <part name="SUPPLY9" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
 <part name="GND6" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="R2" library="nma-eagle" deviceset="BOURNS-CRM2512AJW103ELF" device="" value="10Kohms"/>
+<part name="R2" library="nma-eagle" deviceset="BOURNS-CRM2512AJW103ELF" device="" value="10K"/>
 <part name="SUPPLY10" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
 <part name="R3" library="nma-eagle" deviceset="BOURNS-652CHP0603FX1001ELF" device="" value="1K"/>
 <part name="D2" library="nma-eagle" deviceset="604-APTD1608LCGCK" device="" value="Green"/>
@@ -6505,11 +6542,13 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="GND7" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="Y1" library="nma-eagle" deviceset="CRYSTAL-16MHZ" device="PTH-HC49US" package3d_urn="urn:adsk.eagle:package:37515/1" value="16MHz"/>
 <part name="GND14" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="C1" library="nma-eagle" deviceset="KEMET-C1206C334M5RAC" device="" value="22pF/25V"/>
-<part name="C2" library="nma-eagle" deviceset="KEMET-C1206C334M5RAC" device="" value="22pF/25V"/>
+<part name="C1" library="nma-eagle" deviceset="KEMET-C1206C220K3HACTU" device="" value="22pF/25V"/>
+<part name="C2" library="nma-eagle" deviceset="KEMET-C1206C220K3HACTU" device="" value="22pF/25V"/>
 <part name="S1" library="nma-eagle" deviceset="1825910-7" device="" value="RESET SW"/>
 <part name="GND9" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="J2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_03X2" device="2X3_SILK_MALE_PTH" package3d_urn="urn:adsk.eagle:package:38016/1" value="ICSP"/>
+<part name="J2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_03X2" device="2X3_SILK_MALE_PTH" package3d_urn="urn:adsk.eagle:package:38016/1" value="ICSP">
+<attribute name="MOUSER_REF" value="649-773134AE26LF"/>
+</part>
 <part name="GND15" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="U1" library="nma-eagle" deviceset="CD74HC165M" device="D16-M"/>
 <part name="U5" library="nma-eagle" deviceset="CD74HC165M" device="D16-M"/>
@@ -6523,7 +6562,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="F1" library="nma-eagle" deviceset="1206L050YR" device="SMD" value="6V/500mA"/>
 <part name="C9" library="nma-eagle" deviceset="KEMET-C1210C104K4J" device="" value="0.1uF/16V"/>
 <part name="C10" library="nma-eagle" deviceset="KEMET-C1210C106K8N" device="" value="10uF/10V"/>
-<part name="U7" library="SparkFun-IC-Comms" library_urn="urn:adsk.eagle:library:521" deviceset="FT232RL-BASIC" device="SSOP" package3d_urn="urn:adsk.eagle:package:38718/1" value="FT232RL"/>
+<part name="U7" library="nma-eagle" deviceset="FT232RL-BASIC" device="SSOP" package3d_urn="urn:adsk.eagle:package:38718/1" value="FT232RL"/>
 <part name="GND20" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="GND21" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="GND22" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
@@ -6556,7 +6595,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <attribute name="SPICEPREFIX" value="G"/>
 </part>
 <part name="C11" library="nma-eagle" deviceset="KEMET-C1210C104K4J" device="" value="0.1uF/16V"/>
-<part name="JP1" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X5" device="" package3d_urn="urn:adsk.eagle:package:22469/2"/>
+<part name="JP1" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X5" device="" package3d_urn="urn:adsk.eagle:package:22469/2">
+<attribute name="MOUSER_REF" value="798-A23PA254DSA71"/>
+</part>
 <part name="SJ1" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="SJ" device="" package3d_urn="urn:adsk.eagle:package:15471/1"/>
 <part name="U8" library="nma-eagle" deviceset="DS3231SNT&amp;R" device="21-0042B_16-M"/>
 <part name="SUPPLY18" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
@@ -6585,10 +6626,18 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="SUPPLY16" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
 <part name="GND35" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="J4" library="nma-eagle" deviceset="DM3AT-SF-PEJM5" device=""/>
-<part name="R10" library="nma-eagle" deviceset="TE3550" device="" value="75 ohms"/>
-<part name="R11" library="nma-eagle" deviceset="TE3550" device="" value="75 ohms"/>
-<part name="R12" library="nma-eagle" deviceset="TE3550" device="" value="8.2 ohms"/>
-<part name="R13" library="nma-eagle" deviceset="TE3550" device="" value="8.2 ohms"/>
+<part name="R10" library="nma-eagle" deviceset="TE3550" device="" value="75 ohms">
+<attribute name="MOUSER_REF" value="279-355075RFT"/>
+</part>
+<part name="R11" library="nma-eagle" deviceset="TE3550" device="" value="75 ohms">
+<attribute name="MOUSER_REF" value="279-355075RFT"/>
+</part>
+<part name="R12" library="nma-eagle" deviceset="TE3550" device="" value="8.2 ohms">
+<attribute name="MOUSER_REF" value="279-35508R2JT"/>
+</part>
+<part name="R13" library="nma-eagle" deviceset="TE3550" device="" value="8.2 ohms">
+<attribute name="MOUSER_REF" value="279-35508R2JT"/>
+</part>
 <part name="R14" library="nma-eagle" deviceset="ERJ-14NF2200U" device="" value="220 ohms"/>
 <part name="R15" library="nma-eagle" deviceset="ERJ-14NF2200U" device="" value="220 ohms"/>
 <part name="R16" library="nma-eagle" deviceset="ERJ-14NF2200U" device="" value="220 ohms"/>
@@ -6603,7 +6652,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="GND" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="TP15SQ" package3d_urn="urn:adsk.eagle:package:27975/1"/>
 <part name="GND19" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="JA1" library="nma-eagle" deviceset="JAMMA_HORIZ_TOP" device=""/>
-<part name="U$1" library="nma-eagle" deviceset="JAMMA_HORIZ_BOTTOM" device=""/>
+<part name="JA2" library="nma-eagle" deviceset="JAMMA_HORIZ_BOTTOM" device=""/>
 <part name="GND36" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="GND37" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="GND38" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
@@ -6715,7 +6764,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <attribute name="NAME" x="251.46" y="187.96" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="251.46" y="111.76" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="U$1" gate="G$1" x="162.56" y="154.94" smashed="yes">
+<instance part="JA2" gate="G$1" x="162.56" y="154.94" smashed="yes">
 <attribute name="NAME" x="152.4" y="187.96" size="1.778" layer="95"/>
 <attribute name="VALUE" x="152.4" y="111.76" size="1.778" layer="96"/>
 </instance>
@@ -6742,7 +6791,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="25.4" y1="154.94" x2="25.4" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="2P7_PUSH3"/>
+<pinref part="JA2" gate="G$1" pin="2P7_PUSH3"/>
 <wire x1="177.8" y1="127" x2="182.88" y2="127" width="0.1524" layer="91"/>
 <label x="182.88" y="127" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6754,7 +6803,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="27.94" y1="154.94" x2="27.94" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="2P6_PUSH2"/>
+<pinref part="JA2" gate="G$1" pin="2P6_PUSH2"/>
 <wire x1="177.8" y1="129.54" x2="182.88" y2="129.54" width="0.1524" layer="91"/>
 <label x="182.88" y="129.54" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6766,7 +6815,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="30.48" y1="154.94" x2="30.48" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="2P5_PUSH1"/>
+<pinref part="JA2" gate="G$1" pin="2P5_PUSH1"/>
 <wire x1="177.8" y1="132.08" x2="182.88" y2="132.08" width="0.1524" layer="91"/>
 <label x="182.88" y="132.08" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6778,7 +6827,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="33.02" y1="154.94" x2="33.02" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="2P4_RIGHT"/>
+<pinref part="JA2" gate="G$1" pin="2P4_RIGHT"/>
 <wire x1="177.8" y1="134.62" x2="182.88" y2="134.62" width="0.1524" layer="91"/>
 <label x="182.88" y="134.62" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6790,7 +6839,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="35.56" y1="154.94" x2="35.56" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="2P3_LEFT"/>
+<pinref part="JA2" gate="G$1" pin="2P3_LEFT"/>
 <wire x1="177.8" y1="137.16" x2="182.88" y2="137.16" width="0.1524" layer="91"/>
 <label x="182.88" y="137.16" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6802,7 +6851,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="38.1" y1="154.94" x2="38.1" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="2P2_DOWN"/>
+<pinref part="JA2" gate="G$1" pin="2P2_DOWN"/>
 <wire x1="177.8" y1="139.7" x2="182.88" y2="139.7" width="0.1524" layer="91"/>
 <label x="182.88" y="139.7" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6814,7 +6863,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="40.64" y1="154.94" x2="40.64" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="2P1_UP"/>
+<pinref part="JA2" gate="G$1" pin="2P1_UP"/>
 <wire x1="177.8" y1="142.24" x2="182.88" y2="142.24" width="0.1524" layer="91"/>
 <label x="182.88" y="142.24" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6826,7 +6875,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="43.18" y1="154.94" x2="43.18" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="START_SW2"/>
+<pinref part="JA2" gate="G$1" pin="START_SW2"/>
 <wire x1="177.8" y1="144.78" x2="182.88" y2="144.78" width="0.1524" layer="91"/>
 <label x="182.88" y="144.78" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6838,7 +6887,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="45.72" y1="154.94" x2="45.72" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="COIN_SW2"/>
+<pinref part="JA2" gate="G$1" pin="COIN_SW2"/>
 <wire x1="177.8" y1="147.32" x2="182.88" y2="147.32" width="0.1524" layer="91"/>
 <label x="182.88" y="147.32" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6850,7 +6899,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="48.26" y1="154.94" x2="48.26" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="TILT_SW"/>
+<pinref part="JA2" gate="G$1" pin="TILT_SW"/>
 <wire x1="177.8" y1="149.86" x2="182.88" y2="149.86" width="0.1524" layer="91"/>
 <label x="182.88" y="149.86" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6862,7 +6911,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="50.8" y1="154.94" x2="50.8" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="SERVICE_SW"/>
+<pinref part="JA2" gate="G$1" pin="SERVICE_SW"/>
 <wire x1="177.8" y1="152.4" x2="182.88" y2="152.4" width="0.1524" layer="91"/>
 <label x="182.88" y="152.4" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6880,7 +6929,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="116.84" y1="144.78" x2="116.84" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="VIDEO_SYNC"/>
+<pinref part="JA2" gate="G$1" pin="VIDEO_SYNC"/>
 <wire x1="177.8" y1="154.94" x2="182.88" y2="154.94" width="0.1524" layer="91"/>
 <label x="182.88" y="154.94" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6898,7 +6947,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="R15" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="VIDEO_GREEN"/>
+<pinref part="JA2" gate="G$1" pin="VIDEO_GREEN"/>
 <wire x1="177.8" y1="157.48" x2="182.88" y2="157.48" width="0.1524" layer="91"/>
 <label x="182.88" y="157.48" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6925,7 +6974,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="137.16" y1="58.42" x2="139.7" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="SPK-"/>
+<pinref part="JA2" gate="G$1" pin="SPK-"/>
 <wire x1="177.8" y1="162.56" x2="182.88" y2="162.56" width="0.1524" layer="91"/>
 <label x="182.88" y="162.56" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6937,7 +6986,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="63.5" y1="154.94" x2="63.5" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="COIN_LOC2"/>
+<pinref part="JA2" gate="G$1" pin="COIN_LOC2"/>
 <wire x1="177.8" y1="165.1" x2="182.88" y2="165.1" width="0.1524" layer="91"/>
 <label x="182.88" y="165.1" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6949,7 +6998,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="66.04" y1="154.94" x2="66.04" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="COIN_CNT2"/>
+<pinref part="JA2" gate="G$1" pin="COIN_CNT2"/>
 <wire x1="177.8" y1="167.64" x2="182.88" y2="167.64" width="0.1524" layer="91"/>
 <label x="182.88" y="167.64" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -7173,7 +7222,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="J+12V" gate="G$1" pin="TP"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="+12V"/>
+<pinref part="JA2" gate="G$1" pin="+12V"/>
 <wire x1="177.8" y1="172.72" x2="182.88" y2="172.72" width="0.1524" layer="91"/>
 <label x="182.88" y="172.72" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -7280,9 +7329,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="GND27" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="GND@4"/>
+<pinref part="JA2" gate="G$1" pin="GND@4"/>
 <wire x1="177.8" y1="116.84" x2="180.34" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="GND@3"/>
+<pinref part="JA2" gate="G$1" pin="GND@3"/>
 <wire x1="180.34" y1="116.84" x2="182.88" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="177.8" y1="119.38" x2="180.34" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="180.34" y1="119.38" x2="180.34" y2="116.84" width="0.1524" layer="91"/>
@@ -7290,9 +7339,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="GND36" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="GND@2"/>
+<pinref part="JA2" gate="G$1" pin="GND@2"/>
 <wire x1="177.8" y1="182.88" x2="180.34" y2="182.88" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="GND@1"/>
+<pinref part="JA2" gate="G$1" pin="GND@1"/>
 <wire x1="180.34" y1="182.88" x2="182.88" y2="182.88" width="0.1524" layer="91"/>
 <wire x1="177.8" y1="185.42" x2="180.34" y2="185.42" width="0.1524" layer="91"/>
 <wire x1="180.34" y1="185.42" x2="180.34" y2="182.88" width="0.1524" layer="91"/>
@@ -7399,7 +7448,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="20.32" y1="154.94" x2="20.32" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="2P9"/>
+<pinref part="JA2" gate="G$1" pin="2P9"/>
 <wire x1="177.8" y1="121.92" x2="182.88" y2="121.92" width="0.1524" layer="91"/>
 <label x="182.88" y="121.92" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -7411,7 +7460,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="22.86" y1="154.94" x2="22.86" y2="138.43" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="2P8"/>
+<pinref part="JA2" gate="G$1" pin="2P8"/>
 <wire x1="177.8" y1="124.46" x2="182.88" y2="124.46" width="0.1524" layer="91"/>
 <label x="182.88" y="124.46" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -7490,10 +7539,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <segment>
 <wire x1="180.34" y1="177.8" x2="182.88" y2="177.8" width="0.1524" layer="91"/>
 <label x="182.88" y="177.8" size="1.27" layer="95" xref="yes"/>
-<pinref part="U$1" gate="G$1" pin="+5V@1"/>
+<pinref part="JA2" gate="G$1" pin="+5V@1"/>
 <wire x1="177.8" y1="180.34" x2="180.34" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="180.34" y1="180.34" x2="180.34" y2="177.8" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="+5V@2"/>
+<pinref part="JA2" gate="G$1" pin="+5V@2"/>
 <wire x1="177.8" y1="177.8" x2="180.34" y2="177.8" width="0.1524" layer="91"/>
 <junction x="180.34" y="177.8"/>
 </segment>
@@ -7511,7 +7560,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <label x="73.66" y="91.44" size="1.27" layer="95" font="vector" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="-5V"/>
+<pinref part="JA2" gate="G$1" pin="-5V"/>
 <wire x1="177.8" y1="175.26" x2="182.88" y2="175.26" width="0.1524" layer="91"/>
 <label x="182.88" y="175.26" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -7600,6 +7649,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="IC1" gate="A1" x="50.8" y="86.36" smashed="yes">
 <attribute name="NAME" x="43.18" y="92.075" size="1.778" layer="95"/>
 <attribute name="VALUE" x="43.18" y="89.535" size="1.778" layer="96"/>
+<attribute name="MOUSER_REF" x="50.8" y="86.36" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="GND10" gate="1" x="50.8" y="66.04" smashed="yes">
 <attribute name="VALUE" x="50.8" y="65.786" size="1.778" layer="96" align="top-center"/>
@@ -8189,6 +8239,7 @@ GND</text>
 <instance part="J2" gate="G$1" x="16.51" y="100.33" smashed="yes">
 <attribute name="NAME" x="12.954" y="105.918" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="13.208" y="94.488" size="1.778" layer="96" font="vector" align="top-left"/>
+<attribute name="MOUSER_REF" x="16.51" y="100.33" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="GND15" gate="1" x="27.94" y="93.98" smashed="yes">
 <attribute name="VALUE" x="27.94" y="93.726" size="1.778" layer="96" align="top-center"/>
@@ -8339,9 +8390,7 @@ GND</text>
 </segment>
 <segment>
 <pinref part="R2" gate="A" pin="P$2"/>
-<pinref part="U2" gate="G$1" pin="PC6/!RESET"/>
 <pinref part="S1" gate="G$1" pin="3"/>
-<wire x1="54.61" y1="55.88" x2="55.88" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="40.64" x2="50.8" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="40.64" x2="53.34" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="S1" gate="G$1" pin="4"/>
@@ -8349,11 +8398,12 @@ GND</text>
 <wire x1="50.8" y1="35.56" x2="50.8" y2="40.64" width="0.1524" layer="91"/>
 <junction x="50.8" y="40.64"/>
 <label x="53.594" y="40.64" size="1.27" layer="95" font="vector" xref="yes"/>
-<wire x1="55.88" y1="55.88" x2="53.34" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="55.88" x2="53.34" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="50.8" x2="50.8" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="50.8" x2="53.34" y2="40.64" width="0.1524" layer="91"/>
 <junction x="53.34" y="50.8"/>
+<pinref part="U2" gate="G$1" pin="PC6/!RESET"/>
+<wire x1="53.34" y1="55.88" x2="55.88" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PD7" class="0">
@@ -8839,6 +8889,7 @@ signal when using this ATmega as ISP programmer.</text>
 <instance part="JP1" gate="A" x="101.6" y="83.82" smashed="yes">
 <attribute name="NAME" x="95.25" y="92.075" size="1.778" layer="95"/>
 <attribute name="VALUE" x="95.25" y="76.2" size="1.778" layer="96"/>
+<attribute name="MOUSER_REF" x="101.6" y="83.82" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="SJ1" gate="1" x="127" y="50.8" smashed="yes">
 <attribute name="NAME" x="124.46" y="53.34" size="1.778" layer="95"/>
@@ -9277,40 +9328,78 @@ signal when using this ATmega as ISP programmer.</text>
 <approved hash="202,4,55.88,93.98,U2,AREF,,,,"/>
 <approved hash="104,4,91.44,101.6,U2,AVCC,VCC,,,"/>
 <approved hash="202,5,80.01,107.95,U6,DS,,,,"/>
-<approved hash="104,6,17.78,55.88,J4,VBUS,N$7,,,"/>
 <approved hash="104,6,68.58,40.64,U7,GND1,GND,,,"/>
 <approved hash="104,6,68.58,38.1,U7,GND2,GND,,,"/>
 <approved hash="104,6,68.58,35.56,U7,GND3,GND,,,"/>
+<approved hash="104,6,68.58,50.8,U7,VCCIO,USBVCC,,,"/>
 <approved hash="104,6,68.58,43.18,U7,AGND,GND,,,"/>
-<approved hash="208,2,66.04,45.72,VCC_2,sup,,,,"/>
+<approved hash="104,6,68.58,55.88,U7,VCC,USBVCC,,,"/>
+<approved hash="104,7,66.04,33.02,U8,VBAT,N$31,,,"/>
+<approved hash="104,6,12.7,50.8,J6,VBUS,USB_V,,,"/>
+<approved hash="104,1,226.06,180.34,JA1,+5V,JAMMA+5V,,,"/>
+<approved hash="104,1,226.06,177.8,JA1,+5V,JAMMA+5V,,,"/>
+<approved hash="104,1,226.06,175.26,JA1,-5V,JAMMA-5V,,,"/>
+<approved hash="104,1,226.06,172.72,JA1,+12V,JAMMA+12V,,,"/>
+<approved hash="104,1,177.8,180.34,JA2,+5V,JAMMA+5V,,,"/>
+<approved hash="104,1,177.8,177.8,JA2,+5V,JAMMA+5V,,,"/>
+<approved hash="104,1,177.8,175.26,JA2,-5V,JAMMA-5V,,,"/>
+<approved hash="104,1,177.8,172.72,JA2,+12V,JAMMA+12V,,,"/>
+<approved hash="106,1,226.06,160.02,11,,,,,"/>
+<approved hash="206,1,53.34,76.2,BLUE,,,,,"/>
+<approved hash="206,1,226.06,154.94,BLUE,,,,,"/>
+<approved hash="206,1,55.88,154.94,GREEN,,,,,"/>
+<approved hash="206,1,177.8,157.48,GREEN,,,,,"/>
+<approved hash="206,1,53.34,154.94,P,,,,,"/>
+<approved hash="206,1,177.8,154.94,P,,,,,"/>
+<approved hash="206,1,55.88,76.2,RED,,,,,"/>
+<approved hash="206,1,226.06,157.48,RED,,,,,"/>
+<approved hash="206,1,60.96,76.2,SPK+,,,,,"/>
+<approved hash="206,1,226.06,162.56,SPK+,,,,,"/>
+<approved hash="206,1,60.96,154.94,SPK-,,,,,"/>
+<approved hash="206,1,177.8,162.56,SPK-,,,,,"/>
+<approved hash="208,2,68.58,45.72,VCC_2,sup,,,,"/>
 <approved hash="208,2,58.42,43.18,VCC_2,out,,,,"/>
 <approved hash="208,2,88.9,38.1,VCC_2,sup,,,,"/>
 <approved hash="208,3,17.78,33.02,VCC_2,sup,,,,"/>
 <approved hash="208,3,96.52,43.18,VCC_2,sup,,,,"/>
+<approved hash="206,1,50.8,76.2,VGROUND,,,,,"/>
+<approved hash="206,1,226.06,152.4,VGROUND,,,,,"/>
+<approved hash="113,6,99.2971,85.3161,JP1,,,,,"/>
+<approved hash="113,6,127,52.4104,SJ1,,,,,"/>
+<approved hash="115,1,43.18,85.725,17,,,,,"/>
+<approved hash="115,1,33.02,85.725,21,,,,,"/>
+<approved hash="115,1,66.04,146.685,J,,,,,"/>
 <approved hash="115,1,35.56,146.685,X,,,,,"/>
-<approved hash="115,1,50.8,146.685,R,,,,,"/>
-<approved hash="115,1,25.4,85.725,24,,,,,"/>
-<approved hash="115,1,45.72,146.685,T,,,,,"/>
 <approved hash="115,1,38.1,85.725,19,,,,,"/>
-<approved hash="115,1,33.02,146.685,Y,,,,,"/>
-<approved hash="115,1,27.94,146.685,_A,,,,,"/>
+<approved hash="115,1,25.4,146.685,_B,,,,,"/>
+<approved hash="115,1,30.48,146.685,Z,,,,,"/>
+<approved hash="115,1,45.72,146.685,T,,,,,"/>
+<approved hash="115,1,71.12,152.4,JAMMA+12V,,,,,"/>
+<approved hash="115,1,20.32,146.685,_D,,,,,"/>
+<approved hash="115,1,48.26,146.685,S,,,,,"/>
+<approved hash="115,1,66.04,85.725,8,,,,,"/>
+<approved hash="115,1,55.88,151.13,GREEN,,,,,"/>
+<approved hash="115,1,50.8,146.685,R,,,,,"/>
+<approved hash="115,1,63.5,146.685,K,,,,,"/>
+<approved hash="115,1,22.86,146.685,_C,,,,,"/>
 <approved hash="115,1,38.1,146.685,W,,,,,"/>
 <approved hash="115,1,27.94,85.725,23,,,,,"/>
-<approved hash="115,1,43.18,85.725,17,,,,,"/>
-<approved hash="115,1,25.4,146.685,_B,,,,,"/>
-<approved hash="115,1,40.64,146.685,V,,,,,"/>
-<approved hash="115,1,40.64,85.725,18,,,,,"/>
-<approved hash="115,1,48.26,85.725,15,,,,,"/>
-<approved hash="115,1,20.32,146.685,_D,,,,,"/>
-<approved hash="115,1,20.32,85.725,26,,,,,"/>
-<approved hash="115,1,35.56,85.725,20,,,,,"/>
-<approved hash="115,1,22.86,85.725,25,,,,,"/>
-<approved hash="115,1,33.02,85.725,21,,,,,"/>
 <approved hash="115,1,43.18,146.685,U,,,,,"/>
-<approved hash="115,1,22.86,146.685,_C,,,,,"/>
+<approved hash="115,1,55.88,92.075,RED,,,,,"/>
+<approved hash="115,1,73.66,146.685,JAMMA-5V,,,,,"/>
+<approved hash="115,1,22.86,85.725,25,,,,,"/>
+<approved hash="115,1,35.56,85.725,20,,,,,"/>
+<approved hash="115,1,53.34,90.805,BLUE,,,,,"/>
 <approved hash="115,1,45.72,85.725,16,,,,,"/>
+<approved hash="115,1,20.32,85.725,26,,,,,"/>
 <approved hash="115,1,30.48,85.725,22,,,,,"/>
-<approved hash="115,1,30.48,146.685,Z,,,,,"/>
+<approved hash="115,1,27.94,146.685,_A,,,,,"/>
+<approved hash="115,1,33.02,146.685,Y,,,,,"/>
+<approved hash="115,1,25.4,85.725,24,,,,,"/>
+<approved hash="115,1,48.26,85.725,15,,,,,"/>
+<approved hash="115,1,40.64,85.725,18,,,,,"/>
+<approved hash="115,1,40.64,146.685,V,,,,,"/>
+<approved hash="115,1,63.5,85.725,9,,,,,"/>
 </errors>
 </schematic>
 </drawing>
