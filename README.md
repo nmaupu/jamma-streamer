@@ -17,7 +17,7 @@ Jamma PCB video recorder and more (hardware)
 
 # BOM (Bill Of Materials) generation
 
-To generate the BOM, use process describe in [electronics](https://github.com/nmaupu/electronics) repository !
+To generate the BOM, use process described in [electronics](https://github.com/nmaupu/electronics) repository !
 
 # RTC
 
@@ -30,6 +30,7 @@ To generate the BOM, use process describe in [electronics](https://github.com/nm
 * `PC3` for `pin change interrupt` on the ATmega side.
 
 Example on how to use `PCINT` is available here: https://gist.github.com/Wollw/2598827
+
 Example on how to configure chip registers via I2C: https://github.com/FabioCuomo/FabioCuomo-DS3231/blob/master/RTClibExtended.cpp
 
 # Buttons detection
