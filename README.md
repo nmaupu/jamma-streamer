@@ -15,13 +15,9 @@ Jamma PCB video recorder and more (hardware)
   - pinhead
   - jumper
 
-# New mouser parts
+# BOM (Bill Of Materials) generation
 
-* https://www.mouser.fr/ProductDetail/652-CR2512-JW-221ELF
-* https://www.mouser.fr/ProductDetail/652-CHP2512FX1001ELF
-* https://www.mouser.fr/ProductDetail/652-CHP2512JW103ELF
-* https://www.mouser.fr/ProductDetail/806-KMMXBSMT35SB30TR
-* https://www.mouser.fr/ProductDetail/806-KMMXBSMT35SB30TR
+To generate the BOM, use process describe in [electronics](https://github.com/nmaupu/electronics) repository !
 
 # RTC
 
