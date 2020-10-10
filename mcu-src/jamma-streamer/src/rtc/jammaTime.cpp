@@ -4,7 +4,7 @@
 volatile uint16_t g_rtc_milliseconds = 0;
 
 // interrupt for milliseconds computation
-ISR(PCINT0_vect) {
+ISR(PCINT1_vect) { // PCINT1 is used because we are on group C interrupts
     if (INT_PIN_GRP & _BV(SWQ_PIN)) {  // if pin goes HIGH
         if (g_rtc_milliseconds >= 999)
             g_rtc_milliseconds = 0;
@@ -50,8 +50,8 @@ JammaTime::JammaTime() {
     */
 
     // interrupt configuration and attachment
-    PCICR |= _BV(PCIE0);
-    PCMSK0 |= _BV(INT_PIN);
+    PCICR |= _BV(PCIE1);    // Setting interrupts on group "C"
+    PCMSK1 |= _BV(SWQ_PIN); // Setting interrupt on pin PCINT11 / PC3
     sei();
 }
 
