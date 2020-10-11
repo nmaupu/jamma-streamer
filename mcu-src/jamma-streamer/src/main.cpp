@@ -5,8 +5,8 @@
 #include "btns/buttonDetector.h"
 #include "rtc/jammaTime.h"
 #include "storage/sdstorage.h"
+#include "storage/eventWriter.h"
 
-int availableMemory();
 void serialLoggerButtonCallback(ButtonEvent* e);
 void sdcardLoggerButtonCallback(ButtonEvent* e);
 
@@ -15,9 +15,12 @@ ButtonDetector* detector;
 const ButtonsState* st;
 const ButtonsState* prev_st;
 
+char logFilename[32];
 SDStorage* sto;
 
 JammaTime* time;
+
+EventWriter* writer;
 
 //
 void setup() {
@@ -30,46 +33,55 @@ void setup() {
     Serial.print("version: ");
     Serial.println(APP_VERSION);
     Serial.println();
-    delay(2000);
-
-    /*
-    Serial.print("Initializing SD card...");
-    sto = new SDStorage(SD_CS, SD_MOSI,SD_MISO, SD_CLK);
-    if(!sto->initSDCard()) {
-        Serial.println("Failed. Card present ? Formatted as FAT16/32 ?");
-    } else {
-        Serial.println("OK");
-    }
-    */
 
     // Buttons detection
-    //Serial.print("Configuring buttons detection...");
-    //detector = new ButtonDetector(PLOAD, ENABLE, DATA, CLOCK);
-    //detector->addButtonEventListener(serialLoggerButtonCallback);
-    //detector->addButtonEventListener(sdcardLoggerButtonCallback);
-    //Serial.println("OK");
+    Serial.print("Configuring buttons detection...");
+    detector = new ButtonDetector(PLOAD, ENABLE, DATA, CLOCK);
+    detector->addButtonEventListener(serialLoggerButtonCallback);
+    detector->addButtonEventListener(sdcardLoggerButtonCallback);
+    Serial.println("OK");
 
     // RTC - Real Time Clock
     Serial.print("Initializing RTC...");
     time = new JammaTime();
     Serial.println("OK");
 
-    //Serial.println("Listening for inputs.");
+    Serial.print("Initializing SD card...");
+    
+    sprintf(logFilename, "jamma_%s.txt", time->getJammaTime());
+    sto = new SDStorage(SD_CS, SD_MOSI,SD_MISO, SD_CLK, logFilename);
+    if(!sto->initSDCard()) {
+        Serial.println("Failed. Card present ? Formatted as FAT16/32 ?");
+    } else {
+#ifdef DEBUG_STORAGE
+        Serial.println("List of files on SDCard:");
+        sto->getRootVolume()->ls(LS_R | LS_DATE | LS_SIZE);
+        Serial.println();
+#endif
+        Serial.printf("OK - log file name is %s\n", logFilename);
+    }
+
+    // Creating writer object
+    writer = new EventWriter(sto, time);
+
+    Serial.println("Listening for inputs.");
+    Serial.flush();
 }
 
 void loop() {
-    Serial.print("millis=");
-    Serial.print(millis());
+#ifdef DEBUG_RTC
     Serial.print(", time=");
     Serial.println(time->getJammaTime());
+#endif
 
-    //detector->loadRegisters();
-    //detector->readRegisters();
+    detector->loadRegisters();
+    detector->readRegisters();
 
 #ifdef DEBUG_BUTTONS
     detector->printSerial();
 #endif
 
+// sizeof(unsigned int) = 2 bytes so 65535 is the maximum for delayMicroseconds - switching to delay otherwise
 #if REFRESH_DELAY_US > 0 && REFRESH_DELAY_US < 65535
     delayMicroseconds(REFRESH_DELAY_US);
 #elif REFRESH_DELAY_US > 0
@@ -77,7 +89,7 @@ void loop() {
 #endif
 }
 
-// Function called when a button state has changed.
+// Callback function
 void serialLoggerButtonCallback(ButtonEvent* e) {
     Serial.print("Button ");
     Serial.print(buttonsName[e->getButton()]);
@@ -86,7 +98,8 @@ void serialLoggerButtonCallback(ButtonEvent* e) {
     Serial.flush();
 }
 
+// Callback function
 void sdcardLoggerButtonCallback(ButtonEvent* e) {
-    Serial.println("SDCard logger not implemented yet.");
-    Serial.flush();
+    Serial.println("SD Events not implemented.");
+    writer->writeEvent(e);
 }

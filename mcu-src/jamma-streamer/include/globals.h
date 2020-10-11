@@ -37,7 +37,7 @@
 // Control register to generate a square wave (1KHz) on RTC's SQW pin to count milliseconds via interrupt.
 // See page 13 - https://www.mouser.com/datasheet/2/256/DS3231-1513891.pdf
 // RS2 RS1 = 1 0 for ~1kHz square wave
-#define CONTROL_REG 0b10001000
+#define RTC_CONTROL_REG 0b10001000
 
 // RTC / ATmega interrupt pins configuration
 #define SWQ_PIN PCINT11

@@ -1,11 +1,12 @@
 #include "storage/sdstorage.h"
 
 SDStorage::SDStorage(uint8_t cs = 10, uint8_t mosi = 11, uint8_t miso = 12,
-                     uint8_t clk = 13) {
+                     uint8_t clk = 13, const char* filename = "test.log") {
     this->cs = cs;
     this->miso = miso;
     this->mosi = mosi;
     this->clk = clk;
+    this->filename = filename;
 }
 
 bool SDStorage::initSDCard() {
@@ -61,7 +62,18 @@ bool SDStorage::initSDCard() {
     return true;
 }
 
-Sd2Card* SDStorage::getCard() {
-    return &card; }
+Sd2Card* SDStorage::getCard() { return &card; }
+    
 SdVolume* SDStorage::getVolume() { return &volume; }
-SdFile* SDStorage::getRootVolume() { return &root; }
+
+SdFile* SDStorage::getRootVolume() {
+    root.openRoot(getVolume());
+    return &root;
+}
+
+SdFile* SDStorage::getLogFile() { return &logFile; }
+
+SdFile* SDStorage::openLogFile() {
+    logFile.open(getRootVolume(), filename, O_CREAT | O_RDWR | O_APPEND);
+    return &logFile;
+}

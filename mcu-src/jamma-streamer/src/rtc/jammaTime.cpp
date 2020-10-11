@@ -42,7 +42,7 @@ JammaTime::JammaTime() {
     // accuracy)
     // Datasheet https://datasheets.maximintegrated.com/en/ds/DS3231.pdfpage
     // Page 13
-    write_i2c_register(DS3231_ADDRESS, DS3231_CONTROL, CONTROL_REG);
+    write_i2c_register(DS3231_ADDRESS, DS3231_CONTROL, RTC_CONTROL_REG);
     /*
     Serial.println();
     Serial.print("Control register: ");
