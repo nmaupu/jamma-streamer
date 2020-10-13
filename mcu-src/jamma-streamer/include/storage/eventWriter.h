@@ -11,7 +11,7 @@ class EventWriter {
    private:
     SDStorage* storage;
     JammaTime* time;
-    char buf[64];
+    char buf[32];
 
    public:
     EventWriter(SDStorage* s, JammaTime* t);

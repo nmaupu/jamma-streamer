@@ -6,14 +6,11 @@ EventWriter::EventWriter(SDStorage* s, JammaTime* t) {
 }
 
 void EventWriter::writeEvent(ButtonEvent* e) {
-    //SdFile* file = storage->openLogFile();
-    //sprintf(buf, "%s|%s|%s", time->getJammaTime(), getButtonName(e->getButton()), e->isPressed() ? "P" : "R");
-    /*
-    file->printf("%s\n", buf);
-    Serial.println("3");
+    if (e == NULL) {
+        Serial.println("ButtonEvent is NULL !");
+        return;
+    }
+    File* file = storage->getLogFile();
+    file->printf("%s|%s|%s\n", time->getJammaTime(), getButtonName(e->getButton()), e->isPressed() ? "P" : "R");
     file->flush();
-    Serial.println("4");
-    file->close();
-    Serial.println("5");
-    */
 }

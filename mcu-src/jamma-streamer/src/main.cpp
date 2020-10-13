@@ -1,6 +1,3 @@
-#include <SD.h>
-#include <SPI.h>
-
 #include "globals.h"
 #include "btns/buttonDetector.h"
 #include "rtc/jammaTime.h"
@@ -47,17 +44,12 @@ void setup() {
     Serial.println("OK");
 
     Serial.print("Initializing SD card...");
-    
-    sprintf(logFilename, "jamma_%s.txt", time->getJammaTime());
+    //sprintf(logFilename, "jamma_%s.txt", time->getJammaTime());
+    sprintf(logFilename, "/001.log");
     sto = new SDStorage(SD_CS, SD_MOSI,SD_MISO, SD_CLK, logFilename);
     if(!sto->initSDCard()) {
         Serial.println("Failed. Card present ? Formatted as FAT16/32 ?");
     } else {
-#ifdef DEBUG_STORAGE
-        Serial.println("List of files on SDCard:");
-        sto->getRootVolume()->ls(LS_R | LS_DATE | LS_SIZE);
-        Serial.println();
-#endif
         Serial.printf("OK - log file name is %s\n", logFilename);
     }
 
@@ -100,6 +92,5 @@ void serialLoggerButtonCallback(ButtonEvent* e) {
 
 // Callback function
 void sdcardLoggerButtonCallback(ButtonEvent* e) {
-    Serial.println("SD Events not implemented.");
     writer->writeEvent(e);
 }

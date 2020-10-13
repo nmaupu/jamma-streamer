@@ -1,9 +1,8 @@
 #ifndef __SDSTORAGE_HEADER__
 #define __SDSTORAGE_HEADER__
 
-#include <Arduino.h>
-#include <SD.h>
 #include <SPI.h>
+#include <SdFat.h>
 
 // uSDCard driver class using
 // https://platformio.org/lib/show/161/SD
@@ -11,10 +10,8 @@
 class SDStorage {
    private:
     uint8_t cs, miso, mosi, clk;
-    Sd2Card card;
-    SdVolume volume;
-    SdFile root;
-    SdFile logFile;
+    SdFat sd;
+    File logFile;
     const char* filename;
 
    public:
@@ -22,11 +19,9 @@ class SDStorage {
 
     // Init sdcard, returns true if ok, false otherwise
     bool initSDCard();
-    Sd2Card* getCard();
-    SdVolume* getVolume();
-    SdFile* getRootVolume();
-    SdFile* getLogFile();
-    SdFile* openLogFile();
+    SdFat* getSD();
+    const char* getFilename();
+    File* getLogFile();
 };
 
 #endif  // __SDSTORAGE_HEADER__
