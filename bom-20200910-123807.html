@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>NMA Jamma Streamer - BOM - 2020-10-09T12:38:07+0200</title>
+		<script>
+			function sortTable(n) {
+				var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+				table = document.getElementById("partsTable");
+				switching = true;
+				// Set the sorting direction to ascending:
+				dir = "asc";
+				/* Make a loop that will continue until
+				no switching has been done: */
+				while (switching) {
+					// Start by saying: no switching is done:
+					switching = false;
+					rows = table.rows;
+					/* Loop through all table rows (except the
+					first, which contains table headers): */
+					for (i = 1; i < (rows.length - 1); i++) {
+						// Start by saying there should be no switching:
+						shouldSwitch = false;
+						/* Get the two elements you want to compare,
+						one from current row and one from the next: */
+						x = rows[i].getElementsByTagName("TD")[n];
+						y = rows[i + 1].getElementsByTagName("TD")[n];
+						/* Check if the two rows should switch place,
+						based on the direction, asc or desc: */
+						if (dir == "asc") {
+							if (isNaN(x.innerHTML) || isNaN(y.innerHTML)) {
+								if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+									// If so, mark as a switch and break the loop:
+									shouldSwitch = true;
+									break;
+								}
+							} else {
+								if (Number(x.innerHTML) > Number(y.innerHTML)) {
+									//if so, mark as a switch and break the loop:
+									shouldSwitch = true;
+									break;
+								}
+							}
+						} else if (dir == "desc") {
+							if (isNaN(x.innerHTML) || isNaN(y.innerHTML)) {
+								if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+									// If so, mark as a switch and break the loop:
+									shouldSwitch = true;
+									break;
+								}
+							} else {
+								if (Number(x.innerHTML) < Number(y.innerHTML)) {
+									//if so, mark as a switch and break the loop:
+									shouldSwitch = true;
+									break;
+								}
+							}
+						}
+					}
+					if (shouldSwitch) {
+						/* If a switch has been marked, make the switch
+						and mark that a switch has been done: */
+						rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+						switching = true;
+						// Each time a switch is done, increase this count by 1:
+						switchcount++;
+					} else {
+						/* If no switching has been done AND the direction is "asc",
+						set the direction to "desc" and run the while loop again. */
+						if (switchcount == 0 && dir == "asc") {
+							dir = "desc";
+							switching = true;
+						}
+					}
+				}
+			}
+		</script>
+		<style>
+			table{
+				border-collapse: collapse;
+				font-size: 0.8em;
+			}
+			table, td, th{
+				border: 1px solid black;
+			}
+			th {
+				background-color: #0039b3;
+				color: white;
+			}
+			th.sortable {
+				cursor: pointer;
+			}
+			tr {
+				color: #000000;
+			}
+			tr:nth-child(even) {
+  				background-color: #e6eeff;
+			}
+			tr:nth-child(odd) {
+  				background-color: #ccdcff;
+			}
+			tr:hover {
+				//background-color: #802000;
+				background-color: #efefef;
+				color: #000000;
+			}
+			table {
+				width: 100%;
+			}
+			td.center {
+				text-align: center;
+			}
+			td.bold {
+				font-weight: bold;
+			}
+			td.total {
+				padding: 0.2em 0.4em;
+				font-weight: bold;
+				font-size: 1.2em;
+				background-color: #efefef;
+			}
+			td.small {
+				font-size: 0.85em;
+			}
+			td.ok {
+				color: #00802b;
+			}
+			td.warning {
+				color: #ff7733;
+			}
+			td.error {
+				color: #e60000;
+			}
+			tr.error {
+				background-color: #ffb3b3;
+			}
+			img {
+				width: 17px;
+			}
+			#total {
+				text-align: right;
+				margin: -1px 0 0 0;
+				padding: 0;
+				border: 1px solid black;
+				background-color: #0039b3;
+				color: white;
+				font-size: 0.8em;
+			}
+			#total span {
+				margin: 0;
+				padding: 0;
+					display: inline-block;
+				font-weight: bold;
+			}
+			#total span.totalTitle {
+				border-right: 1px solid black;
+				padding-right: 5px;
+			}
+			#total span.totalAmount {
+				text-align: right;
+				min-width: 100px;
+			}
+			.tooltip {
+				display:inline-block;
+				position:relative;
+				text-align:left;
+			}
+			.tooltip h3 {margin:12px 0;}
+			.tooltip .left {
+				min-width:50px;
+				max-width:100px;
+				top:50%;
+				left:100%;
+				margin-right:0;
+				margin-left:0;
+				transform:translate(-120%, 0);
+				padding:0;
+				color:#EEEEEE;
+				background-color:#ffffff;
+				font-weight:normal;
+				font-size:13px;
+				border-radius:8px;
+				position:absolute;
+				z-index:99999999;
+				box-sizing:border-box;
+				box-shadow:0 1px 8px rgba(0,0,0,0.5);
+				visibility:hidden; opacity:0; transition:opacity 0.8s;
+			}
+			.tooltip:hover .left {
+				visibility:visible; opacity:1;
+			}
+			.tooltip .left img {
+				width:100px;
+				border-radius:8px 8px 0 0;
+			}
+			.tooltip .text-content {
+				padding:10px 20px;
+			}
+			.tooltip .left i {
+				position:absolute;
+				top:50%;
+				right:100%;
+				margin-top:-12px;
+				width:12px;
+				height:24px;
+				overflow:hidden;
+			}
+			.tooltip .left i::after {
+				content:'';
+				position:absolute;
+				width:12px;
+				height:12px;
+				left:0;
+				top:50%;
+				transform:translate(50%,-50%) rotate(-45deg);
+				background-color:#444444;
+				box-shadow:0 1px 8px rgba(0,0,0,0.5);
+			}
+			div#thanks {
+				font-size: 0.8em;
+				text-align: right;
+				margin-top: 0.4em;
+			}
+		</style>
+	</head>
+	<body>
+	<h1>NMA Jamma Streamer - BOM - 2020-10-09T12:38:07+0200</h1>
+	<table id="partsTable">
+		<tr>
+			<th class="sortable" onclick="sortTable(0)">Qty&nbsp;&nbsp;&#8693;</th>
+			<th class="sortable" onclick="sortTable(1)">Schematic name&nbsp;&nbsp;&#8693;</th>
+			<th class="sortable" onclick="sortTable(2)">Device&nbsp;&nbsp;&#8693;</th>
+			<th class="sortable" onclick="sortTable(3)">Value&nbsp;&nbsp;&#8693;</th>
+			<th class="sortable" onclick="sortTable(4)">Description&nbsp;&nbsp;&#8693;</th>
+			<th class="sortable" onclick="sortTable(5)">Mouser Ref.&nbsp;&nbsp;&#8693;</th>
+			<th class="sortable" onclick="sortTable(6)">Stock&nbsp;&nbsp;&#8693;</th>
+			<th class="sortable" onclick="sortTable(7)">Unit price&nbsp;&nbsp;&#8693;</th>
+			<th class="sortable" onclick="sortTable(8)">Ext. price&nbsp;&nbsp;&#8693;</th>
+			<th>Datasheet</th>
+			<th>Details</th>
+			<th>Image</th>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>J6</td>
+			<td>292304-1</td>
+			<td>292304-1</td>
+			<td class="small">Connecteurs USB 4P 'B' RECEPTACLE</td>
+			<td class="small">571-292304-1</td>
+			<td class="center ok">5708</td>
+			<td class="center">1.370</td>
+			<td class="center">1.370</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href=""><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/TE-Connectivity/292304-1?qs=G%2F5vCLrg9vwiXeMJMHNpsA%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/tycoelectronics/images/inhouse_2923041_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">3</td>
+			<td>C4, C8, C10</td>
+			<td>KEMET-C1210C106K8N</td>
+			<td>10uF/10V</td>
+			<td class="small">Condensateurs céramique multicouches MLCC - CMS 10V 10uF X8L 1210 10%</td>
+			<td class="small">80-C1210C106K8N</td>
+			<td class="center ok">2494</td>
+			<td class="center">1.270</td>
+			<td class="center">3.810</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/212/KEM_C1008_X8L_150C_SMD-1101219.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/KEMET/C1210C106K8NACTU?qs=w3%252Bcv6Flocpsi9jwJTerlg%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/kemet/images/Kemet_SMD_MLCC_DSL.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>JAMMA_IN</td>
+			<td>JAMMA_FEMALE_56</td>
+			<td>JAMMA_FEMALE_56</td>
+			<td class="small">Connecteurs bord de carte standard</td>
+			<td class="small">798-CR7E-56DA-3.96E</td>
+			<td class="center ok">50</td>
+			<td class="center">13.370</td>
+			<td class="center">13.370</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/185/hirose_electric_hiros00185-1-1749328.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Hirose-Connector/CR7E-56DA-396E?qs=b6306Cq53rEf6NVM15KjGg%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>U8</td>
+			<td>DS3231SNT&R21-0042B_16-M</td>
+			<td>DS3231SNT&R21-0042B_16-M</td>
+			<td class="small">Horloge en temps réel Extremely Accurate I C-Integrated RTC/TCXO/Crystal</td>
+			<td class="small">700-DS3231SN#T&R-</td>
+			<td class="center ok">8611</td>
+			<td class="center">7.200</td>
+			<td class="center">7.200</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/256/DS3231-1513891.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Maxim-Integrated/DS3231SNTR?qs=1eQvB6Dk1vhN%252BEOl3KU%252Bjw%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/mouserelectronics/images/SOIC_16_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>IC1</td>
+			<td>7805DT</td>
+			<td>LM7805</td>
+			<td class="small">Régulateurs de tension linéaires 1A 3-Term POS Reg Output 1A</td>
+			<td class="small">621-AS7805ADTR-G1</td>
+			<td class="center ok">11188</td>
+			<td class="center">0.347</td>
+			<td class="center">0.347</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/115/AS78XXA-271499.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Diodes-Incorporated/AS7805ADTR-G1?qs=FKu9oBikfSlOlRwOngvGvA%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/mouserelectronics/images/TO_252_AA_3_ITP_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>VGA_OUT</td>
+			<td>HARTING-DSUB-15-FEMALE</td>
+			<td>VGA out</td>
+			<td class="small">Connecteurs D-Sub haute densité 15P SLDR FEMALE R/A THRU HOLE METAL SHL</td>
+			<td class="small">617-09-56-152-7613</td>
+			<td class="center ok">284</td>
+			<td class="center">3.280</td>
+			<td class="center">3.280</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/179/0956152X613_100510341DRW001D-1677995.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/HARTING/09561527613?qs=Z2e%252BHPEhmSY%2Frr3DsdkidA%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/harting/images/0956152X612_HARTING_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">4</td>
+			<td>R1, R3, R4, R5</td>
+			<td>BOURNS-652CHP0603FX1001ELF</td>
+			<td>1K</td>
+			<td class="small">Résistances à couches épaisses - CMS 1/3W 1Kohms 1% 100ppm Ultra HP Chip</td>
+			<td class="small">652-CHP0603FX1001ELF</td>
+			<td class="center ok">9541</td>
+			<td class="center">0.322</td>
+			<td class="center">1.288</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/54/chp-1858668.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Bourns/CHP0603-FX-1001ELF?qs=lc2O%252BfHJPVYa%2F7efCmSFDg%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/bourns/images/CHP_series_DSL_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>J1</td>
+			<td>SJ1-3523N</td>
+			<td>Audio line out</td>
+			<td class="small">Connecteurs téléphoniques Audio Jacks</td>
+			<td class="small">490-SJ1-3523N</td>
+			<td class="center ok">25557</td>
+			<td class="center">0.618</td>
+			<td class="center">0.618</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/670/sj1_352xn-1779157.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/CUI-Devices/SJ1-3523N?qs=WyjlAZoYn50aNl0vAhb3Tg%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/cuiinc/images/sj1-3523n_SPL.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>F1</td>
+			<td>1206L050YRSMD</td>
+			<td>6V/500mA</td>
+			<td class="small">Fusibles réarmables - PPTC 1206 PTC 6V 500MA</td>
+			<td class="small">576-1206L050YR</td>
+			<td class="center ok">13972</td>
+			<td class="center">0.373</td>
+			<td class="center">0.373</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/240/Littelfuse_PTC_1206L_Datasheet.pdf-477012.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Littelfuse/1206L050YR?qs=PWhpLWeW8wckT8hV5jLiAA%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/littelfuse/images/PTC_1206L_series_SPL.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>U9</td>
+			<td>NDT2955SOT-223-M</td>
+			<td>NDT2955SOT-223-M</td>
+			<td class="small">MOSFET SOT-223 P-CH ENHANCE</td>
+			<td class="small">512-NDT2955</td>
+			<td class="center ok">23494</td>
+			<td class="center">0.483</td>
+			<td class="center">0.483</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/308/NDT2955-D-1813226.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/ON-Semiconductor-Fairchild/NDT2955?qs=mdiO5HdF0KhgtjpGJNpk%252BA%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/mouserelectronics/images/SOT_223_3_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>D5</td>
+			<td>RRE07VTM4SFHTR</td>
+			<td>RRE07VTM4SFHTR</td>
+			<td class="small">Redresseurs Rectifier 0.7A Io SOD-323HE 400VVrm</td>
+			<td class="small">755-RRE07VTM4SFHTR</td>
+			<td class="center ok">4679</td>
+			<td class="center">0.373</td>
+			<td class="center">0.373</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/348/rre07vtm4sfh-1869848.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/ROHM-Semiconductor/RRE07VTM4SFHTR?qs=yrxrYnY23DFs85x%2FkAXCGg%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/rohmsemiconductor/images/SOD-323-2_DSL.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>S2</td>
+			<td>SS22SDP2</td>
+			<td>SS22SDP2</td>
+			<td class="small">Commutateurs à glissière DPDT ON-NONE-ON TOP SILVER CONTACT</td>
+			<td class="small">633-SS22SDP2</td>
+			<td class="center ok">5479</td>
+			<td class="center">1.490</td>
+			<td class="center">1.490</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/295/SSnonilluminated-1663580.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/NKK-Switches/SS22SDP2?qs=Av7JdS0MGqKe6DymHaZ%2Few%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/nkkswitches/images/ss22sdp2_DFI_SPL.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">4</td>
+			<td>D1, D2, D3-RX, D4-TX</td>
+			<td>604-APTD1608LCGCK</td>
+			<td>Green</td>
+			<td class="small">DEL standard - CMS 0603 Dome Lens LED Green- 570nm</td>
+			<td class="small">604-APTD1608LCGCK</td>
+			<td class="center ok">16457</td>
+			<td class="center">0.313</td>
+			<td class="center">1.252</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/216/APTD1608LCGCK-1102124.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Kingbright/APTD1608LCGCK?qs=AQlKX63v8Rv%252Bp7eo1xBjCA%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/kingbright/images/APHD1608LQBC-D_DSL.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>J4</td>
+			<td>DM3AT-SF-PEJM5</td>
+			<td>DM3AT-SF-PEJM5</td>
+			<td class="small">Connecteurs de carte-mémoire R/A SMT MICROSD CON PUSH-PUSH TOP BRDMNT</td>
+			<td class="small">798-DM3AT-SF-PEJM5</td>
+			<td class="center ok">22686</td>
+			<td class="center">2.120</td>
+			<td class="center">2.120</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/185/DM3_CL0599_2152_3_00_2d-1614303.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Hirose-Connector/DM3AT-SF-PEJM5?qs=LZSZKJVF%252B2WTDKp%252BR7IYAQ%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/hiroseelectric/images/DM3ATSFPEJM5_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>S1</td>
+			<td>1825910-7</td>
+			<td>RESET SW</td>
+			<td class="small">Interrupteurs de contact TACTILE SWITCH 6MM HIGH</td>
+			<td class="small">506-FSM4JAH</td>
+			<td class="center ok">45810</td>
+			<td class="center">0.093</td>
+			<td class="center">0.093</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/418/NG_CD_1825910_C10-660299.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/TE-Connectivity-PB/FSM4JAH?qs=g%252BEszo6zu8PvDg3Xald8LA%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/tycoelectronics/images/FSM_square_TH.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">2</td>
+			<td>C1, C2</td>
+			<td>KEMET-C1206C220K3HACTU</td>
+			<td>22pF/25V</td>
+			<td class="small">Condensateurs céramique multicouches MLCC - CMS 25V 22pF X8R 1206 10%</td>
+			<td class="small">80-C1206C220K3HACTU</td>
+			<td class="center ok">1649</td>
+			<td class="center">0.144</td>
+			<td class="center">0.288</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/212/KEM_C1007_X8R_ULTRA_150C_SMD-1102703.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/KEMET/C1206C220K3HACTU?qs=W0yvOO0ixfEFKD%252B0dR7tqg%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/kemet/images/SMD_MLCC_new_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">8</td>
+			<td>C3, C6, C7, C9, C11, C12, C13, C14</td>
+			<td>KEMET-C1210C104K4J</td>
+			<td>0.1uF/16V</td>
+			<td class="small">Condensateurs céramique multicouches MLCC - CMS 16volts 0.1uF 10% U2J</td>
+			<td class="small">80-C1210C104K4J</td>
+			<td class="center ok">1663</td>
+			<td class="center">0.644</td>
+			<td class="center">5.152</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/212/1/KEM_C1086_U2J-1102211.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/KEMET/C1210C104K4JACTU?qs=Xowbq3obBajblKXQtqDhUA%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/kemet/images/Kemet_SMD_MLCC_DSL.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>J2</td>
+			<td>CONN_03X22X3_SILK_MALE_PTH</td>
+			<td>ICSP</td>
+			<td class="small">Embases et logements de câbles BERGSTIK</td>
+			<td class="small">649-773134AE26LF</td>
+			<td class="center ok">889</td>
+			<td class="center">0.754</td>
+			<td class="center">0.754</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/18/77313-1266357.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Amphenol-FCI/77313-4AE-26LF?qs=gZXFycFWdAN98f8ypPBH3Q%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/amphenol/images/77313-101-14lf_SPL.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr class="error">
+			<td class="center bold">1</td>
+			<td>SYNC_POT</td>
+			<td>TRIMPOTPTH</td>
+			<td>1k</td>
+			<td class="small">Résistances ajustables - Trou débouchant 1K 25% 6mm Single Turn</td>
+			<td class="small">652-3306F-1-102</td>
+			<td class="center error">3993</td>
+			<td class="center">0.364</td>
+			<td class="center">0.364</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/54/3306-776934.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Bourns/3306F-1-102?qs=s%2FDeNoiZCFwhlFAxZV4BBA%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/bourns/images/3306_SPL.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">2</td>
+			<td>R10, R11</td>
+			<td>TE3550</td>
+			<td>75 ohms</td>
+			<td class="small">Résistances à couches épaisses - CMS 3550 75R 1%</td>
+			<td class="small">279-355075RFT</td>
+			<td class="center ok">981</td>
+			<td class="center">1.330</td>
+			<td class="center">2.660</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/418/4/NG_DS_1773204-6_A-1533241.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/TE-Connectivity-CGS/355075RFT?qs=gZXFycFWdAMnLdmviXp%2FGw%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/tycoelectronics/images/3560_DSL.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">2</td>
+			<td>R12, R13</td>
+			<td>TE3550</td>
+			<td>8.2 ohms</td>
+			<td class="small">Résistances à couches épaisses - CMS 3550 8R2 5%</td>
+			<td class="small">279-35508R2JT</td>
+			<td class="center ok">979</td>
+			<td class="center">1.310</td>
+			<td class="center">2.620</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/418/4/NG_DS_1773204-6_A-1533158.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/TE-Connectivity-CGS/35508R2JT?qs=gZXFycFWdAOT3MF8Y5kNVw%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/tycoelectronics/images/3560_DSL.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>U4</td>
+			<td>LP2981-33DBVRDBV5-M</td>
+			<td>TLV757X / LP298X</td>
+			<td class="small">Régulateurs de tension LDO 100-mA 1.25% Tolerance</td>
+			<td class="small">595-LP2981-33DBVR</td>
+			<td class="center ok">20540</td>
+			<td class="center">0.373</td>
+			<td class="center">0.373</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href=""><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Texas-Instruments/LP2981-33DBVR?qs=paYhMW8qfis12D1bv%252BgN3A%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/texasinstruments/images/ITP_TI_SOT-23-5_DBV_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">6</td>
+			<td>R2, R6, R7, R8, R9, R17</td>
+			<td>BOURNS-CRM2512AJW103ELF</td>
+			<td>10K</td>
+			<td class="small">Résistances à couches épaisses - CMS 2512 10 Kohms 5% 2W TC200 AEC-Q200</td>
+			<td class="small">652-CRM2512AJW103ELF</td>
+			<td class="center ok">5132</td>
+			<td class="center">0.364</td>
+			<td class="center">2.184</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/54/crm-a-1858609.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Bourns/CRM2512AJW-103ELF?qs=wd5RIQLrsJiYyxaUNuhRYg%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/bourns/images/CRM2010-JW-151ELF_DSL.JPG" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr class="error">
+			<td class="center bold">3</td>
+			<td>U1, U5, U6</td>
+			<td>CD74HC165MD16-M</td>
+			<td>CD74HC165MD16-M</td>
+			<td class="small">Registres à décalage compteur 74HC CMOS logic IC series 6V 16 pins</td>
+			<td class="small">757-74HC165DBJ</td>
+			<td class="center error">7500</td>
+			<td class="center">0.440</td>
+			<td class="center">1.320</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/408/74HC165D_datasheet_en_20160526-981004.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Toshiba/74HC165DBJ?qs=lQAVKuKFhkJom8fGze1o7Q%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/mouserelectronics/images/SOIC_16_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>U2</td>
+			<td>ATMEGA328PB-AUR</td>
+			<td>ATMEGA328PB-AUR</td>
+			<td class="small">Microcontrôleurs 8 bits - MCU ATMEGA328PB IND TEMP T&R</td>
+			<td class="small">556-ATMEGA328PB-AUR</td>
+			<td class="center ok">3856</td>
+			<td class="center">1.200</td>
+			<td class="center">1.200</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/268/40001906A-1222909.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Microchip-Technology-Atmel/ATMEGA328PB-AUR?qs=jy4bLUHv09i4S8%252BfUeCffg%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/mouserelectronics/images/TQFP_32_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">2</td>
+			<td>T1, T2</td>
+			<td>TRIAD-TY-145P</td>
+			<td>TY-145P</td>
+			<td class="small">Transformateurs audio / de signal AUDIO XFMR 600ct:600ct 15mADC 100mW PCB MOUNT/TY-145P</td>
+			<td class="small">553-TY145P</td>
+			<td class="center ok">2768</td>
+			<td class="center">4.740</td>
+			<td class="center">9.480</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/410/TY_145P-1892979.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Triad-Magnetics/TY-145P?qs=sK90oOEhQaVS4WlcmrXXSA%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/triadmagnetics/images/ITP_TY-145P.JPG" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>Y1</td>
+			<td>CRYSTAL-16MHZPTH-HC49US</td>
+			<td>16MHz</td>
+			<td class="small">Quartz 16.000MHZ, 18pF 10ppm -20C +70C</td>
+			<td class="small">815-ABL-16-B1U</td>
+			<td class="center ok">948</td>
+			<td class="center">0.398</td>
+			<td class="center">0.398</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/3/ABL-1774766.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/ABRACON/ABL-16000MHz-B1U?qs=DZ%2FvJMgWWIvdBkWtF%252BpJCw%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/mouserelectronics/images/HC_49_US_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>J3</td>
+			<td>796136-1</td>
+			<td>796136-1</td>
+			<td class="small">Supports de piles boutons ASSY SMT BATTERY CO</td>
+			<td class="small">571-796136-1</td>
+			<td class="center ok">6628</td>
+			<td class="center">1.920</td>
+			<td class="center">1.920</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href=""><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/TE-Connectivity/796136-1?qs=PfIaAWlFPdz%252BdW7QT0YDTw%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/tycoelectronics/images/pr2013.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>C5</td>
+			<td>KEMET-C1206X334K5R</td>
+			<td>0.33uF/50V</td>
+			<td class="small">Condensateurs céramique multicouches MLCC - CMS 50V 0.33uF X7R 1206 10% Flex</td>
+			<td class="small">80-C1206X334K5R</td>
+			<td class="center ok">5807</td>
+			<td class="center">0.686</td>
+			<td class="center">0.686</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/212/1/KEM_C1013_X7R_FT_CAP_SMD-1103280.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/KEMET/C1206X334K5RACTU?qs=w3%252Bcv6Flocr%2FCcsaPQr%252BvA%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/kemet/images/SMD_MLCC_new_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>U3</td>
+			<td>74HC4050D</td>
+			<td>74HC4050D</td>
+			<td class="small">Tampons et circuits d’excitation 74HC CMOS logic IC series 6V 16 pins</td>
+			<td class="small">757-74HC4050DBJ</td>
+			<td class="center ok">2163</td>
+			<td class="center">0.500</td>
+			<td class="center">0.500</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/408/74HC4050D_datasheet_en_20160707-980976.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Toshiba/74HC4050DBJ?qs=lQAVKuKFhkJPzDw8vJrePw%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/mouserelectronics/images/SOIC_16_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>U7</td>
+			<td>FT232RL-BASICSSOP</td>
+			<td>FT232RL</td>
+			<td class="small">Circuit intégré d'interface USB USB to Serial UART Enhanced IC SSOP-28</td>
+			<td class="small">895-FT232RL</td>
+			<td class="center error">0</td>
+			<td class="center">3.810</td>
+			<td class="center">3.810</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/163/DS_FT232R-11534.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/FTDI/FT232RL-REEL?qs=D1%2FPMqvA103RC6OU6bKtoA%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/ftdi/images/ft232rl.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr class="error">
+			<td class="center bold">1</td>
+			<td>JP1</td>
+			<td>PINHD-1X5</td>
+			<td></td>
+			<td class="small">Embases et logements de câbles 3P M PIN HEADER SR STRAIGHT TYPE GOLD</td>
+			<td class="small">798-A23PA254DSA71</td>
+			<td class="center error">1047</td>
+			<td class="center">0.652</td>
+			<td class="center">0.652</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/185/A2_CL0620_0053_0_71_2d-1609464.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Hirose-Connector/A2-3PA-254DSA71?qs=eDUdFcBPps3wMwa6hYzhLw%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/hiroseelectric/images/a2sr.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr class="error">
+			<td class="center bold">3</td>
+			<td>R14, R15, R16</td>
+			<td>ERJ-14NF2200U</td>
+			<td>220 ohms</td>
+			<td class="small">Résistances à couches épaisses - CMS 1210 220ohms 1% AEC-Q200</td>
+			<td class="small">667-ERJ-14NF2200U</td>
+			<td class="center error">10180</td>
+			<td class="center">0.169</td>
+			<td class="center">0.507</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.com/datasheet/2/315/AOA0000C304-1149620.pdf"><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Panasonic/ERJ-14NF2200U?qs=cYDwVL8Dk%2FntiwgKbjgkoQ%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/panasonic/images/ERJ.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr >
+			<td class="center bold">1</td>
+			<td>U10</td>
+			<td>LM358DTD8-M</td>
+			<td>LM358DTD8-M</td>
+			<td class="small">Amplificateurs opérationnels - Amplis-Op Dual Linear</td>
+			<td class="small">595-LM358D</td>
+			<td class="center ok">2604</td>
+			<td class="center">0.407</td>
+			<td class="center">0.407</td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href=""><img alt="datasheet" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAElSURBVEiJ7daxSgNBEMbxX2IqwQjRUixEbAOKpSj4AIpg4zNIXsDatILa2toExBeIaGUhorYWFqm1MIKVhUX2xByXy90lZf4w3LAs3+x8CztHMoshiuRDqeIpxELOvBoXqyQUqOE55Ms58xq6/8VKMfFjbOE7pcM0pnGLo2gh6mAWc9jGYfgWoY1zXOADnyW9y7nGA1Zwhy+85BSvYwabeMU6dpPuAB5xgiZaGQv86NnbRxkd7CQINXGfUTxOK2h2Kvotim8qyr5gUXkEkUykWTQKmSwahYlFQ5lYNJQ/iwa9RWuSZ0Ua9aTFaB5UMY9LNLCXUzziCqc4wDu60Sm7Idp6r2jRgbMRNN6ihanYhpsQq6HgGZZy5I3QRSpjHfqDGNtvyy+f+FuyXkNG9gAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center"><a target="_blank" rel="noopener noreferrer" href="https://www.mouser.fr/ProductDetail/Texas-Instruments/LM358D?qs=X1HXWTtiZ0RJBM%2FvBfVo8g%3D%3D"><img alt="details" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAsQAAALEBxi1JjQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFMSURBVEiJ7dY7LwVRFAXgb7xqURGPQiESvURCPCJoJGqNilqiERpKuksiIlHo/AOdV6MU0aAU/AkFhXOZzJ2ZO0NuZyWTOXvtdfbaZ86ZyURq0YWhFL4MXvAAUSIxhh1c/9FgGFNJchFn6MiYFGEW0ymNJXFRHbTEyGXM4D1j0i5a0Ra626hjUmMgpziMYNRX9zdFiqcZ5OEKB2F83giDTUyiqVEGxDavKJpSuE6sly1UxuAQq5grUWcOlzjNE1WX346FEsXzatXswUrG+NeIP6JtDGA+xGuJ+3zIF9FsZRlOoIJ+P8u8CHEl5MexV0eTiT68hQmVwFVC/BbyvXj19S7sZ2i+kdyDZzziJMbdhmsp5OEpaKIcDdKPaVHU+6L+2QA+GmkQ/RsUMfgVjnDv589iKMRHMc0x7jCYo8lEM3oSXE/gq2hBdx0N+ATkJz96/KY9lAAAAABJRU5ErkJggg==" /></a></td>
+			<td class="center">
+				<div class="tooltip">
+					<img alt="image" width="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAvQAAAL0BHVrG+gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACaSURBVEiJ7dW9CsIADATgrx1d1VU3fyaH4jv5SkWfSdBFXV3VSdGxDo3gYp0qVHoQCBeOy2UJTUeCG85Rg+CP6EXt0cEI25jPgn9gUqHvQoF5DBZRgltGn2L9ttg6OFhV6ItUzUhwxUUZcahM9IrYx055ojE2oZvhgDumOH3QdyFDXsPyObLaT9QatAatwT8YtP/gK37yD5qNJ58rQBUzA3bAAAAAAElFTkSuQmCC" />
+					<div class="left">
+						<img alt="product image" src="https://www.mouser.com/images/texasinstruments/images/ITP_TI_SOIC-8_D_t.jpg" />
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div id="total">
+			<span class="totalTitle">Total</span><span class="totalAmount">72.74 €</span>
+	</div>
+	<div id="thanks">Icons made by <a target="_blank" rel="noopener noreferrer" href="https://www.flaticon.com/authors/payungkead" title="Payungkead">Payungkead</a> from <a target="_blank" rel="noopener noreferrer" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+	</body>
+</html>
